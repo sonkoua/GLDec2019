@@ -3,7 +3,7 @@
 
     require_once "Facebook_setup/config.php";
     
-    $redirectURL = "http://localhost/projet/GLDec2019/Amnesia/Facebook_setup/fb-callback.php"; 
+    $redirectURL = "http://localhost/projet/GLDec2019_1/Amnesia/Facebook_setup/fb-callback.php"; 
     $permissions = ['email'];
     $loginURL = $helper->getLoginURL($redirectURL, $permissions);
 
@@ -15,8 +15,6 @@
 
 ?>
 
-
-=======
 
 <!DOCTYPE html>
 <html lang="fr">
