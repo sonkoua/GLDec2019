@@ -128,7 +128,25 @@ button {
 button:hover {
 	cursor: pointer;
 }
+#inscrireClient, #connexion_util,#modifierClient{
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
 
+#inscrireClient:hover {
+	cursor: pointer;
+}
+#modifierClient:hover {
+	cursor: pointer;
+}
+}
+#modifierClient {
+	padding-top: 5%;
+}
+#connexion_util:hover {
+	cursor: pointer;
+}
 iframe {
 	border: none !important;
 }

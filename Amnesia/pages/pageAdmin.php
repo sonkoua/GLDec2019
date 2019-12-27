@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>Travelix</title>
+<title>Administration</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travelix Project">
@@ -9,36 +9,36 @@
 <!--===============================================================================================-->
 
     
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../styles/bootstrap4/bootstrap.min.css">
 <!--===============================================================================================-->	
-<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <!--===============================================================================================-->	
 <link href="https://fonts.googleapis.com/css?family=Aclonica&display=swap" rel="stylesheet">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
 <!--===============================================================================================-->	
 <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/datepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/datepicker/daterangepicker.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/responsive.css">
-<link rel="stylesheet" type="text/css" href="styles/util.css">
-<link rel="stylesheet" type="text/css" href="styles/main.css">
+<link rel="stylesheet" type="text/css" href="../styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="../styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="../styles/util.css">
+<link rel="stylesheet" type="text/css" href="../styles/main.css">
 <!--===============================================================================================-->	
 
 
@@ -70,8 +70,24 @@
 						</div>
 
 						<div class="user_box ml-auto ">
-							<div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div>
-							<div class="user_box_register user_box_link"><button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" >inscription</button></div>
+                            <div class="user_box_login user_box_link">
+                            <!-- Basic dropdown -->
+                            <button class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">Administration</button>
+
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Créer un nouveau profil </a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                            <!-- Basic dropdown -->
+                            </div>
+                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Mon profil</button></div>
+							<!--div class="user_box_login user_box_link"><button  href="index.php">Deconnexion</button></div-->
+                           <div class="user_box_login user_box_link"><button onclick="location.href='../index.php';">Déconnexion</button></div>
+
 						</div>
 
 					</div>
@@ -86,16 +102,16 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnésia</a></div>
+							<div class="logo"><a href="#"><img src="../images/LogoA.png" alt="">amnésia</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a href="#">Accueil</a></li>
-								<li class="main_nav_item"><a href="">À propos</a></li>
-								<li class="main_nav_item"><a href="">Offres</a></li>
-								<li class="main_nav_item"><a href="">Nouveautées</a></li>
-								<li class="main_nav_item"><a href="">contact</a></li>
-								<li class="main_nav_item"><a href=""></a></li>
+								<li class="main_nav_item"><a href="about.php">À propos</a></li>
+								<li class="main_nav_item"><a href="offers.php">Offres</a></li>
+								<li class="main_nav_item"><a href="blog.php">Nouveautées</a></li>
+								<li class="main_nav_item"><a href="contact.php">contact</a></li>
+								<!--li class="main_nav_item"><a href="profilUtilisateur.php">Profil</a></li-->
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -163,7 +179,7 @@
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
 					<!-- Image by https://unsplash.com/@anikindimitry -->
-					<div class="home_slider_background" style="background-image:url(images/home_slider.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(../images/home_slider.jpg)"></div>
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -175,7 +191,7 @@
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(../images/home_slider_1.jpg)"></div>
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -187,7 +203,7 @@
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url(images/home_slider_2.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(../images/home_slider_2.jpg)"></div>
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -282,7 +298,7 @@
 					<div class="intro_item">
 						<div class="intro_item_overlay"></div>
 						<!-- Image by https://unsplash.com/@dnevozhai -->
-						<div class="intro_item_background" style="background-image:url(images/intro_1.jpg)"></div>
+						<div class="intro_item_background" style="background-image:url(../images/intro_1.jpg)"></div>
 						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							<div class="intro_date">May 25th - June 01st</div>
 							<div class="button intro_button"><div class="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
@@ -307,7 +323,7 @@
 					<div class="intro_item">
 						<div class="intro_item_overlay"></div>
 						<!-- Image by https://unsplash.com/@hellolightbulb -->
-						<div class="intro_item_background" style="background-image:url(images/intro_2.jpg)"></div>
+						<div class="intro_item_background" style="background-image:url(../images/intro_2.jpg)"></div>
 						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							<div class="intro_date">May 25th - June 01st</div>
 							<div class="button intro_button"><div class="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
@@ -332,7 +348,7 @@
 					<div class="intro_item">
 						<div class="intro_item_overlay"></div>
 						<!-- Image by https://unsplash.com/@willianjusten -->
-						<div class="intro_item_background" style="background-image:url(images/intro_3.jpg)"></div>
+						<div class="intro_item_background" style="background-image:url(../images/intro_3.jpg)"></div>
 						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							<div class="intro_date">May 25th - June 01st</div>
 							<div class="button intro_button"><div class="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
@@ -359,7 +375,7 @@
 
 	<div class="cta">
 		<!-- Image by https://unsplash.com/@thanni -->
-		<div class="cta_background" style="background-image:url(images/cta.jpg)"></div>
+		<div class="cta_background" style="background-image:url(../images/cta.jpg)"></div>
 		
 		<div class="container">
 			<div class="row">
@@ -476,7 +492,7 @@
 							<div class="col-lg-6">
 								<div class="offers_image_container">
 									<!-- Image by https://unsplash.com/@kensuarez -->
-									<div class="offers_image_background" style="background-image:url(images/offer_1.jpg)"></div>
+									<div class="offers_image_background" style="background-image:url(../images/offer_1.jpg)"></div>
 									<div class="offer_name"><a href="#">grand castle</a></div>
 								</div>
 							</div>
@@ -493,10 +509,10 @@
 									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
 									<div class="offers_icons">
 										<ul class="offers_icons_list">
-											<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/post.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/compass.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/bicycle.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/sailboat.png" alt=""></li>
 										</ul>
 									</div>
 									<div class="offers_link"><a href="offers.php">read more</a></div>
@@ -513,7 +529,7 @@
 							<div class="col-lg-6">
 								<div class="offers_image_container">
 									<!-- Image by Egzon Bytyqi -->
-									<div class="offers_image_background" style="background-image:url(images/offer_2.jpg)"></div>
+									<div class="offers_image_background" style="background-image:url(../images/offer_2.jpg)"></div>
 									<div class="offer_name"><a href="#">turkey hills</a></div>
 								</div>
 							</div>
@@ -550,7 +566,7 @@
 							<div class="col-lg-6">
 								<div class="offers_image_container">
 									<!-- Image by https://unsplash.com/@nevenkrcmarek -->
-									<div class="offers_image_background" style="background-image:url(images/offer_3.jpg)"></div>
+									<div class="offers_image_background" style="background-image:url(../images/offer_3.jpg)"></div>
 									<div class="offer_name"><a href="#">island dream</a></div>
 								</div>
 							</div>
@@ -567,10 +583,10 @@
 									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
 									<div class="offers_icons">
 										<ul class="offers_icons_list">
-											<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/post.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/compass.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/bicycle.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/sailboat.png" alt=""></li>
 										</ul>
 									</div>
 									<div class="offers_link"><a href="offers.php">read more</a></div>
@@ -587,7 +603,7 @@
 							<div class="col-lg-6">
 								<div class="offers_image_container">
 									<!-- Image by https://unsplash.com/@mantashesthaven -->
-									<div class="offers_image_background" style="background-image:url(images/offer_4.jpg)"></div>
+									<div class="offers_image_background" style="background-image:url(../images/offer_4.jpg)"></div>
 									<div class="offer_name"><a href="#">travel light</a></div>
 								</div>
 							</div>
@@ -642,8 +658,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_1.jpg" alt="https://unsplash.com/@anniegray"></div>
-									<div class="test_icon"><img src="images/backpack.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_1.jpg" alt="https://unsplash.com/@anniegray"></div>
+									<div class="test_icon"><img src="../images/backpack.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -660,8 +676,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_2.jpg" alt="https://unsplash.com/@tschax"></div>
-									<div class="test_icon"><img src="images/island_t.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_2.jpg" alt="https://unsplash.com/@tschax"></div>
+									<div class="test_icon"><img src="../images/island_t.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -678,8 +694,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_3.jpg" alt="https://unsplash.com/@seefromthesky"></div>
-									<div class="test_icon"><img src="images/kayak.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_3.jpg" alt="https://unsplash.com/@seefromthesky"></div>
+									<div class="test_icon"><img src="../images/kayak.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -696,8 +712,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_2.jpg" alt=""></div>
-									<div class="test_icon"><img src="images/island_t.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_2.jpg" alt=""></div>
+									<div class="test_icon"><img src="../images/island_t.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -714,8 +730,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_1.jpg" alt=""></div>
-									<div class="test_icon"><img src="images/backpack.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_1.jpg" alt=""></div>
+									<div class="test_icon"><img src="../images/backpack.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -732,8 +748,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_3.jpg" alt=""></div>
-									<div class="test_icon"><img src="images/kayak.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_3.jpg" alt=""></div>
+									<div class="test_icon"><img src="../images/kayak.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -903,7 +919,7 @@
 	</div>  -->
 
 	<div class="contact">
-		<div class="contact_background" style="background-image:url(images/backContact3.jpg)"></div>
+		<div class="contact_background" style="background-image:url(../images/backContact3.jpg)"></div>
 
 		<div class="container">
 			<div class="row justify-content-center">
@@ -934,7 +950,7 @@
 					<div class="footer_col">
 						<div class="footer_content footer_about">
 							<div class="logo_container footer_logo">
-								<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnésia</a></div>
+								<div class="logo"><a href="#"><img src="../images/LogoA.png" alt="">amnésia</a></div>
 							</div>
 							
 							<ul class="footer_social_list">
@@ -984,68 +1000,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 <!-- MODAL CONNEXION-->
 
-<div id="id01" class="modal">
-	<div class=" ">
-		<form id="formConnexion" class="modal-content animate  validate-form p-l-45 p-r-45 p-t-45 p-b-45" name="formConnexion" >
-			<div class="imgcontainer">
-			  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-			</div>
-		
-			<span class="login100-form-title p-b-30">
-				Connexion
-			</span>
-
-			<div class="wrap-input100 validate-input m-b-30" data-validate = "Le nom est obligatoire">
-				<span class="label-input100">Courriel</span>
-				<input class="input100" type="text" name="courriel"  placeholder="Type your username">
-				<span class="focus-input100" data-symbol="&#xf206;"></span>
-			</div>
-
-			<div class="wrap-input100 validate-input " data-validate="Mot de passe obligatoire">
-				<span class="label-input100">Mot de passe</span>
-				<input class="input100" type="password" name="motpasse"  placeholder="Type your password">
-				<span class="focus-input100" data-symbol="&#xf190;"></span>
-			</div>
-			
-			<div class="text-right p-t-8 p-b-35">
-                <div id="avertissement" style="position:absolute;left:0%;color:red;"> </div>
-				<a href="#">
-					Mot de passe oublié?
-				</a>
-			</div>
-					
-			<div class="container-login100-form-btn">
-				<div class="wrap-login100-form-btn">
-					<div class="login100-form-bgbtn"></div>
-					<!--button class="login100-form-btn" onClick="connexion();">Connecter</button-->
-                    <input type="button" id="connexion_util" class="login100-form-btn" value="Connexion" onClick="connexionUtil();">
-				</div>
-			</div>
-			
-			<div class="flex-c-m m-t-30">
-				<span class="p-r-40"> Ou connectez-vous en utilisant</span>
-				<a href="#" class="login100-social-item bg1 p-l-20 p-r-20">
-					<i class="fa fa-facebook"></i>
-				</a>
-
-				<a href="#" class="login100-social-item bg3 p-l-20 p-r-20">
-					<i class="fa fa-google"></i>
-				</a>
-			</div>
-
-		</form>
-	</div>
-</div>
-
 <!-- MODAL S'ENREGISTRER-->
-    
     
     
 
 
      <div id="id02" class="modal">
 	<div class=" ">
-		<form id="formEnregUtil" name="formEnregUtil" class="modal-content1 animate p-l-45 p-r-45 p-t-45 p-b-45" onsubmit="return valider();">
+		<form id="formEnregUtil" name="formEnregUtil" class="modal-content1 animate p-l-45 p-r-45 p-t-45 p-b-45">
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
 			</div>
@@ -1100,7 +1062,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Adresse</span>
 					<input class="input100" type="text" name="adresse" required="required" placeholder="Entrez votre adresse">
-					<span class="focus-input100"  data-symbol="&#xf206;"></span>
+					<!--span class="focus-input100"  data-symbol="&#xf206;"></span-->
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
@@ -1114,7 +1076,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Ville</span>
 					<input class="input100" type="text" name="ville" required="required" placeholder="Entrez votre ville">
-					<span class="focus-input100" data-symbol="&#xf206;"></span>
+					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
@@ -1145,20 +1107,50 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					
 				</div>
 			</div>
-            <div class="hide">
-                <input  type="text" name="categorie"  value="client">
+            
+            <div class="form-row m-b-30">
+				<!--div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
+					<span class="label-input100">Categorie</span>
+					<input class="input100" type="text" name="categorie" required="required" placeholder="Entrez la categorie employé">
+					<span class="focus-input100" data-symbol="&#xf206;"></span>
+				</div-->
+                
+                
+                <div class="form-group col-md-5 m-l-25 input100-1-1">
+                    <span class="label-input100">categorie</span>
+                    <!--input  type="text" name="categorie" id="categorie" value=""-->
+                    <div class="select">
+                    <select name="categorie">
+                      <option>Choisir la catégorie</option>
+                      <option value="admin">Administrateur</option>
+                      <option value="employe">Employé</option>
+                      <option value="client">Client</option>
+                    </select>   
+                    </div>
+				</div>
+                
+                
+	
+				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
+					<span class="label-input100">No employe</span>
+					<input class="input100" type="text" name="num_util" required="required" placeholder="Entrez le numero d'employé">
+					<span class="focus-input100" data-symbol="&#xf206;"></span>
+				</div>
+			</div>
+            <!--div class="hide">
+                <input  type="text" name="categorie2"  value="client">
 			</div>
             <div class="hide">
-                <input  type="text" name="num_util"  value="">
-			</div>
+                <input  type="text" name="num_util2"  value="">
+			</div-->
             <div class="hide">
                 <input  type="button" name="btn_connexion" id="btn_connexion" onclick="document.getElementById('id01').style.display='block'" value="">
 			</div>
 			<div class="container-login100-form-btn">
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
-					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerUtil();">S'inscrire</button-->
-                    <input type="button" id="inscrireClient" class="login100-form-btn" value="S'inscrire" onclick="enregistrerUtil();">
+					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerEmploye();">S'inscrire</button-->
+                    <input type="button" id="inscrireClient" class="login100-form-btn" value="Inscrire" onClick="enregistrerEmploye();">
 				</div>
 			</div>
 			
@@ -1167,22 +1159,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</div>
 </div>
 </body>
-
-<script language="javascript" src="js/jquery-3.3.1.min.js"></script>
-<script language="javascript" src="Requests/Requetes.js"></script>
-<script language="javascript" src="Requests/requestsControleurVue.js"></script>
+<script language="javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script language="javascript" src="../Requests/Requetes.js"></script>
+<script language="javascript" src="../Requests/requestsControleurVue.js"></script>
 <!--script src="js/jquery-3.2.1.min.js"></script-->
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
+<script src="../styles/bootstrap4/popper.js"></script>
+<script src="../styles/bootstrap4/bootstrap.min.js"></script>
+<script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../plugins/easing/easing.js"></script>
 
 <!--===============================================================================================-->
-<script src="js/main.js"></script>
+<script src="../js/main.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/datepicker/moment.min.js"></script>
-<script src="vendor/datepicker/daterangepicker.js"></script>
-<script src="js/custom.js"></script>
+<script src="../vendor/datepicker/moment.min.js"></script>
+<script src="../vendor/datepicker/daterangepicker.js"></script>
+<script src="../js/custom.js"></script>
 <!--===============================================================================================-->
-<script src="js/validation.js"></script>
+<script src="../js/validation.js"></script>
 </html>
