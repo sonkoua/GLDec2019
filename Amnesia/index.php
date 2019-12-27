@@ -1,3 +1,23 @@
+
+<?php
+
+    require_once "Facebook_setup/config.php";
+    
+    $redirectURL = "http://localhost/projet/GLDec2019/Amnesia/Facebook_setup/fb-callback.php"; 
+    $permissions = ['email'];
+    $loginURL = $helper->getLoginURL($redirectURL, $permissions);
+
+    if(isset($_SESSION['access_token'])){
+        header((string) 'Location: pages/pageClient.php');
+
+        exit();
+    }
+
+?>
+
+
+=======
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1025,7 +1045,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="flex-c-m m-t-30">
 				<span class="p-r-40"> Ou connectez-vous en utilisant</span>
 				<a href="#" class="login100-social-item bg1 p-l-20 p-r-20">
-					<i class="fa fa-facebook"></i>
+					<i class="fa fa-facebook" onclick="window.location = '<?php echo $loginURL ?>';"></i>
 				</a>
 
 				<a href="#" class="login100-social-item bg3 p-l-20 p-r-20">

@@ -1,3 +1,16 @@
+
+<?php
+    session_start();
+    if(!isset($_SESSION['access_token'])){
+        header((string) 'Location: ../index.php');
+
+        exit();
+    }
+
+?>
+
+=======
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,6 +20,7 @@
 <meta name="description" content="Travelix Project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
+
 
     
     
@@ -204,7 +218,11 @@
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
+
+			
+
 					<div class="home_slider_background" style="background-image:url(../images/home_slider_2.jpg)"></div>
+
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -276,7 +294,44 @@
 		
 
 	<!-- Intro -->
-	
+
+	<div class="container" style="margin-top: 100px">
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <img style="width:80%;" src="<?php echo $_SESSION['userData']['picture'] ['url']?>"><br><br>
+                    
+                </div>
+                <div class="col-md-9">
+                   <table class="table table-hoover table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>ID</td>
+                            <td><?php echo $_SESSION['userData']['id'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>First Name</td>
+                            <td><?php echo $_SESSION['userData']['first_name'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name</td>
+                            <td><?php echo $_SESSION['userData']['last_name'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><?php echo $_SESSION['userData']['email'] ?></td>
+                        </tr>
+                    </tbody>
+                   </table>
+                  <!-- <a href="logout.php">Logout</a> -->
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </div> 
+
+
 	<div class="intro">
 		<div class="container">
 			<div class="row">
@@ -1250,6 +1305,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </div>
 
 </body>
+
+
+
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../js/profil.js"></script>
 <script language="javascript" src="../Requests/Requetes.js"></script>
@@ -1270,4 +1328,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!--===============================================================================================-->
 <script src="../js/validation.js"></script>
 <script src="../js/custom.js"></script>
+
 </html>
