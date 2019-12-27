@@ -1,3 +1,4 @@
+
 <?php
 
     require_once "Facebook_setup/config.php";
@@ -15,15 +16,19 @@
 ?>
 
 
+=======
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-<title>AMNÉSIA</title>
+<title>Travelix</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travelix Project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
+
+    
 <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
 <!--===============================================================================================-->	
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -55,6 +60,8 @@
 <link rel="stylesheet" type="text/css" href="styles/util.css">
 <link rel="stylesheet" type="text/css" href="styles/main.css">
 <!--===============================================================================================-->	
+
+
 </head>
 
 <body>
@@ -83,24 +90,10 @@
 						</div>
 
 						<div class="user_box ml-auto ">
-							<div class="user_box_login user_box_link"><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div>
+							<div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div>
 							<div class="user_box_register user_box_link"><button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" >inscription</button></div>
-							<div class="user_box_register user_box_link"><span class="userInfo">USER</span></div>
 						</div>
 
-						<div class="nav-item avatar dropdown">
-							<a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-							  aria-haspopup="true" aria-expanded="false">
-							  <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle avatar1"
-								alt="avatar image">
-							</a>
-							<div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
-							<form action="/action_page.php" method="post">
-								<a class="dropdown-item" href="#" type="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Changer photo </a>
-								<a class="dropdown-item" href="#">Déconnecter</a>
-							</form>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>		
@@ -118,11 +111,11 @@
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a href="#">Accueil</a></li>
-								<li class="main_nav_item"><a href="pages/about.php">À propos</a></li>
-								<li class="main_nav_item"><a href="pages/offers.php">Offres</a></li>
-								<li class="main_nav_item"><a href="pages/blog.php">Nouveautées</a></li>
-								<li class="main_nav_item"><a href="pages/contact.php">contacte</a></li>
-								<li class="main_nav_item"><a href="pages/admin.php">Admin</a></li>
+								<li class="main_nav_item"><a href="">À propos</a></li>
+								<li class="main_nav_item"><a href="">Offres</a></li>
+								<li class="main_nav_item"><a href="">Nouveautées</a></li>
+								<li class="main_nav_item"><a href="">contact</a></li>
+								<li class="main_nav_item"><a href=""></a></li>
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -169,10 +162,10 @@
 			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
 				<li class="menu_item"><a href="#">accueil</a></li>
-				<li class="menu_item"><a href="pages/about.php">à proprs</a></li>
-				<li class="menu_item"><a href="pages/offers.php">offres</a></li>
-				<li class="menu_item"><a href="pages/blog.php">nouveautées</a></li>
-				<li class="menu_item"><a href="pages/contact.php">contacte</a></li>
+				<li class="menu_item"><a href="about.php">à proprs</a></li>
+				<li class="menu_item"><a href="offers.php">offres</a></li>
+				<li class="menu_item"><a href="blog.php">nouveautées</a></li>
+				<li class="menu_item"><a href="contact.php">contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -194,8 +187,8 @@
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>discover</h1>
-							<h1>the world</h1>
+							<h1>decouvrez</h1>
+							<h1>le monde</h1>
 						</div>
 					</div>
 				</div>
@@ -206,8 +199,8 @@
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>discover</h1>
-							<h1>the world</h1>
+							<h1>decouvrez</h1>
+							<h1>le monde</h1>
 						</div>
 					</div>
 				</div>
@@ -218,11 +211,12 @@
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>discover</h1>
-							<h1>the world</h1>
+							<h1>decouvrez</h1>
+							<h1>le monde</h1>
 						</div>
 					</div>
 				</div>
+
 			</div>
 			
 			<!-- Home Slider Nav - Prev -->
@@ -260,26 +254,39 @@
 				17.046,15.554 "/>
 				</svg>
 			</div>
+
+			<!-- Home Slider Dots -->
+
+			<!-- <div class="home_slider_dots">
+				<ul id="home_slider_custom_dots" class="home_slider_custom_dots">
+					<li class="home_slider_custom_dot active"><div></div>01.</li>
+					<li class="home_slider_custom_dot"><div></div>02.</li>
+					<li class="home_slider_custom_dot"><div></div>03.</li>
+				</ul>
+			</div> -->
 			
 		</div>
 
 	</div>
 
 	<!-- Search -->
+
 	
+		
+
 		<!-- Search Contents -->
 		
+		
+
 	<!-- Intro -->
 	
 	<div class="intro">
 		<div class="container">
-
 			<div class="row">
 				<div class="col">
 					<h2 class="intro_title text-center">We have the best tours</h2>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
 					<div class="intro_text text-center">
@@ -287,7 +294,6 @@
 					</div>
 				</div>
 			</div>
-			
 			<div class="row intro_items">
 
 				<!-- Intro Item -->
@@ -364,6 +370,7 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -381,7 +388,6 @@
 					<!-- CTA Slider -->
 
 					<div class="cta_slider_container">
-
 						<div class="owl-carousel owl-theme cta_slider">
 
 							<!-- CTA Slider Item -->
@@ -481,7 +487,6 @@
 					<h2 class="section_title">the best offers with rooms</h2>
 				</div>
 			</div>
-
 			<div class="row offers_items">
 
 				<!-- Offers Item -->
@@ -514,7 +519,7 @@
 											<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
 										</ul>
 									</div>
-									<div class="offers_link"><a href="offers.html">read more</a></div>
+									<div class="offers_link"><a href="offers.php">read more</a></div>
 								</div>
 							</div>
 						</div>
@@ -551,7 +556,7 @@
 											<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
 										</ul>
 									</div>
-									<div class="offers_link"><a href="offers.html">read more</a></div>
+									<div class="offers_link"><a href="offers.php">read more</a></div>
 								</div>
 							</div>
 						</div>
@@ -588,7 +593,7 @@
 											<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
 										</ul>
 									</div>
-									<div class="offers_link"><a href="offers.html">read more</a></div>
+									<div class="offers_link"><a href="offers.php">read more</a></div>
 								</div>
 							</div>
 						</div>
@@ -625,7 +630,7 @@
 											<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
 										</ul>
 									</div>
-									<div class="offers_link"><a href="offers.html">read more</a></div>
+									<div class="offers_link"><a href="offers.php">read more</a></div>
 								</div>
 							</div>
 						</div>
@@ -808,7 +813,114 @@
 		</div>
 	</div>
 
-	
+	<!--<div class="trending">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<h2 class="section_title">trending now</h2>
+				</div>
+			</div>
+			<div class="row trending_container"> -->
+
+				<!-- Trending Item -->
+				<!-- <div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_1.png" alt="https://unsplash.com/@fransaraco"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">grand hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div> -->
+
+				<!-- Trending Item -->
+				<!-- <div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_2.png" alt="https://unsplash.com/@grovemade"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">mars hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div> -->
+
+				<!-- Trending Item -->
+				<!--<div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_3.png" alt="https://unsplash.com/@jbriscoe"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">queen hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div> -->
+
+				<!-- Trending Item -->
+				<!--<div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_4.png" alt="https://unsplash.com/@oowgnuj"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">mars hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div> -->
+
+				<!-- Trending Item -->
+				<!-- <div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_5.png" alt="https://unsplash.com/@mindaugas"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">grand hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div> -->
+
+				<!-- Trending Item -->
+				<!-- <div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_6.png" alt="https://unsplash.com/@itsnwa"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">mars hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div> -->
+
+				<!-- Trending Item -->
+				<!-- <div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_7.png" alt="https://unsplash.com/@rktkn"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">queen hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div> -->
+
+				<!-- Trending Item -->
+				<!--  <div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_8.png" alt="https://unsplash.com/@thoughtcatalog"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">mars hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div> -->
+
+			<!--</div>
+		</div>
+	</div>  -->
 
 	<div class="contact">
 		<div class="contact_background" style="background-image:url(images/backContact3.jpg)"></div>
@@ -818,7 +930,7 @@
 				<div class="col-lg-8 ">
 					<div class="contact_form_container ">
 						<div class="contact_title">Contatez nous</div>
-						<form action="#" id="contact_form" class="contact_form">
+						<form action="#" id="contact_form" name="contact_form" class="contact_form">
 							<input type="text" id="contact_form_name" class="contact_form_name input_field" placeholder="Nom" required="required" data-error="Name is required.">
 							<input type="text" id="contact_form_email" class="contact_form_email input_field" placeholder="E-mail" required="required" data-error="Email is required.">
 							<input type="text" id="contact_form_subject" class="contact_form_subject input_field" placeholder="Objet" required="required" data-error="Subject is required.">
@@ -875,11 +987,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="#">home</a></li>
-								<li class="footer_nav_item"><a href="about.html">about us</a></li>
-								<li class="footer_nav_item"><a href="offers.html">offers</a></li>
-								<li class="footer_nav_item"><a href="blog.html">news</a></li>
-								<li class="footer_nav_item"><a href="contact.html">contact</a></li>
+								<li class="footer_nav_item"><a href="#">Accueil</a></li>
+								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
+								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
+								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
+								<li class="footer_nav_item"><a href="contact.php">contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -893,31 +1005,30 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- MODAL CONNEXION-->
 
 <div id="id01" class="modal">
-
-	<div class="">
-		
-		<form class="modal-content animate  validate-form p-l-45 p-r-45 p-t-45 p-b-45">
+	<div class=" ">
+		<form id="formConnexion" class="modal-content animate  validate-form p-l-45 p-r-45 p-t-45 p-b-45" name="formConnexion" >
 			<div class="imgcontainer">
 			  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 			</div>
 		
-			<span class="login100-form-title p-b-20">
+			<span class="login100-form-title p-b-30">
 				Connexion
 			</span>
 
-			<div class="wrap-input100 validate-input m-b-3o0" data-validate = "Le nom est obligatoire">
-				<span class="label-input100">Nom</span>
-				<input class="input100" type="text" name="username"  placeholder="Type your username">
+			<div class="wrap-input100 validate-input m-b-30" data-validate = "Le nom est obligatoire">
+				<span class="label-input100">Courriel</span>
+				<input class="input100" type="text" name="courriel"  placeholder="Type your username">
 				<span class="focus-input100" data-symbol="&#xf206;"></span>
 			</div>
 
 			<div class="wrap-input100 validate-input " data-validate="Mot de passe obligatoire">
 				<span class="label-input100">Mot de passe</span>
-				<input class="input100" type="password" name="pass"  placeholder="Type your password">
+				<input class="input100" type="password" name="motpasse"  placeholder="Type your password">
 				<span class="focus-input100" data-symbol="&#xf190;"></span>
 			</div>
 			
 			<div class="text-right p-t-8 p-b-35">
+                <div id="avertissement" style="position:absolute;left:0%;color:red;"> </div>
 				<a href="#">
 					Mot de passe oublié?
 				</a>
@@ -926,7 +1037,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="container-login100-form-btn">
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
-					<button class="login100-form-btn">Connecter</button>
+					<!--button class="login100-form-btn" onClick="connexion();">Connecter</button-->
+                    <input type="button" id="connexion_util" class="login100-form-btn" value="Connexion" onClick="connexionUtil();">
 				</div>
 			</div>
 			
@@ -946,10 +1058,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </div>
 
 <!-- MODAL S'ENREGISTRER-->
+    
+    
+    
 
-<div id="id02" class="modal">
+
+     <div id="id02" class="modal">
 	<div class=" ">
-		<form class="modal-content1 animate p-l-45 p-r-45 p-t-45 p-b-45">
+		<form id="formEnregUtil" name="formEnregUtil" class="modal-content1 animate p-l-45 p-r-45 p-t-45 p-b-45" onsubmit="return valider();">
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
 			</div>
@@ -961,13 +1077,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Nom</span>
-					<input class="input100" type="text" name="username" required="required" placeholder="Entrez votre nom">
+					<input class="input100" type="text" name="nom" required="required" placeholder="Entrez votre nom">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Prénom</span>
-					<input class="input100" type="password" name="pass" required="required" placeholder="Entrez votre prénom">
+					<input class="input100" type="text" name="prenom" required="required" placeholder="Entrez votre prénom">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 			</div>
@@ -975,13 +1091,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Email</span>
-					<input class="input100" type="text" name="username" required="required" placeholder="Entrez votre mail">
+					<input class="input100" type="text" name="courriel" required="required" placeholder="Entrez votre mail">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Confirmation Email</span>
-					<input class="input100" type="text" name="pass" required="required" placeholder="Confirmez votre mail">
+					<input class="input100" type="text" name="confirm_courriel" required="required" placeholder="Confirmez votre mail">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 			</div>
@@ -989,7 +1105,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Mot de passe</span>
-					<input class="input100 " type="text" name="username" required="required" placeholder="Entrez votre mot de passe">
+					<input class="input100 " type="password" name="motpasse" required="required" placeholder="Entrez votre mot de passe">
 					<span class="focus-input100" data-symbol="&#xf190;"></span>
 				</div>
 	
@@ -1003,13 +1119,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Adresse</span>
-					<input class="input100" type="text" name="username" required="required" placeholder="Entrez votre adresse">
+					<input class="input100" type="text" name="adresse" required="required" placeholder="Entrez votre adresse">
 					<span class="focus-input100"  data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Téléphone</span>
-					<input class="input100" type="password" name="pass" required="required" placeholder="Entrez votre numéro de téléphone">
+					<input class="input100" type="text" name="tel" required="required" placeholder="Entrez votre numéro de téléphone">
 					<span class="focus-input100" data-symbol="&#xf2b9;"></span>
 				</div>
 			</div>
@@ -1017,13 +1133,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Ville</span>
-					<input class="input100" type="text" name="username" required="required" placeholder="Entrez votre ville">
+					<input class="input100" type="text" name="ville" required="required" placeholder="Entrez votre ville">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
-				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
+				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
 					<span class="label-input100">Pays</span>
-					<input class="input100" type="password" name="pass" required="required" placeholder="Entrez votre pays">
+					<input class="input100" type="text" name="pays" required="required" placeholder="Entrez votre pays">
 					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
 			</div>
@@ -1031,107 +1147,62 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1-1" data-validate = "Username is reauired">
 					<span class="label-input100">Date de naissance</span>
-					<input class="form-control date" type="date"  id="example-date-input" required="required">
+					<input class="form-control" type="date" name="date_naiss" id="example-date-input" required="required">
+
+					
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1-1" data-validate="Password is required">
 					<span class="label-input100">Je suis un(e)</span>
 					<div class="select" required="required">
-						<select name="slct" id="slct">
+						<select name="sexe" id="slct">
 						  <option>Choisir votre sexe</option>
-						  <option value="1">Homme</option>
-						  <option value="2">Femme</option>
-						  <option value="3">Autre</option>
+						  <option value="M">Homme</option>
+						  <option value="F">Femme</option>
+						  <option value="O">Autre</option>
 						</select>
 					</div>
+					
 				</div>
 			</div>
-						
+            <div class="hide">
+                <input  type="text" name="categorie"  value="client">
+			</div>
+            <div class="hide">
+                <input  type="text" name="num_util"  value="">
+			</div>
+            <div class="hide">
+                <input  type="button" name="btn_connexion" id="btn_connexion" onclick="document.getElementById('id01').style.display='block'" value="">
+			</div>
 			<div class="container-login100-form-btn">
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
-					<button class="login100-form-btn">S'inscrire</button>
+					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerUtil();">S'inscrire</button-->
+                    <input type="button" id="inscrireClient" class="login100-form-btn" value="S'inscrire" onclick="enregistrerUtil();">
 				</div>
 			</div>
-			<div class="hide">
-				<span id="categorie" name="categorie">client</span>
-			</div>
-	
+			
+            
 		</form>
 	</div>
 </div>
+</body>
 
-<!-- MODAL PROFIL-->
-
-<div id="id03" class="modal">
-	<div class=" ">
-		<form class="modal-content2 animate  validate-form p-l-2 p-r-2 p-t-5 p-b-5" >
-
-			<!--<span class="login100-form-title p-b-30">
-			PROFIL
-			</span> -->
-
-			<div id="wrapper">
-				<div id="content">
-					<div id="card">
-						<div class="imgcontainer">
-							<span onclick="document.getElementById('id03').style.display='none'" class="close1" title="Close Modal">&times;</span>
-						</div>
-						<div id="front">
-
-							<div id="top-pic">
-								<span class="login100-form-title p-b-20">PROFIL</span>
-							</div>
-							<div id="avatar"></div>
-							<div id="info-box">
-								<div class="info">
-									<h1 class="detail">Benyaghla</h1>
-									<h2 class="detail1">Ali</h2>
-								</div>
-							</div>
-							<div id="social-bar">
-								<a href="" target="" class="bntProfil">
-									<i class="fa fa-user" aria-hidden="true"></i>
-									Modifier profil
-								</a>
-								<a href="" target="" class="bntProfil">
-									<i class="fa fa-pencil-square" aria-hidden="true"></i>
-									Changer photo
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
-</div>
-
-<!--===============================================================================================-->
-
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="js/profil.js"></script>
-<script src="js/jquery-3.2.1.min.js"></script>
+<script language="javascript" src="js/jquery-3.3.1.min.js"></script>
+<script language="javascript" src="Requests/Requetes.js"></script>
+<script language="javascript" src="Requests/requestsControleurVue.js"></script>
+<!--script src="js/jquery-3.2.1.min.js"></script-->
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
 <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="plugins/easing/easing.js"></script>
 
 <!--===============================================================================================-->
-
 <script src="js/main.js"></script>
-
 <!--===============================================================================================-->
-
 <script src="vendor/datepicker/moment.min.js"></script>
 <script src="vendor/datepicker/daterangepicker.js"></script>
 <script src="js/custom.js"></script>
-
 <!--===============================================================================================-->
-
 <script src="js/validation.js"></script>
-
-<!--===============================================================================================-->
-</body>
-
 </html>

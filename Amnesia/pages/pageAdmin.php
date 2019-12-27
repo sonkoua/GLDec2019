@@ -1,28 +1,13 @@
-
-<?php
-    session_start();
-    if(!isset($_SESSION['access_token'])){
-        header((string) 'Location: ../index.php');
-
-        exit();
-    }
-
-?>
-
-=======
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>Client</title>
+<title>Administration</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travelix Project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
 
-
-    
     
 <link rel="stylesheet" type="text/css" href="../styles/bootstrap4/bootstrap.min.css">
 <!--===============================================================================================-->	
@@ -36,7 +21,7 @@
 <!--===============================================================================================-->	
 <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
@@ -59,7 +44,7 @@
 
 </head>
 
-<body onload="profilUtil();">
+<body>
 
 <div class="super_container">
 	
@@ -85,24 +70,26 @@
 						</div>
 
 						<div class="user_box ml-auto ">
-							<!--div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div-->
-                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Compte</button></div>
-                            <div class="user_box_login user_box_link"><button onclick="location.href='../index.php';">Déconnexion</button></div>
+                            <div class="user_box_login user_box_link">
+                            <!-- Basic dropdown -->
+                            <button class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">Administration</button>
+
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Créer un nouveau profil </a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                            <!-- Basic dropdown -->
+                            </div>
+                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Mon profil</button></div>
+							<!--div class="user_box_login user_box_link"><button  href="index.php">Deconnexion</button></div-->
+                           <div class="user_box_login user_box_link"><button onclick="location.href='../index.php';">Déconnexion</button></div>
 
 						</div>
-                        <div class="nav-item avatar dropdown">
-							<a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-							  aria-haspopup="true" aria-expanded="false">
-							  <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle avatar1"
-								alt="avatar image">
-							</a>
-							<div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
-							<form action="/action_page.php" method="post">
-								<a class="dropdown-item" href="#" type="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Profil </a>
-								<a class="dropdown-item" href="../index.php">Déconnecter</a>
-							</form>
-							</div>
-						</div>
+
 					</div>
 				</div>
 			</div>		
@@ -124,9 +111,7 @@
 								<li class="main_nav_item"><a href="offers.php">Offres</a></li>
 								<li class="main_nav_item"><a href="blog.php">Nouveautées</a></li>
 								<li class="main_nav_item"><a href="contact.php">contact</a></li>
-                                <!--li class="main_nav_item"><a href="profilUtilisateur.php">Profil</a></li-->
-								<!--li class="main_nav_item"><a onClick="profilUtil()">Profil</a></li-->
-                                
+								<!--li class="main_nav_item"><a href="profilUtilisateur.php">Profil</a></li-->
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -170,7 +155,7 @@
 	<div class="menu trans_500">
 		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
 			<div class="menu_close_container"><div class="menu_close"></div></div>
-			<div class="logo menu_logo"><a href="#"><img src="../images/logo.png" alt=""></a></div>
+			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
 				<li class="menu_item"><a href="#">accueil</a></li>
 				<li class="menu_item"><a href="about.php">à proprs</a></li>
@@ -218,11 +203,7 @@
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
-
-			
-
 					<div class="home_slider_background" style="background-image:url(../images/home_slider_2.jpg)"></div>
-
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -294,44 +275,7 @@
 		
 
 	<!-- Intro -->
-
-	<div class="container" style="margin-top: 100px">
-            <div class="row justify-content-center">
-                <div class="col-md-3">
-                    <img style="width:80%;" src="<?php echo $_SESSION['userData']['picture'] ['url']?>"><br><br>
-                    
-                </div>
-                <div class="col-md-9">
-                   <table class="table table-hoover table-bordered">
-                    <tbody>
-                        <tr>
-                            <td>ID</td>
-                            <td><?php echo $_SESSION['userData']['id'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>First Name</td>
-                            <td><?php echo $_SESSION['userData']['first_name'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Last Name</td>
-                            <td><?php echo $_SESSION['userData']['last_name'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td><?php echo $_SESSION['userData']['email'] ?></td>
-                        </tr>
-                    </tbody>
-                   </table>
-                  <!-- <a href="logout.php">Logout</a> -->
-                    
-                </div>
-
-            </div>
-
-        </div>
-    </div> 
-
-
+	
 	<div class="intro">
 		<div class="container">
 			<div class="row">
@@ -602,10 +546,10 @@
 									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
 									<div class="offers_icons">
 										<ul class="offers_icons_list">
-											<li class="offers_icons_item"><img src="../images/post.png" alt=""></li>
-											<li class="offers_icons_item"><img src="../images/compass.png" alt=""></li>
-											<li class="offers_icons_item"><img src="../images/bicycle.png" alt=""></li>
-											<li class="offers_icons_item"><img src="../images/sailboat.png" alt=""></li>
+											<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
+											<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
+											<li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
+											<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
 										</ul>
 									</div>
 									<div class="offers_link"><a href="offers.php">read more</a></div>
@@ -676,10 +620,10 @@
 									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
 									<div class="offers_icons">
 										<ul class="offers_icons_list">
-											<li class="offers_icons_item"><img src="../images/post.png" alt=""></li>
-											<li class="offers_icons_item"><img src="../images/compass.png" alt=""></li>
-											<li class="offers_icons_item"><img src="../images/bicycle.png" alt=""></li>
-											<li class="offers_icons_item"><img src="../images/sailboat.png" alt=""></li>
+											<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
+											<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
+											<li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
+											<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
 										</ul>
 									</div>
 									<div class="offers_link"><a href="offers.php">read more</a></div>
@@ -1056,59 +1000,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 <!-- MODAL CONNEXION-->
 
-<div id="id01" class="modal">
-	<div class=" ">
-		<form id="formConnexion" class="modal-content animate  validate-form p-l-45 p-r-45 p-t-45 p-b-45" name="formConnexion" >
-			<div class="imgcontainer">
-			  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-			</div>
-		
-			<span class="login100-form-title p-b-30">
-				Connexion
-			</span>
-
-			<div class="wrap-input100 validate-input m-b-30" data-validate = "Le nom est obligatoire">
-				<span class="label-input100">Courriel</span>
-				<input class="input100" type="text" name="courriel"  placeholder="Type your username">
-				<span class="focus-input100" data-symbol="&#xf206;"></span>
-			</div>
-
-			<div class="wrap-input100 validate-input " data-validate="Mot de passe obligatoire">
-				<span class="label-input100">Mot de passe</span>
-				<input class="input100" type="password" name="motpasse"  placeholder="Type your password">
-				<span class="focus-input100" data-symbol="&#xf190;"></span>
-			</div>
-			
-			<div class="text-right p-t-8 p-b-35">
-                <div id="avertissement" style="position:absolute;left:0%;color:red;"> </div>
-				<a href="#">
-					Mot de passe oublié?
-				</a>
-			</div>
-					
-			<div class="container-login100-form-btn">
-				<div class="wrap-login100-form-btn">
-					<div class="login100-form-bgbtn"></div>
-					<!--button class="login100-form-btn" onClick="connexion();">Connecter</button-->
-                    <input type="button" id="connexion_util" class="login100-form-btn" value="Connexion" onClick="connexionUtil();">
-				</div>
-			</div>
-			
-			<div class="flex-c-m m-t-30">
-				<span class="p-r-40"> Ou connectez-vous en utilisant</span>
-				<a href="#" class="login100-social-item bg1 p-l-20 p-r-20">
-					<i class="fa fa-facebook"></i>
-				</a>
-
-				<a href="#" class="login100-social-item bg3 p-l-20 p-r-20">
-					<i class="fa fa-google"></i>
-				</a>
-			</div>
-
-		</form>
-	</div>
-</div>
-
 <!-- MODAL S'ENREGISTRER-->
     
     
@@ -1134,7 +1025,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Prénom</span>
-					<input class="input100" type="password" name="prenom" required="required" placeholder="Entrez votre prénom">
+					<input class="input100" type="text" name="prenom" required="required" placeholder="Entrez votre prénom">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 			</div>
@@ -1171,12 +1062,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Adresse</span>
 					<input class="input100" type="text" name="adresse" required="required" placeholder="Entrez votre adresse">
-					<span class="focus-input100"  data-symbol="&#xf206;"></span>
+					<!--span class="focus-input100"  data-symbol="&#xf206;"></span-->
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Téléphone</span>
-					<input class="input100" type="password" name="tel" required="required" placeholder="Entrez votre numéro de téléphone">
+					<input class="input100" type="text" name="tel" required="required" placeholder="Entrez votre numéro de téléphone">
 					<span class="focus-input100" data-symbol="&#xf2b9;"></span>
 				</div>
 			</div>
@@ -1185,7 +1076,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Ville</span>
 					<input class="input100" type="text" name="ville" required="required" placeholder="Entrez votre ville">
-					<span class="focus-input100" data-symbol="&#xf206;"></span>
+					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
@@ -1216,20 +1107,50 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					
 				</div>
 			</div>
-            <div class="hide">
-                <input  type="text" name="categorie"  value="client">
+            
+            <div class="form-row m-b-30">
+				<!--div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
+					<span class="label-input100">Categorie</span>
+					<input class="input100" type="text" name="categorie" required="required" placeholder="Entrez la categorie employé">
+					<span class="focus-input100" data-symbol="&#xf206;"></span>
+				</div-->
+                
+                
+                <div class="form-group col-md-5 m-l-25 input100-1-1">
+                    <span class="label-input100">categorie</span>
+                    <!--input  type="text" name="categorie" id="categorie" value=""-->
+                    <div class="select">
+                    <select name="categorie">
+                      <option>Choisir la catégorie</option>
+                      <option value="admin">Administrateur</option>
+                      <option value="employe">Employé</option>
+                      <option value="client">Client</option>
+                    </select>   
+                    </div>
+				</div>
+                
+                
+	
+				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
+					<span class="label-input100">No employe</span>
+					<input class="input100" type="text" name="num_util" required="required" placeholder="Entrez le numero d'employé">
+					<span class="focus-input100" data-symbol="&#xf206;"></span>
+				</div>
+			</div>
+            <!--div class="hide">
+                <input  type="text" name="categorie2"  value="client">
 			</div>
             <div class="hide">
-                <input  type="text" name="num_util"  value="">
-			</div>
+                <input  type="text" name="num_util2"  value="">
+			</div-->
             <div class="hide">
                 <input  type="button" name="btn_connexion" id="btn_connexion" onclick="document.getElementById('id01').style.display='block'" value="">
 			</div>
 			<div class="container-login100-form-btn">
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
-					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerUtil();">S'inscrire</button-->
-                    <input type="button" id="inscrireClient" class="login100-form-btn" value="S'inscrire" onClick="enregistrerUtil();">
+					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerEmploye();">S'inscrire</button-->
+                    <input type="button" id="inscrireClient" class="login100-form-btn" value="Inscrire" onClick="enregistrerEmploye();">
 				</div>
 			</div>
 			
@@ -1237,96 +1158,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</form>
 	</div>
 </div>
-    
-<!-- MODAL PROFIL-->
-
-<div id="id03" class="modal">
-	<div class=" ">
-		<form class="modal-content2 animate  validate-form p-l-2 p-r-2 p-t-5 p-b-5" >
-
-			<!--<span class="login100-form-title p-b-30">
-			PROFIL
-			</span> -->
-
-			<div id="wrapper">
-				<div id="content">
-					<div id="card">
-						<div class="imgcontainer">
-							<span onclick="document.getElementById('id03').style.display='none'" class="close1" title="Close Modal">&times;</span>
-						</div>
-						<div id="front">
-
-							<div id="top-pic">
-								<span class="login100-form-title p-b-20"></span>
-							</div>
-							<div id="avatar"></div>
-							<div id="info-box">
-								<div class="info">
-									<h1 class="detail" id="profil_nom"></h1>
-									<h2 class="detail1" id="profil_prenom"></h2>
-								</div>
-							</div>
-							<div id="social-bar">
-								<a href="profilUtilisateur.php" target="" class="bntProfil">
-									<i class="fa fa-user" aria-hidden="true"></i>
-									Détail du profil
-								</a>
-								<a href="#" target="" class="bntProfil" onclick="document.getElementById('id03').style.display='none'; document.getElementById('imageUtil').style.display='block'">
-									<i class="fa fa-pencil-square" aria-hidden="true"></i>
-									Changer photo
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
-</div> 
-    
-    
-<div id="imageUtil" class="modal">
-	<div class=" ">
-		<form name="imageUtilForm" id="imageUtilForm" class="modal-content2 animate  validate-form p-l-2 p-r-2 p-t-5 p-b-5" >
-
-
-				<div id="content23">
-					<label for="image">Image</label>
-                    <input type="file" name="imageUtil" class="form-control" id="imageUtil">
-				</div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Annuler" onclick="document.getElementById('id03').style.display='block'; document.getElementById('imageUtil').style.display='none'">
-                    <input type="button" class="btn btn-primary" id="modal-save" value="Sauvegarder" onclick="imageProfil();">
-            </div>
-
-            
-		</form>
-	</div>
-</div>
-
 </body>
-
-
-
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="../js/profil.js"></script>
+<script language="javascript" src="../js/jquery-3.3.1.min.js"></script>
 <script language="javascript" src="../Requests/Requetes.js"></script>
 <script language="javascript" src="../Requests/requestsControleurVue.js"></script>
-
-<!--script src="../js/jquery-3.2.1.min.js"></script-->
-<script src="../js/profil.js"></script>
+<!--script src="js/jquery-3.2.1.min.js"></script-->
 <script src="../styles/bootstrap4/popper.js"></script>
 <script src="../styles/bootstrap4/bootstrap.min.js"></script>
 <script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="../plugins/easing/easing.js"></script>
-<script language="javascript" src="../js/jquery-3.3.1.min.js"></script>
+
 <!--===============================================================================================-->
 <script src="../js/main.js"></script>
 <!--===============================================================================================-->
 <script src="../vendor/datepicker/moment.min.js"></script>
 <script src="../vendor/datepicker/daterangepicker.js"></script>
+<script src="../js/custom.js"></script>
 <!--===============================================================================================-->
 <script src="../js/validation.js"></script>
-<script src="../js/custom.js"></script>
-
 </html>

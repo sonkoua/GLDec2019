@@ -69,3 +69,16 @@
     
 
 })(jQuery);
+
+
+function do_save()
+    {
+        if(Math.floor(Math.random() * 2)==1)
+        {
+            console.log('success');
+            $('#id02').modal('hide');
+            return;
+        }   
+        console.log('failure');
+        return false;
+    } 

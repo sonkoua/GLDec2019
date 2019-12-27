@@ -1,20 +1,7 @@
-
-<?php
-    session_start();
-    if(!isset($_SESSION['access_token'])){
-        header((string) 'Location: ../index.php');
-
-        exit();
-    }
-
-?>
-
-=======
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>Client</title>
+<title>Employe</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travelix Project">
@@ -22,7 +9,6 @@
 <!--===============================================================================================-->
 
 
-    
     
 <link rel="stylesheet" type="text/css" href="../styles/bootstrap4/bootstrap.min.css">
 <!--===============================================================================================-->	
@@ -36,7 +22,7 @@
 <!--===============================================================================================-->	
 <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
@@ -59,7 +45,7 @@
 
 </head>
 
-<body onload="profilUtil();">
+<body>
 
 <div class="super_container">
 	
@@ -69,7 +55,33 @@
 
 		<!-- Top Bar -->
 
-		<div class="top_bar">
+		<!--div class="top_bar">
+			<div class="container">
+				<div class="row">
+					<div class="col d-flex flex-row">
+						
+						<div class="social">
+							<ul class="social_list">
+								<li class="social_list_item"><a href="#"><i class="fa fa-globe "  aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-instagram " aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-youtube " aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+
+						<div class="user_box ml-auto ">
+                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Compte</button></div>
+							<!--div class="user_box_login user_box_link"><button  href="index.php">Deconnexion</button></div-->
+                           <!--div class="user_box_login user_box_link"><button onclick="location.href='../index.phpl';">Déconnexion</button></div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>		
+		</div-->
+        <div class="top_bar">
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
@@ -107,7 +119,6 @@
 				</div>
 			</div>		
 		</div>
-
 		<!-- Main Navigation -->
 
 		<nav class="main_nav">
@@ -124,9 +135,7 @@
 								<li class="main_nav_item"><a href="offers.php">Offres</a></li>
 								<li class="main_nav_item"><a href="blog.php">Nouveautées</a></li>
 								<li class="main_nav_item"><a href="contact.php">contact</a></li>
-                                <!--li class="main_nav_item"><a href="profilUtilisateur.php">Profil</a></li-->
-								<!--li class="main_nav_item"><a onClick="profilUtil()">Profil</a></li-->
-                                
+								<!--li class="main_nav_item"><a href="profilUtilisateur.html">Profil</a></li-->
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -218,11 +227,7 @@
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
-
-			
-
 					<div class="home_slider_background" style="background-image:url(../images/home_slider_2.jpg)"></div>
-
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
@@ -294,44 +299,7 @@
 		
 
 	<!-- Intro -->
-
-	<div class="container" style="margin-top: 100px">
-            <div class="row justify-content-center">
-                <div class="col-md-3">
-                    <img style="width:80%;" src="<?php echo $_SESSION['userData']['picture'] ['url']?>"><br><br>
-                    
-                </div>
-                <div class="col-md-9">
-                   <table class="table table-hoover table-bordered">
-                    <tbody>
-                        <tr>
-                            <td>ID</td>
-                            <td><?php echo $_SESSION['userData']['id'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>First Name</td>
-                            <td><?php echo $_SESSION['userData']['first_name'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Last Name</td>
-                            <td><?php echo $_SESSION['userData']['last_name'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td><?php echo $_SESSION['userData']['email'] ?></td>
-                        </tr>
-                    </tbody>
-                   </table>
-                  <!-- <a href="logout.php">Logout</a> -->
-                    
-                </div>
-
-            </div>
-
-        </div>
-    </div> 
-
-
+	
 	<div class="intro">
 		<div class="container">
 			<div class="row">
@@ -1053,197 +1021,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</div>
 
 </div>
-
-<!-- MODAL CONNEXION-->
-
-<div id="id01" class="modal">
-	<div class=" ">
-		<form id="formConnexion" class="modal-content animate  validate-form p-l-45 p-r-45 p-t-45 p-b-45" name="formConnexion" >
-			<div class="imgcontainer">
-			  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-			</div>
-		
-			<span class="login100-form-title p-b-30">
-				Connexion
-			</span>
-
-			<div class="wrap-input100 validate-input m-b-30" data-validate = "Le nom est obligatoire">
-				<span class="label-input100">Courriel</span>
-				<input class="input100" type="text" name="courriel"  placeholder="Type your username">
-				<span class="focus-input100" data-symbol="&#xf206;"></span>
-			</div>
-
-			<div class="wrap-input100 validate-input " data-validate="Mot de passe obligatoire">
-				<span class="label-input100">Mot de passe</span>
-				<input class="input100" type="password" name="motpasse"  placeholder="Type your password">
-				<span class="focus-input100" data-symbol="&#xf190;"></span>
-			</div>
-			
-			<div class="text-right p-t-8 p-b-35">
-                <div id="avertissement" style="position:absolute;left:0%;color:red;"> </div>
-				<a href="#">
-					Mot de passe oublié?
-				</a>
-			</div>
-					
-			<div class="container-login100-form-btn">
-				<div class="wrap-login100-form-btn">
-					<div class="login100-form-bgbtn"></div>
-					<!--button class="login100-form-btn" onClick="connexion();">Connecter</button-->
-                    <input type="button" id="connexion_util" class="login100-form-btn" value="Connexion" onClick="connexionUtil();">
-				</div>
-			</div>
-			
-			<div class="flex-c-m m-t-30">
-				<span class="p-r-40"> Ou connectez-vous en utilisant</span>
-				<a href="#" class="login100-social-item bg1 p-l-20 p-r-20">
-					<i class="fa fa-facebook"></i>
-				</a>
-
-				<a href="#" class="login100-social-item bg3 p-l-20 p-r-20">
-					<i class="fa fa-google"></i>
-				</a>
-			</div>
-
-		</form>
-	</div>
-</div>
-
-<!-- MODAL S'ENREGISTRER-->
-    
-    
-
-
-     <div id="id02" class="modal">
-	<div class=" ">
-		<form id="formEnregUtil" name="formEnregUtil" class="modal-content1 animate p-l-45 p-r-45 p-t-45 p-b-45">
-			<div class="imgcontainer">
-				<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-			</div>
-			
-			<span class="login100-form-title p-b-30">
-				Inscription
-			</span>
-			
-			<div class="form-row m-b-20">
-				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Nom</span>
-					<input class="input100" type="text" name="nom" required="required" placeholder="Entrez votre nom">
-					<span class="focus-input100" data-symbol="&#xf206;"></span>
-				</div>
-	
-				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Prénom</span>
-					<input class="input100" type="password" name="prenom" required="required" placeholder="Entrez votre prénom">
-					<span class="focus-input100" data-symbol="&#xf206;"></span>
-				</div>
-			</div>
-
-			<div class="form-row m-b-20">
-				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Email</span>
-					<input class="input100" type="text" name="courriel" required="required" placeholder="Entrez votre mail">
-					<span class="focus-input100" data-symbol="&#9993;"></span>
-				</div>
-	
-				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Confirmation Email</span>
-					<input class="input100" type="text" name="confirm_courriel" required="required" placeholder="Confirmez votre mail">
-					<span class="focus-input100" data-symbol="&#9993;"></span>
-				</div>
-			</div>
-
-			<div class="form-row m-b-20">
-				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Mot de passe</span>
-					<input class="input100 " type="password" name="motpasse" required="required" placeholder="Entrez votre mot de passe">
-					<span class="focus-input100" data-symbol="&#xf190;"></span>
-				</div>
-	
-				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Confirmation mot de passe</span>
-					<input class="input100" type="password" name="pass" required="required" placeholder="Confirmer votre mot de passe">
-					<span class="focus-input100" data-symbol="&#xf190;"></span>
-				</div>
-			</div>
-
-			<div class="form-row m-b-30">
-				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Adresse</span>
-					<input class="input100" type="text" name="adresse" required="required" placeholder="Entrez votre adresse">
-					<span class="focus-input100"  data-symbol="&#xf206;"></span>
-				</div>
-	
-				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Téléphone</span>
-					<input class="input100" type="password" name="tel" required="required" placeholder="Entrez votre numéro de téléphone">
-					<span class="focus-input100" data-symbol="&#xf2b9;"></span>
-				</div>
-			</div>
-
-			<div class="form-row m-b-30">
-				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Ville</span>
-					<input class="input100" type="text" name="ville" required="required" placeholder="Entrez votre ville">
-					<span class="focus-input100" data-symbol="&#xf206;"></span>
-				</div>
-	
-				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
-					<span class="label-input100">Pays</span>
-					<input class="input100" type="text" name="pays" required="required" placeholder="Entrez votre pays">
-					<span class="focus-input100" data-symbol="&#x2691;"></span>
-				</div>
-			</div>
-
-			<div class="form-row m-b-20">
-				<div class="form-group col-md-5 m-l-25 input100-1-1" data-validate = "Username is reauired">
-					<span class="label-input100">Date de naissance</span>
-					<input class="form-control" type="date" name="date_naiss" id="example-date-input" required="required">
-
-					
-				</div>
-	
-				<div class="form-group col-md-5 m-l-60 input100-1-1" data-validate="Password is required">
-					<span class="label-input100">Je suis un(e)</span>
-					<div class="select" required="required">
-						<select name="sexe" id="slct">
-						  <option>Choisir votre sexe</option>
-						  <option value="M">Homme</option>
-						  <option value="F">Femme</option>
-						  <option value="O">Autre</option>
-						</select>
-					</div>
-					
-				</div>
-			</div>
-            <div class="hide">
-                <input  type="text" name="categorie"  value="client">
-			</div>
-            <div class="hide">
-                <input  type="text" name="num_util"  value="">
-			</div>
-            <div class="hide">
-                <input  type="button" name="btn_connexion" id="btn_connexion" onclick="document.getElementById('id01').style.display='block'" value="">
-			</div>
-			<div class="container-login100-form-btn">
-				<div class="wrap-login100-form-btn">
-					<div class="login100-form-bgbtn"></div>
-					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerUtil();">S'inscrire</button-->
-                    <input type="button" id="inscrireClient" class="login100-form-btn" value="S'inscrire" onClick="enregistrerUtil();">
-				</div>
-			</div>
-			
-            
-		</form>
-	</div>
-</div>
-    
 <!-- MODAL PROFIL-->
 
 <div id="id03" class="modal">
 	<div class=" ">
 		<form class="modal-content2 animate  validate-form p-l-2 p-r-2 p-t-5 p-b-5" >
-
+class="modal-content animate  validate-form p-l-45 p-r-45 p-t-45 p-b-45"
 			<!--<span class="login100-form-title p-b-30">
 			PROFIL
 			</span> -->
@@ -1305,9 +1088,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </div>
 
 </body>
-
-
-
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../js/profil.js"></script>
 <script language="javascript" src="../Requests/Requetes.js"></script>
@@ -1328,5 +1108,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!--===============================================================================================-->
 <script src="../js/validation.js"></script>
 <script src="../js/custom.js"></script>
-
 </html>
