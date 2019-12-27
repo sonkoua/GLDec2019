@@ -63,7 +63,7 @@ session_start();
                 
                 $unModele=new requestsModele($requete,array($id_ville,$adresse));
                 $stmt=$unModele->executer();
-                //$tabRes['msg']="Vile bien enregistrée";
+                //$tabRes['msg']="Vile bien enregistrï¿½e";
             }catch(Exception $e){
             }finally{
                 unset($unModele);
@@ -121,7 +121,7 @@ session_start();
 
 	}
 	
-//Pour enrégistrer les modifications
+//Pour enrï¿½gistrer les modifications
 function enregistrerUtil2(){
 		global $rep;	
 		$nom=$_POST['nom'];
@@ -160,7 +160,7 @@ function enregistrerUtil2(){
                 
                 $unModele=new requestsModele($requete,array($adresse,$id_adresse));
                 $stmt=$unModele->executer();
-                //$tabRes['msg']="Vile bien enregistrée";
+                //$tabRes['msg']="Vile bien enregistrï¿½e";
             }catch(Exception $e){
             }finally{
                 unset($unModele);
@@ -209,7 +209,7 @@ function enregistrerUtil2(){
                 
                 $unModele=new requestsModele($requete,array($adresse,$id_adresse));
                 $stmt=$unModele->executer();
-                //$tabRes['msg']="Vile bien enregistrée";
+                //$tabRes['msg']="Vile bien enregistrï¿½e";
             }catch(Exception $e){
             }finally{
                 unset($unModele);
@@ -272,6 +272,7 @@ function enregistrerUtil2(){
                  $_SESSION['id_util']=$id_util;
                 $rep['categorie']=$ligne->categorie;
                  $rep['id_util']=$ligne->id_util;
+                 $_SESSION['access_token']="";
              }else{
                  $rep['categorie']="Courrielle ou mot de passe incorrect";
              }
@@ -569,7 +570,7 @@ function enregistrerUtil2(){
 
 	}*/
 	//******************************************************
-	//Contrôleur
+	//Contrï¿½leur
     //$tabRes['action'] = "C'est fait"
    // $rep=array();
    // $rep['act']="enregistrerUtil";

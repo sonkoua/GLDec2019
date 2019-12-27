@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['access_token'])){
+        header((string) 'Location: ../index.php');
+
+        exit();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -86,7 +96,7 @@
                             </div>
                             <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Mon profil</button></div>
 							<!--div class="user_box_login user_box_link"><button  href="index.php">Deconnexion</button></div-->
-                           <div class="user_box_login user_box_link"><button onclick="location.href='../index.php';">Déconnexion</button></div>
+                           <div class="user_box_login user_box_link"><button onclick="location.href='logout.php';">Déconnexion</button></div>
 
 						</div>
 

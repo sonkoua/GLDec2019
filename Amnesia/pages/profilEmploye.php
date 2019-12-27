@@ -88,7 +88,7 @@
 
 						<div class="user_box ml-auto ">
 							<!--div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div-->
-                            <div class="user_box_login user_box_link"> <a href="index.html">Déconnexion</a></div>
+                            <div class="user_box_login user_box_link"> <a href="logout.php">Déconnexion</a></div>
 							<div class="user_box_register user_box_link"><button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" ></button></div>
 						</div>
 
