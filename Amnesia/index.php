@@ -1,7 +1,11 @@
 
 <?php
 
-    require_once "Facebook_setup/config.php";
+	require_once "Facebook_setup/config.php";
+	require_once "Google_setup/config.php";
+
+	$loginURL2 = $google_client->createAuthUrl();  
+
     
     $redirectURL = "http://localhost/projet/GLDec2019_1/Amnesia/Facebook_setup/fb-callback.php"; 
     $permissions = ['email'];
@@ -1047,7 +1051,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				</a>
 
 				<a href="#" class="login100-social-item bg3 p-l-20 p-r-20">
-					<i class="fa fa-google"></i>
+					<i class="fa fa-google" onclick="window.location = '<?php echo $loginURL2 ?>';"></i>
 				</a>
 			</div>
 

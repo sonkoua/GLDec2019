@@ -2,8 +2,10 @@
 <?php
 
 //config.php
-session_start();
-
+if(session_id() == '' || !isset($_SESSION)) {
+    // session isn't started
+    session_start();
+}
 //Include Google Client Library for PHP autoload file
 require_once 'googleAPI/vendor/autoload.php';
 
@@ -11,16 +13,16 @@ require_once 'googleAPI/vendor/autoload.php';
 $google_client = new Google_Client();
 
 //Set the OAuth 2.0 Client ID
-$google_client->setClientId('604687666120-25h2t01jqd97fjpnjvre7kn14aomafdj.apps.googleusercontent.com');
+$google_client->setClientId('604687666120-gqlrdtbake9ofseu69hgblr1eviup8tr.apps.googleusercontent.com');
 
 //Set the OAuth 2.0 Client Secret key
-$google_client->setClientSecret('5vndzwFHx6nxv7rHlyFSAwd4');
+$google_client->setClientSecret('CNkH5ubtRMh1XFYr0IIBtAck');
 
 
-$google_client->setApplicationName('Amnesia Google Login');
+$google_client->setApplicationName('Web client 3');
 
 //Set the OAuth 2.0 Redirect URI
-$google_client->setRedirectUri('http://localhost/glogin/g-callback.php');
+$google_client->setRedirectUri('http://localhost/projet/GLDec2019_1/Amnesia/Google_setup/g-callback.php');
 
 //
 $google_client->addScope('email');
