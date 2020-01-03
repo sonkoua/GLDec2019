@@ -14,8 +14,8 @@ function enregistrerUtil(){
             processData : false,
             success : function (reponse){//alert(reponse);
                         requestsVue(reponse);
-                document.getElementById('id02').style.display='none';
-                $( "#btn_connexion" ).click();
+                //document.getElementById('id02').style.display='none';
+                //$( "#btn_connexion" ).click();
             },
             fail : function (err){
                requestsVue("reponse");
@@ -23,7 +23,6 @@ function enregistrerUtil(){
         });
     //}
 }
-
 
 
 function enregistrerEmploye(){
@@ -40,8 +39,8 @@ function enregistrerEmploye(){
 		processData : false,
 		success : function (reponse){//alert(reponse);
 					requestsVue(reponse);
-            document.getElementById('id02').style.display='none';
-            $( "#btn_connexion" ).click();
+           // document.getElementById('id02').style.display='none';
+            //$( "#btn_connexion" ).click();
 		},
 		fail : function (err){
 		   requestsVue("reponse");
@@ -50,9 +49,9 @@ function enregistrerEmploye(){
     
 }
 
-function enregistrerUtil2(){
+function modifierUtil(){
 	var formUtil = new FormData(document.getElementById('formEnregUtil'));
-	formUtil.append('action','enregistrerUtil2');
+	formUtil.append('action','modifierUtil');
 	$.ajax({
 		type : 'POST',
 		url : '../Requests/requestsControleur.php',
@@ -64,7 +63,7 @@ function enregistrerUtil2(){
 		processData : false,
 		success : function (reponse){//alert(reponse);
 					requestsVue(reponse);
-            document.getElementById('id02').style.display='none';
+            
 		},
 		fail : function (err){
 		   requestsVue("reponse");
@@ -164,6 +163,73 @@ function imageProfil(){
 		}
 	});
 }
+
+
+function supprimerPhotoProfil(){
+	//var leForm=document.getElementById('imageUtilForm');
+    
+	var supprimImageUtilForm = new FormData();
+	supprimImageUtilForm.append('action','supprimerPhotoProfil');
+	$.ajax({
+		type : 'POST',
+		url : '../Requests/requestsControleur.php',
+		data : supprimImageUtilForm,
+		contentType : false,
+		processData : false,
+		dataType : 'json', //text pour le voir en format de string
+		success : function (reponse){//alert(reponse);
+            
+					requestsVue(reponse);
+		},
+		fail : function (err){
+		}
+	});
+}
+
+function selectUsers(categorie){
+   var selectUtilForm = new FormData();
+	selectUtilForm.append('action','selectUsers');
+    selectUtilForm.append('categorie',categorie.id);
+	$.ajax({
+		type : 'POST',
+		url : '../Requests/requestsControleur.php',
+		data : selectUtilForm,
+		contentType : false,
+		processData : false,
+		dataType : 'json', //text pour le voir en format de string
+		success : function (reponse){//alert(reponse);
+            
+					requestsVue(reponse);
+		},
+		fail : function (err){
+		}
+	}); 
+}
+
+
+function GestionUtil(button){
+   var selectUtilForm = new FormData();
+	gestionUtilForm.append('action','gestionUtil');
+    gestionUtilForm.append('gestion',button.value);
+    var p=button.parentNode.parentNode;
+    var id_Util = parseInt(p.cells[1].textContent);
+    gestionUtilForm.append('id_Util',id_Util);
+	$.ajax({
+		type : 'POST',
+		url : '../Requests/requestsControleur.php',
+		data : gestionUtilForm,
+		contentType : false,
+		processData : false,
+		dataType : 'json', //text pour le voir en format de string
+		success : function (reponse){//alert(reponse);
+            
+					requestsVue(reponse);
+		},
+		fail : function (err){
+		}
+	}); 
+}
+
 
 function lister(){
 	var formFilm = new FormData();

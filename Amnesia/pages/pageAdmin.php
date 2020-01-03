@@ -4,6 +4,18 @@
         header((string) 'Location: ../index.php');
 
         exit();
+    }else{
+        $cat=$_SESSION['access_token'];
+        //if($cat == "admin")
+            //header((string) 'Location: pageAdmin.php');
+        if($cat == "employe"){
+            header((string) 'Location: pageEmploye.php');
+            exit();
+        }else if($cat == "client"){
+            header((string) 'Location: pageClient.php');
+            exit();
+        }
+        
     }
 
 ?>
@@ -31,7 +43,7 @@
 <!--===============================================================================================-->	
 <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
@@ -54,7 +66,7 @@
 
 </head>
 
-<body>
+<body onload="profilUtil();">
 
 <div class="super_container">
 	
@@ -82,23 +94,39 @@
 						<div class="user_box ml-auto ">
                             <div class="user_box_login user_box_link">
                             <!-- Basic dropdown -->
-                            <button class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                            <button class="dropdown-toggle" type="button" data-toggle="dropdown"
                               aria-haspopup="true" aria-expanded="false">Administration</button>
 
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Créer un nouveau profil </a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
+                              <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Créer un nouveau compte </a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Separated link</a>
+                              <a class="dropdown-item" href="#" id="admin" onclick="selectUsers(this);">Liste des administrteurs</a>
+                              <a class="dropdown-item" href="#" id="employe" onclick="selectUsers(this);">Liste des employés</a>
+                              <a class="dropdown-item" href="#" id="client" onclick="selectUsers(this);">Liste des clients</a>
+                              <a class="dropdown-item" href="#">Utilisateurs désactivés</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Liste des circuits</a>
                             </div>
                             <!-- Basic dropdown -->
                             </div>
-                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Mon profil</button></div>
+                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Mon compte</button></div>
 							<!--div class="user_box_login user_box_link"><button  href="index.php">Deconnexion</button></div-->
-                           <div class="user_box_login user_box_link"><button onclick="location.href='logout.php';">Déconnexion</button></div>
-
-						</div>
+                           <!--div class="user_box_login user_box_link"><button onclick="location.href='logout.php';">Déconnexion</button></div-->
+                           <div class="user_box_login user_box_link"> 
+                                <div class="nav-item avatar dropdown">
+                                <a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                                  aria-haspopup="true" aria-expanded="false">
+                                  <img id="userImg" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle avatar1"
+                                    alt="avatar image">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+                                    <a id="userName" class="dropdown-item"></a>
+                                    <a class="dropdown-item" href="#" type="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Profil </a>
+                                    <a class="dropdown-item" href="logout.php">Déconnecter</a>
+                                </div>
+                              </div>
+						   </div>
+                        </div>
 
 					</div>
 				</div>
@@ -116,7 +144,7 @@
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="#">Accueil</a></li>
+								<li class="main_nav_item"><a href="../index.php">Accueil</a></li>
 								<li class="main_nav_item"><a href="about.php">À propos</a></li>
 								<li class="main_nav_item"><a href="offers.php">Offres</a></li>
 								<li class="main_nav_item"><a href="blog.php">Nouveautées</a></li>
@@ -167,7 +195,7 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="#">accueil</a></li>
+				<li class="menu_item"><a href="../index.php">accueil</a></li>
 				<li class="menu_item"><a href="about.php">à proprs</a></li>
 				<li class="menu_item"><a href="offers.php">offres</a></li>
 				<li class="menu_item"><a href="blog.php">nouveautées</a></li>
@@ -178,13 +206,13 @@
 
 	<!-- Home -->
 
-	<div class="home">
+	<div class="home" id="home">
 		
 		<!-- Home Slider -->
 
-		<div class="home_slider_container">
+		<div class="home_slider_container" id="home_slider_container">
 			
-			<div class="owl-carousel owl-theme home_slider">
+			<div class="owl-carousel owl-theme home_slider" id="owl-carousel">
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
@@ -286,7 +314,7 @@
 
 	<!-- Intro -->
 	
-	<div class="intro">
+	<div class="intro" id="intro">
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -993,7 +1021,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="#">Accueil</a></li>
+								<li class="footer_nav_item"><a href="../index.php">Accueil</a></li>
 								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
 								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
 								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
@@ -1029,13 +1057,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Nom</span>
-					<input class="input100" type="text" name="nom" required="required" placeholder="Entrez votre nom">
+					<input class="input100" type="text" name="nom" id="nom" required="required" placeholder="Entrez votre nom">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Prénom</span>
-					<input class="input100" type="text" name="prenom" required="required" placeholder="Entrez votre prénom">
+					<input class="input100" type="text" name="prenom" id="prenom" required="required" placeholder="Entrez votre prénom">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 			</div>
@@ -1043,13 +1071,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Email</span>
-					<input class="input100" type="text" name="courriel" required="required" placeholder="Entrez votre mail">
+					<input class="input100" type="text" name="courriel" id="courriel" required="required" placeholder="Entrez votre mail">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Confirmation Email</span>
-					<input class="input100" type="text" name="confirm_courriel" required="required" placeholder="Confirmez votre mail">
+					<input class="input100" type="text" name="confirm_courriel" id="confirm_courriel" required="required" placeholder="Confirmez votre mail">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 			</div>
@@ -1057,13 +1085,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Mot de passe</span>
-					<input class="input100 " type="password" name="motpasse" required="required" placeholder="Entrez votre mot de passe">
+					<input class="input100 " type="password" name="motpasse" id="motpasse" required="required" placeholder="Entrez votre mot de passe">
 					<span class="focus-input100" data-symbol="&#xf190;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Confirmation mot de passe</span>
-					<input class="input100" type="password" name="pass" required="required" placeholder="Confirmer votre mot de passe">
+					<input class="input100" type="password" name="pass" id="pass" required="required" placeholder="Confirmer votre mot de passe">
 					<span class="focus-input100" data-symbol="&#xf190;"></span>
 				</div>
 			</div>
@@ -1071,13 +1099,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Adresse</span>
-					<input class="input100" type="text" name="adresse" required="required" placeholder="Entrez votre adresse">
+					<input class="input100" type="text" name="adresse" id="adresse" required="required" placeholder="Entrez votre adresse">
 					<!--span class="focus-input100"  data-symbol="&#xf206;"></span-->
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Téléphone</span>
-					<input class="input100" type="text" name="tel" required="required" placeholder="Entrez votre numéro de téléphone">
+					<input class="input100" type="text" name="tel" id="tel" required="required" placeholder="Entrez votre numéro de téléphone">
 					<span class="focus-input100" data-symbol="&#xf2b9;"></span>
 				</div>
 			</div>
@@ -1085,13 +1113,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Ville</span>
-					<input class="input100" type="text" name="ville" required="required" placeholder="Entrez votre ville">
+					<input class="input100" type="text" name="ville" id="ville" required="required" placeholder="Entrez votre ville">
 					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
 					<span class="label-input100">Pays</span>
-					<input class="input100" type="text" name="pays" required="required" placeholder="Entrez votre pays">
+					<input class="input100" type="text" name="pays" id="pays" required="required" placeholder="Entrez votre pays">
 					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
 			</div>
@@ -1130,7 +1158,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     <span class="label-input100">categorie</span>
                     <!--input  type="text" name="categorie" id="categorie" value=""-->
                     <div class="select">
-                    <select name="categorie">
+                    <select name="categorie" id="categorie">
                       <option>Choisir la catégorie</option>
                       <option value="admin">Administrateur</option>
                       <option value="employe">Employé</option>
@@ -1143,7 +1171,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
 					<span class="label-input100">No employe</span>
-					<input class="input100" type="text" name="num_util" required="required" placeholder="Entrez le numero d'employé">
+					<input class="input100" type="text" name="num_util" id="num_util" required="required" placeholder="Entrez le numero d'employé">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 			</div>
@@ -1168,11 +1196,88 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</form>
 	</div>
 </div>
+    
+<!-- MODAL PROFIL-->
+
+<div id="id03" class="modal">
+    
+	<div class=" ">
+        
+		<form class="modal-content2 animate  validate-form p-l-2 p-r-2 p-t-5 p-b-5" >
+
+			<!--<span class="login100-form-title p-b-30">
+			PROFIL
+			</span> -->
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id03').style.display='none'" class="close1" title="Close Modal">&times;</span>
+            </div>
+			<div id="wrapper">
+				<div id="content">
+					<div id="card">
+						
+						<div id="front">
+
+							<div id="top-pic">
+								<span class="login100-form-title p-b-20"></span>
+							</div>
+							<div id="avatar"></div>
+							<div id="info-box">
+								<div class="info">
+									<h1 class="detail" id="profil_nom"></h1>
+									<h2 class="detail1" id="profil_prenom"></h2>
+								</div>
+							</div>
+                            
+							<div id="social-bar">
+								<a href="profilUtilisateur.php" target="" class="bntProfil" id="detailCompe">
+									<i class="fa fa-user" aria-hidden="true"></i>
+									Détail du compte
+								</a>
+                                <a href="#" target="" class="bntProfil" id="supprimerPhotoProfil" onclick="supprimerPhotoProfil();">
+									<i class="fa fa-user" aria-hidden="true"></i>
+									Spprimer photo
+								</a>
+								<a href="#" target="" class="bntProfil" onclick="document.getElementById('id03').style.display='none'; document.getElementById('imageUtil').style.display='block'">
+									<i class="fa fa-pencil-square" aria-hidden="true"></i>
+									Changer photo
+								</a>
+							</div>
+
+						</div>
+                        
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div> 
+    
+    
+<div id="imageUtil" class="modal">
+	<div class=" ">
+		<form name="imageUtilForm" id="imageUtilForm" class="modal-content2 animate  validate-form p-l-2 p-r-2 p-t-5 p-b-5" >
+
+
+            <div id="content23">
+                <label for="image">Image</label>
+                <input type="file" name="imageUtil" class="form-control" id="imageUtil">
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Annuler" onclick="document.getElementById('id03').style.display='block'; document.getElementById('imageUtil').style.display='none'">
+                <input type="button" class="btn btn-primary" id="modal-save" value="Sauvegarder" onclick="imageProfil();">
+            </div>
+
+            
+		</form>
+	</div>
+</div>
 </body>
-<script language="javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="../js/profil.js"></script>
+<!--script language="javascript" src="../js/jquery-3.3.1.min.js"></script-->
 <script language="javascript" src="../Requests/Requetes.js"></script>
 <script language="javascript" src="../Requests/requestsControleurVue.js"></script>
-<!--script src="js/jquery-3.2.1.min.js"></script-->
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="../styles/bootstrap4/popper.js"></script>
 <script src="../styles/bootstrap4/bootstrap.min.js"></script>
 <script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>

@@ -1,3 +1,24 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['access_token'])){
+        header((string) 'Location: ../index.php');
+
+        exit();
+    }else{
+        $cat=$_SESSION['access_token'];
+        //if($cat == "admin")
+            //header((string) 'Location: pageAdmin.php');
+        if($cat == "admin"){
+            header((string) 'Location: pageAdmin.php');
+            exit();
+        }else if($cat == "client"){
+            header((string) 'Location: pageClient.php');
+            exit();
+        }
+        
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,7 +43,7 @@
 <!--===============================================================================================-->	
 <link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
@@ -45,7 +66,7 @@
 
 </head>
 
-<body>
+<body onload="profilUtil();">
 
 <div class="super_container">
 	
@@ -97,24 +118,39 @@
 						</div>
 
 						<div class="user_box ml-auto ">
-							<!--div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div-->
-                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Compte</button></div>
-                            <div class="user_box_login user_box_link"><button onclick="location.href='logout.php';">Déconnexion</button></div>
+                            <div class="user_box_login user_box_link">
+                            <!-- Basic dropdown -->
+                            <button class="dropdown-toggle" type="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">Tâches</button>
 
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Gérer les réservations</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                            <!-- Basic dropdown -->
+                            </div>
+							<!--div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div-->
+                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Mon compte</button></div>
+                            <div class="user_box_login user_box_link"><button onclick="location.href='logout.php';">Déconnexion</button></div>
+                            <div class="user_box_login user_box_link">
+                                <div class="nav-item avatar dropdown">
+                                    <a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                                      aria-haspopup="true" aria-expanded="false">
+                                      <img id="userImg" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle avatar1"
+                                        alt="avatar image">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+                                        <a id="userName" class="dropdown-item"></a>
+                                        <a class="dropdown-item" href="#" type="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Profil </a>
+                                        <a class="dropdown-item" href="logout.php">Déconnecter</a>
+                                     </div>
+                                 </div>
+                             </div>
 						</div>
-                        <div class="nav-item avatar dropdown">
-							<a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-							  aria-haspopup="true" aria-expanded="false">
-							  <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle avatar1"
-								alt="avatar image">
-							</a>
-							<div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
-							<form action="/action_page.php" method="post">
-								<a class="dropdown-item" href="#" type="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Profil </a>
-								<a class="dropdown-item" href="../index.php">Déconnecter</a>
-							</form>
-							</div>
-						</div>
+                        
 					</div>
 				</div>
 			</div>		
@@ -1026,17 +1062,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <div id="id03" class="modal">
 	<div class=" ">
 		<form class="modal-content2 animate  validate-form p-l-2 p-r-2 p-t-5 p-b-5" >
-class="modal-content animate  validate-form p-l-45 p-r-45 p-t-45 p-b-45"
 			<!--<span class="login100-form-title p-b-30">
 			PROFIL
 			</span> -->
-
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id03').style.display='none'" class="close1" title="Close Modal">&times;</span>
+            </div>
 			<div id="wrapper">
 				<div id="content">
 					<div id="card">
-						<div class="imgcontainer">
-							<span onclick="document.getElementById('id03').style.display='none'" class="close1" title="Close Modal">&times;</span>
-						</div>
+						
 						<div id="front">
 
 							<div id="top-pic">
@@ -1050,9 +1085,13 @@ class="modal-content animate  validate-form p-l-45 p-r-45 p-t-45 p-b-45"
 								</div>
 							</div>
 							<div id="social-bar">
-								<a href="profilUtilisateur.php" target="" class="bntProfil">
+								<a href="profilUtilisateur.php" target="" class="bntProfil" id="detailCompe">
 									<i class="fa fa-user" aria-hidden="true"></i>
-									Détail du profil
+									Détail du compte
+								</a>
+                                <a href="#" target="" class="bntProfil" id="supprimerPhotoProfil" onclick="supprimerPhotoProfil();">
+									<i class="fa fa-user" aria-hidden="true"></i>
+									Supprimer photo
 								</a>
 								<a href="#" target="" class="bntProfil" onclick="document.getElementById('id03').style.display='none'; document.getElementById('imageUtil').style.display='block'">
 									<i class="fa fa-pencil-square" aria-hidden="true"></i>
@@ -1088,24 +1127,24 @@ class="modal-content animate  validate-form p-l-45 p-r-45 p-t-45 p-b-45"
 </div>
 
 </body>
+   
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../js/profil.js"></script>
+<!--script language="javascript" src="../js/jquery-3.3.1.min.js"></script-->
 <script language="javascript" src="../Requests/Requetes.js"></script>
 <script language="javascript" src="../Requests/requestsControleurVue.js"></script>
-
-<!--script src="../js/jquery-3.2.1.min.js"></script-->
-<script src="../js/profil.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="../styles/bootstrap4/popper.js"></script>
 <script src="../styles/bootstrap4/bootstrap.min.js"></script>
 <script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="../plugins/easing/easing.js"></script>
-<script language="javascript" src="../js/jquery-3.3.1.min.js"></script>
+
 <!--===============================================================================================-->
 <script src="../js/main.js"></script>
 <!--===============================================================================================-->
 <script src="../vendor/datepicker/moment.min.js"></script>
 <script src="../vendor/datepicker/daterangepicker.js"></script>
+<script src="../js/custom.js"></script>
 <!--===============================================================================================-->
 <script src="../js/validation.js"></script>
-<script src="../js/custom.js"></script>
 </html>

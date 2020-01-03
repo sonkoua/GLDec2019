@@ -39,9 +39,19 @@ function verserFichier($dossier, $inputNom, $fichierDefaut){
 		@move_uploaded_file($tmp,$dossier.$nomPhoto.$extension);
 		// Enlever le fichier temporaire chargé
 		@unlink($tmp); //effacer le fichier temporaire
-		$photo=$nomPhoto.$extension;
-	}
+        
+        @unlink($dossier.$photo);
+        $photo=$nomPhoto.$extension;
+
+	}else
+        $photo="";
 	return $photo;
+}
+    
+function supprimerFichier($dossier, $nomFichier){
+	$dossier="../$dossier/";
+    @unlink($dossier.$nomFichier);
+    return "bien";
 }
 function enleverFichier($dossier,$pochette){
 	if($pochette!="avatar.jpg"){

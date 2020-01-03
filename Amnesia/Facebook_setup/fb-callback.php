@@ -22,11 +22,11 @@
     if ($accessToken->isLongLived())
         $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
 
-    $response = $FB->get("/me?fields=id, first_name, last_name, email, picture.type(large)",$accessToken);
+    $response = $FB->get("/me?fields=id, first_name, last_name, email, gender,birthday , hometown, location, picture.type(large)",$accessToken);
     $userData = $response->getGraphNode()->asArray();
     $_SESSION['userData'] = $userData;
     $_SESSION['access_token'] = (string) $accessToken;
-    header((string) 'Location: ../index.php');
+    header((string) 'Location: requestsControleur.php');
     exit();
     
 
