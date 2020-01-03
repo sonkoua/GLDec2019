@@ -4,6 +4,57 @@ session_start();
 	$tabRes=array();
     $rep=array();
    // $tabRes="";
+
+
+if(isset($_SESSION['access_token']) && isset($_SESSION['userData'])){
+    $userData=$_SESSION['userData'];
+    
+    $nom=$userData['last_nom'];
+    $prenom=$userData['first_prenom'];
+    $courriel=$userData['email'];
+    $categorie='client';
+    $requete="SELECT * FROM Connexion WHERE courriel =?";// AND motdepasse =?";
+    try{
+         $unModele=new requestsModele($requete,array($courriel));//, $_SESSION['access_token']));
+         $stmt=$unModele->executer();
+
+         if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+             $id_util=$ligne->id_util;
+             $_SESSION['id_util']=$id_util;
+             $categorie=$ligne->categorie;
+
+         }else{
+             
+            $sexe=$userData['gender'];
+            $num_util=0;
+            $date_naiss=$userData['birthday'];
+            $motpasse=$_SESSION['access_token'];
+            $tel='';
+            $adresse=$userData['adresse'];
+            $ville=$userData['ville'];
+            $pays='';
+            $categorie='client';
+            $id_ville = 0;
+            $photo = "";
+            $id_adresse = 0;
+            $id_util = 0;
+            saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,$ville,$pays,$categorie,$motpasse,$courriel);
+            //$rep['categorie']="Courriel ou mot de passe incorrect";
+         }
+    }catch(Exception $e){
+    }finally{
+        unset($unModele);
+        unset($_SESSION['userData']);
+        $rep['categorie']=$categorie;
+        $rep['id_util']=$ligne->id_util;
+        $_SESSION['access_token']=$categorie;
+        header((string) 'Location: ../index.php');
+        exit();
+    }
+    
+}
+
+
 	function enregistrerUtil(){
 		global $rep;	
 		$nom=$_POST['nom'];
@@ -23,106 +74,130 @@ session_start();
         $id_adresse = 0;
         $id_util = 0;
         
-		
-		$rep['action']="enregistrerUtil";
-       // $chaine = $nom."--".$prenom."--".$courriel."--".$sexe."--".$num_util."--".$date_naiss."--".$motpasse."--".$tel."--".$adresse."--".$ville."--".$pays."--".$categorie;
-       // $rep['rep']=$chaine;
-		$requete="SELECT id FROM Ville WHERE nom_ville=? AND pays=?";
-		try{
-			 $unModele=new requestsModele($requete,array($ville, $pays));
-			 $stmt=$unModele->executer();
-			 if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-			    $id_ville=$ligne->id;   
-
-			}
-			else{
-                
-                try{
-                   // $unModele=new requestsModele();
-                    $requete="INSERT INTO Ville VALUES(0,?,?)";
-                    $unModele=new requestsModele($requete,array($ville,$pays));
-                    $stmt=$unModele->executer();
-
-                //
-                    $requete="SELECT id FROM Ville WHERE nom_ville=? AND pays=?";
-
-                     $unModele=new requestsModele($requete,array($ville, $pays));
-                     $stmt=$unModele->executer();
-                     if($ligne=$stmt->fetch(PDO::FETCH_OBJ))
-                         $id_ville=$ligne->id; 
-                }catch(Exception $e){
-                }finally{
-                    unset($unModele);
-                }
-			}
-		}catch(Exception $e){
-		}finally{
-                
-            $requete="INSERT INTO Adresse VALUES(0,?,?)";  
-            try{
-                
-                $unModele=new requestsModele($requete,array($id_ville,$adresse));
-                $stmt=$unModele->executer();
-                //$tabRes['msg']="Vile bien enregistr�e";
-            }catch(Exception $e){
-            }finally{
-                unset($unModele);
-            }
-                
-                
-            $requete="SELECT id FROM Adresse WHERE id_ville=? AND adresse=?";
-            try{
-                 $unModele=new requestsModele($requete,array($id_ville,$adresse));
-                 $stmt=$unModele->executer();
-                 if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-                    $id_adresse=$ligne->id; 
-                 }
-            }catch(Exception $e){
-            }finally{
-                unset($unModele);
-            }
-
+        $rep['action']="enregistrerUtil";
+        $rep['courriel_exist']="non";
+        $rep['categorie']=$categorie;
+        if(verifierCourriel($courriel)){
+            $rep['courriel_exist']="oui";
+           /* $rep['nom']=$nom;
+            $rep['prenom']=$prenom;
+            $rep['courriel']=$courriel;
+            $rep['sexe']=$sexe;
+            $rep['num_util']=$num_util;
+           // $rep['id_util']=$id_util;
+            $rep['date_naiss']=$date_naiss;
+            $rep['motpasse']=$motpasse;
+            $rep['tel']=$tel;
+            $rep['adresse']=$adresse;
+            $rep['ville']=$ville;
+            $rep['pays']=$pays;*/
             
-            $requete="INSERT INTO Utilisateur VALUES(0,?,?,?,?,?,?,?,?)";   
-            try{
-               // $pochete=$unModele->verserFichier("nom", "prenom","courriel", "num_util","sex", "tel", $id_adresse, $id_cat); //"pochette",  "avatar.jpg",$titre
-                $unModele=new requestsModele($requete,array($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$id_adresse));
-                $stmt=$unModele->executer();
-            }catch(Exception $e){
-            }finally{
-                unset($unModele);
-            }
-                
-                
-            $requete="SELECT id FROM Utilisateur WHERE nom=? AND prenom=? AND date_naiss=?";
-            try{
-                 $unModele=new requestsModele($requete,array($nom,$prenom,$date_naiss));
-                 $stmt=$unModele->executer();
-                 if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-                    $id_util=$ligne->id; 
-                 }
-            }catch(Exception $e){
-            }finally{
-                unset($unModele);
-            }
-                  
-            $requete="INSERT INTO Connexion VALUES(0,?,?,?,?)";    
-            try{
-               // $pochete=$unModele->verserFichier("nom", "prenom","courriel", "num_util","sex", "tel", $id_adresse, $id_cat); //"pochette",  "avatar.jpg",$titre
-                $unModele=new requestsModele($requete,array($id_util,$categorie,$motpasse,$courriel));
-                $stmt=$unModele->executer();
-                $rep['rep']="Utilisateur bien enregistre";
-            }catch(Exception $e){
-            }finally{
-                unset($unModele);
-            }
-                
-		}  
-
+        }else{
+		    saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,$ville,$pays,$categorie,$motpasse,$courriel);
+        }
+		
 	}
 	
-//Pour enr�gistrer les modifications
-function enregistrerUtil2(){
+
+function saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,$ville,$pays,$categorie,$motpasse,$courriel){
+   //global $rep;
+    
+   // $chaine = $nom."--".$prenom."--".$courriel."--".$sexe."--".$num_util."--".$date_naiss."--".$motpasse."--".$tel."--".$adresse."--".$ville."--".$pays."--".$categorie;
+   // $rep['rep']=$chaine;
+    $requete="SELECT id FROM Ville WHERE nom_ville=? AND pays=?";
+    try{
+         $unModele=new requestsModele($requete,array($ville, $pays));
+         $stmt=$unModele->executer();
+         if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+            $id_ville=$ligne->id;   
+
+        }
+        else{
+
+            try{
+               // $unModele=new requestsModele();
+                $requete="INSERT INTO Ville VALUES(0,?,?)";
+                $unModele=new requestsModele($requete,array($ville,$pays));
+                $stmt=$unModele->executer();
+
+            //
+                $requete="SELECT id FROM Ville WHERE nom_ville=? AND pays=?";
+
+                 $unModele=new requestsModele($requete,array($ville, $pays));
+                 $stmt=$unModele->executer();
+                 if($ligne=$stmt->fetch(PDO::FETCH_OBJ))
+                     $id_ville=$ligne->id; 
+            }catch(Exception $e){
+            }finally{
+                unset($unModele);
+            }
+        }
+    }catch(Exception $e){
+    }finally{
+
+        $requete="INSERT INTO Adresse VALUES(0,?,?)";  
+        try{
+
+            $unModele=new requestsModele($requete,array($id_ville,$adresse));
+            $stmt=$unModele->executer();
+            //$tabRes['msg']="Ville bien enregistr�e";
+        }catch(Exception $e){
+        }finally{
+            unset($unModele);
+        }
+
+
+        $requete="SELECT id FROM Adresse WHERE id_ville=? AND adresse=?";
+        try{
+             $unModele=new requestsModele($requete,array($id_ville,$adresse));
+             $stmt=$unModele->executer();
+             if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+                $id_adresse=$ligne->id; 
+             }
+        }catch(Exception $e){
+        }finally{
+            unset($unModele);
+        }
+
+
+        $requete="INSERT INTO Utilisateur VALUES(0,?,?,?,?,?,?,?,?)";   
+        try{
+           // $pochete=$unModele->verserFichier("nom", "prenom","courriel", "num_util","sex", "tel", $id_adresse, $id_cat); //"pochette",  "avatar.jpg",$titre
+            $unModele=new requestsModele($requete,array($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$id_adresse));
+            $stmt=$unModele->executer();
+        }catch(Exception $e){
+        }finally{
+            unset($unModele);
+        }
+
+
+        $requete="SELECT id FROM Utilisateur WHERE nom=? AND prenom=? AND date_naiss=?";
+        try{
+             $unModele=new requestsModele($requete,array($nom,$prenom,$date_naiss));
+             $stmt=$unModele->executer();
+             if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+                $id_util=$ligne->id; 
+             }
+        }catch(Exception $e){
+        }finally{
+            unset($unModele);
+        }
+
+        $requete="INSERT INTO Connexion VALUES(0,?,?,?,?,?)";    
+        try{
+           // $pochete=$unModele->verserFichier("nom", "prenom","courriel", "num_util","sex", "tel", $id_adresse, $id_cat); //"pochette",  "avatar.jpg",$titre
+            $unModele=new requestsModele($requete,array($id_util,$categorie,$motpasse,$courriel,"actif"));
+            $stmt=$unModele->executer();
+            //$rep['rep']="Utilisateur bien enregistre";
+        }catch(Exception $e){
+        }finally{
+            unset($unModele);
+        }
+
+    }  
+}
+    //Pour enr�gistrer les modifications
+    function modifierUtil(){
 		global $rep;	
 		$nom=$_POST['nom'];
 		$prenom=$_POST['prenom'];
@@ -137,15 +212,38 @@ function enregistrerUtil2(){
         $ville=$_POST['ville'];
 		$pays=$_POST['pays'];
         $categorie=$_POST['categorie'];
+        
+		$rep['courriel_exist']="non";
+        $rep['action']="modifierUtil";
+        $rep['categorie']=$categorie;
+        
+        if(verifierCourriel2($id_util,$courriel)){
+            $rep['courriel_exist']="oui";
+           /* $rep['nom']=$nom;
+            $rep['prenom']=$prenom;
+            $rep['courriel']=$courriel;
+            $rep['sexe']=$sexe;
+            $rep['num_util']=$num_util;
+            $rep['id_util']=$id_util;
+            $rep['date_naiss']=$date_naiss;
+            //$rep['motpasse']=$motpasse;
+            $rep['tel']=$tel;
+            $rep['adresse']=$adresse;
+            $rep['ville']=$ville;
+            $rep['pays']=$pays;
+            */
+        }else{
+		    updateUser($id_util,$nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$adresse,$ville,$pays,$categorie,$courriel);
+        }
+	}
+
+    function updateUser($id_util,$nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$adresse,$ville,$pays,$categorie,$courriel){
+        global $rep;
         $id_ville = 0;
         $id_adresse = 0;
         //$id_util = 2;
         $id_connexion=0;
-		
-		$rep['action']="enregistrerUtil2";
-       // $chaine = $nom."--".$prenom."--".$courriel."--".$sexe."--".$num_util."--".$date_naiss."--".$motpasse."--".$tel."--".$adresse."--".$ville."--".$pays."--".$categorie;
-       // $rep['rep']=$chaine;
-		$requete="SELECT id_adresse FROM Utilisateur WHERE id=?";
+        $requete="SELECT id_adresse FROM Utilisateur WHERE id=?";
 		try{
 			 $unModele=new requestsModele($requete,array($id_util));
 			 $stmt=$unModele->executer();
@@ -251,10 +349,51 @@ function enregistrerUtil2(){
                 
 		}catch(Exception $e){
 		}
+        
+    }
+     
+    function selectUsers(){
+        global $rep;
+        $categorie=$_POST['categorie'];
+        $rep['categorie']=$categorie;
+        
+        $rep['action']="selectUsers";
+        $rep['selectUsers']=array();
+        
+        $requete1="SELECT id_util FROM Connexion WHERE categorie=?";
+        $unModele1=new requestsModele($requete1,array($categorie));
+        $stmt1=$unModele1->executer();
+        
+        while($l1=$stmt1->fetch(PDO::FETCH_OBJ)){
+            $id_util=$l1->id_util;
+            
+            $requete="SELECT nom,prenom,sexe,tel,id_adresse FROM Utilisateur WHERE id=?";
+            $unModele=new requestsModele($requete,array($id_util));
+            $stmt=$unModele->executer();
+            $l2=$stmt->fetch(PDO::FETCH_OBJ);
+            $id_adresse=$l2->id_adresse;
+            
+            $requete="SELECT id_ville FROM Adresse WHERE id=?";
+            $unModele=new requestsModele($requete,array($id_adresse));
+            $stmt=$unModele->executer();
+            if($line3=$stmt->fetch(PDO::FETCH_OBJ)){
+                $id_ville=$line3->id_ville;
 
+                $requete="SELECT * FROM Ville WHERE id=?";
+                $unModele=new requestsModele($requete,array($id_ville));
+                $stmt=$unModele->executer();
+                $l4=$stmt->fetch(PDO::FETCH_OBJ);
+
+               $row=array('id'=>$id_util,'nom'=>$l2->nom,'prenom'=>$l2->prenom,'sexe'=>$l2->sexe,'tel'=>$l2->tel,'ville'=>$l4->nom_ville,'pays'=>$l4->pays);
+               //$row=array('id'=>$l2['id'],'nom'=>$l2['nom'],'prenom'=>$l2['prenom'],'sexe'=>$l2['sexe'],'tel'=>$l2['tel'],'Ville'=>$l4['nom_ville'//],'pays'=>$l4['pays']);
+           }else
+                $row=array('id'=>$id_util,'nom'=>$l2->nom,'prenom'=>$l2->prenom,'sexe'=>$l2->sexe,'tel'=>$l2->tel,'ville'=>"",'pays'=>"");
+            $rep['selectUsers'][]=$row;
+
+        }
+        unset($unModele);
 	}
 
-                
     function connexion(){
 		global $rep;
         $courriel=$_POST['courriel'];
@@ -268,13 +407,18 @@ function enregistrerUtil2(){
 			 $stmt=$unModele->executer();
 			 
              if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-                 $id_util=$ligne->id_util;
-                 $_SESSION['id_util']=$id_util;
-                $rep['categorie']=$ligne->categorie;
-                 $rep['id_util']=$ligne->id_util;
-                 $_SESSION['access_token']="";
+                 if($ligne->statut_compte == "actif"){
+                     $id_util=$ligne->id_util;
+                     $_SESSION['id_util']=$id_util;
+                     $cat=$ligne->categorie;
+                     $rep['categorie']=$cat;
+                     $rep['id_util']=$ligne->id_util;
+                     $_SESSION['access_token']=$cat;
+                }else{ 
+                     $rep['categorie']="Votre compte est désactivé, veuillez contacter un membre de l'administration.";
+                }  
              }else{
-                 $rep['categorie']="Courrielle ou mot de passe incorrect";
+                 $rep['categorie']="Courriel ou mot de passe incorrect";
              }
 		}catch(Exception $e){
 		}finally{
@@ -283,8 +427,13 @@ function enregistrerUtil2(){
 	}
 
     function profilUtil(){
+        $id_util=$_SESSION['id_util'];
+        profilUtil2($id_util);
+	}
+
+    function profilUtil2($id_util){
 		global $rep;
-		$id_util=$_SESSION['id_util'];
+		//$id_util=$_SESSION['id_util'];
 		$rep['action']="profilUtil";
         $rep['id_util']=$id_util;
 		$requete="SELECT * FROM Utilisateur WHERE id=?";
@@ -293,6 +442,10 @@ function enregistrerUtil2(){
 			 $stmt=$unModele->executer();
 			 $rep['util']=array();
 			 if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+                if(is_null($ligne->photo) || $ligne->photo == "")
+                     $rep['photo'] = "photoProfil2.PNG";
+                 else
+                     $rep['photo'] = $ligne->photo;
 			    $rep['util'][]=$ligne;
                  $id_adresse=$ligne->id_adresse;
                  
@@ -424,46 +577,95 @@ function enregistrerUtil2(){
 			$ligne=$stmt->fetch(PDO::FETCH_OBJ);
 			$anciennePhoto=$ligne->photo;
 			$photo=$unModele->verserFichier("images","imageUtil",$anciennePhoto);	
-			
-			$requete="UPDATE Utilisateur SET photo=? WHERE id=?";
-			$unModele=new requestsModele($requete,array($photo,$id_util));
-			$stmt=$unModele->executer();
-			$rep['action']="modifierImageUtil";
-            $rep['photo']=$photo;
-			$rep['msg']="Image bien modifie";
+			if($photo != ""){
+                $requete="UPDATE Utilisateur SET photo=? WHERE id=?";
+                $unModele=new requestsModele($requete,array($photo,$id_util));
+                $stmt=$unModele->executer();
+                $rep['action']="modifierImageUtil";
+                $rep['photo']=$photo;
+                $rep['msg']="Image bien modifie";
+            }else
+                $rep['msg']="Image nom modifie";
 		}catch(Exception $e){
 		}finally{
 			unset($unModele);
 		}
     }
-	function modifier(){
-		global $tabRes;	
-		$titre=$_POST['titreF'];
-		$duree=$_POST['dureeF'];
-		$res=$_POST['resF'];
-		$idf=$_POST['idf']; 
+
+    function supprimerPhotoProfil(){
+        global $rep;	
+		$id_util=$_SESSION['id_util']; 
 		try{
 			//Recuperer ancienne pochette
-			$requette="SELECT pochette FROM films WHERE idf=?";
-			$unModele=new requestsModele($requette,array($idf));
+			$requette="SELECT photo FROM utilisateur WHERE id=?";
+			$unModele=new requestsModele($requette,array($id_util));
 			$stmt=$unModele->executer();
 			$ligne=$stmt->fetch(PDO::FETCH_OBJ);
-			$anciennePochette=$ligne->pochette;
-			//$pochette=$unModele->verserFichier("pochettes", "pochette",$anciennePochette,$titre);	
-			$pochette="";
-			$requete="UPDATE films SET titre=?,duree=?, res=?, pochette=? WHERE idf=?";
-			$unModele=new requestsModele($requete,array($titre,$duree,$res,$pochette,$idf));
+			$anciennePhoto=$ligne->photo;
+			$suppr=$unModele->supprimerFichier("images",$anciennePhoto);	
+			
+            $photo="";
+            
+			$requete="UPDATE Utilisateur SET photo=? WHERE id=?";
+			$unModele=new requestsModele($requete,array($photo,$id_util));
 			$stmt=$unModele->executer();
-			$tabRes['action']="modifier";
-			$tabRes['msg']="Film $idf bien modifie";
+			$rep['action']="supprimerPhotoProfil";
+            $rep['photoAvatar'] = "photoProfil2.PNG";
+			$rep['msg']="Image bien supprime";
 		}catch(Exception $e){
 		}finally{
 			unset($unModele);
 		}
+    }
+
+	function verifierCourriel($courriel){
+        //global $rep;
+		$requete="SELECT courriel FROM Connexion ";
+        try{
+             $unModele=new requestsModele($requete,array());
+             $stmt=$unModele->executer();
+             while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+                if($ligne->courriel == $courriel){ 
+                    unset($unModele);
+                    return true; 
+                } 
+             }
+            unset($unModele);
+            return false;
+        }catch(Exception $e){
+        }
 	}
 
+    function verifierCourriel2($id_util,$courriel){
+        //global $rep;
+        $requete="SELECT courriel FROM Connexion WHERE id_util=?";
+        try{
+             $unModele=new requestsModele($requete,array($id_util));
+             $stmt=$unModele->executer();
+             $ligne=$stmt->fetch(PDO::FETCH_OBJ);
+            if($ligne->courriel != $courriel){
+                $requete="SELECT courriel FROM Connexion";
+                try{
+                 $unModele=new requestsModele($requete,array());
+                 $stmt=$unModele->executer();
+                 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+                    if($ligne->courriel == $courriel){ 
+                        unset($unModele);
+                        return true; 
+                     } 
+                  }
+                    unset($unModele);
+                    return false;
+                }catch(Exception $e){
+                }
+            }else
+                unset($unModele);
+            return false;
+        }catch(Exception $e){
+        }
+	}
 
-   /* function emailConfirmUtil(){
+    function emailConfirmUtil(){
 		global $rep;	
 		$nom=$_POST['nom'];
 		$prenom=$_POST['prenom'];
@@ -483,10 +685,10 @@ function enregistrerUtil2(){
         $id_util = 0;
         
 		
-		$rep['action']="enregistrerUtil";
+		//$rep['action']="enregistrerUtil";
       // Table Scheme for Verify Table
       /////////////////////////////////////////////////////////////////////////////////////////
-        CREATE TABLE `verify` (           
+      /*  CREATE TABLE `verify` (           
          `id` int(11) NOT NULL AUTO_INCREMENT,
          `code` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
          `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -524,38 +726,69 @@ function enregistrerUtil2(){
             mysql_connect('localhost','root','');
             mysql_select_db('sample');
 
-            $insert=mysql_query("insert into verify values('','$code','$nom','$prenom','$num_util','$sexe','$date_naiss','$tel','$photo','$adresse','$nom_ville','$pays','$categorie','$motdepasse','$courriel')");
-            $db_id=mysql_insert_id();
+            $insert=mysql_query("insert into verify values('','$code','$nom','$prenom','$num_util','$sexe','$date_naiss','$tel','$photo','$adresse','$ville','$pays','$categorie','$motdepasse','$courriel')");
+            $db_id=mysql_insert_id();*/
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         $requete="INSERT INTO VerifierCourriel VALUES(0,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";   
         try{
-           // $pochete=$unModele->verserFichier("nom", "prenom","courriel", "num_util","sex", "tel", $id_adresse, $id_cat); //"pochette",  "avatar.jpg",$titre
-            $unModele=new requestsModele($code,$nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,$nom_ville,$pays,$categorie,$motpasse,$courriel));
+            $unModele=new requestsModele($code,$nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,$ville,$pays,$categorie,$motpasse,$courriel);
             $stmt=$unModele->executer();
-            $db_id=mysqli_insert_id($unModele->obtenirConnexion());
+           // $db_id=mysqli_insert_id($unModele->obtenirConnexion());
         }catch(Exception $e){
         }finally{
-            unset($unModele);
-        }
-
             $message = "Votre code de verification est: ".$code."";
             $to=$courriel;
             $subjet="Code d'activation pour Talkerscode.com";
             $from = 'your email';
-            $body='Votre code d activation est: '.$code.' Veuillez cliquer sur ce lien: <a href="verification.php">Verify.php?id='.$db_id.'&code='.$code.'</a>pour activer votre compt.';
+            $body='Votre code d activation est: '.$code.' Veuillez cliquer sur ce lien: <a href="verification.php">Verify.php?id='.$db_id.'&code='.$code.'</a>pour activer votre compte.';
+            //Please click this link to activate your account:
+            //http://www.yourwebsite.com/verify.php?email='.$email.'&hash='.$hash.'
+            
             $headers = "From:".$from;
             mail($to,$subject,$body,$headers);
 
             echo "Un code d activation vous a ete envoye, verifiez votre courriel";
+            
+            unset($unModele);
+        }
+
+        
         //}
 
         if(isset($_GET['id']) && isset($_GET['code']))
         {
             $id=$_GET['id'];
             $code=$_GET['code'];
-            mysql_connect('localhost','root','');
-            mysql_select_db('sample');
-            $select=mysql_query("select email,password from verify where id='$id' and code='$code'");
+            $requette="SELECT * VerifierCourriel WHERE id=? AND code=?";
+			$unModele=new requestsModele($requette,array($id,$code));
+			$stmt=$unModele->executer();
+			if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+			    $nom=$ligne['nom'];
+                $prenom=$ligne['prenom'];
+                $courriel=$ligne['courriel'];
+                $sexe=$ligne['sexe'];
+                $num_util=$ligne['num_util'];
+                $date_naiss=$ligne['date_naiss'];
+                $motpasse=$ligne['motdepasse'];
+                $tel=$ligne['tel'];
+                $adresse=$ligne['adresse'];
+                $ville=$ligne['nom_ville'];
+                $pays=$ligne['pays'];
+                $categorie=$ligne['categorie'];
+                $id_ville = 0;
+                $photo = $ligne['photo'];
+                $id_adresse = 0;
+                $id_util = 0;
+                
+                
+                $requete="DELETE FROM VerifierCourriel WHERE id=? AND code=?";
+                $unModele=new requestsModele($requete,array($id,$code));
+                $stmt=$unModele->executer();
+                
+                saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,$ville,$pays,$categorie,$motpasse,$courriel);
+			}
+            
+           /* $select=mysql_query("select email,password from verify where id='$id' and code='$code'");
             if(mysql_num_rows($select)==1)
             {
                 while($row=mysql_fetch_array($select))
@@ -565,10 +798,10 @@ function enregistrerUtil2(){
                 }
                 $insert_user=mysql_query("insert into verified_user values('','$email','$password')");
                 $delete=mysql_query("delete from verify where id='$id' and code='$code'");
-            }
+            }*/
         }
 
-	}*/
+	}
 	//******************************************************
 	//Contr�leur
     //$tabRes['action'] = "C'est fait"
@@ -581,8 +814,8 @@ function enregistrerUtil2(){
 			enregistrerUtil();
             //echo json_encode($rep);
 		break;
-        case "enregistrerUtil2" :
-			enregistrerUtil2();
+        case "modifierUtil" :
+			modifierUtil();
             //echo json_encode($rep);
 		break;
 		case "connexion" :
@@ -590,6 +823,12 @@ function enregistrerUtil2(){
 		break;
         case "modifierImageUtil" :
 			modifierImageUtil();
+		break;
+        case "supprimerPhotoProfil" :
+			supprimerPhotoProfil();
+		break;
+        case "selectUsers" :
+			selectUsers();
 		break;
 		case "enlever" :
 			enlever();

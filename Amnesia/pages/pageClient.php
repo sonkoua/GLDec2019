@@ -5,9 +5,20 @@
         header((string) 'Location: ../index.php');
 
         exit();
-	}
-	
-	
+
+    }else{
+        $cat=$_SESSION['access_token'];
+        //if($cat == "admin")
+            //header((string) 'Location: pageAdmin.php');
+        if($cat == "employe"){
+            header((string) 'Location: pageEmploye.php');
+            exit();
+        }else if($cat == "admin"){
+            header((string) 'Location: pageAdmin.php');
+            exit();
+        }
+        
+    }
 ?>
 
 
@@ -86,23 +97,24 @@
 
 						<div class="user_box ml-auto ">
 							<!--div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div-->
-                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Compte</button></div>
+                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Mon compte</button></div>
                             <div class="user_box_login user_box_link"><button onclick="location.href='logout.php';">Déconnexion</button></div>
-
+                            <div class="user_box_login user_box_link">   
+                             <div class="nav-item avatar dropdown">
+                                <a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                                  aria-haspopup="true" aria-expanded="false">
+                                  <img id="userImg" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle avatar1"
+                                    alt="avatar image">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+                                    <a id="userName" class="dropdown-item"></a>
+                                    <a class="dropdown-item" href="#" type="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Profil </a>
+                                    <a class="dropdown-item" href="logout.php">Déconnecter</a>
+                                </div>
+                              </div>
+                            </div>
 						</div>
-                        <div class="nav-item avatar dropdown">
-							<a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-							  aria-haspopup="true" aria-expanded="false">
-							  <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle avatar1"
-								alt="avatar image">
-							</a>
-							<div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
-							<form action="/action_page.php" method="post">
-								<a class="dropdown-item" href="#" type="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Profil </a>
-								<a class="dropdown-item" href="../index.php">Déconnecter</a>
-							</form>
-							</div>
-						</div>
+                        
 					</div>
 				</div>
 			</div>		
@@ -295,7 +307,7 @@
 
 	<!-- Intro -->
 
-	<div class="container" style="margin-top: 100px">
+	<!--div class="container" style="margin-top: 100px">
             <div class="row justify-content-center">
                 <div class="col-md-3">
                     <img style="width:80%;" src="<?php echo $_SESSION['user_image'] ?>"><br><br>
@@ -326,10 +338,10 @@
                     
                 </div>
 
-            </div>
+            <!--/div>
 
         </div>
-    </div> 
+    </div--> 
 
 
 	<div class="intro">
@@ -1052,7 +1064,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</div>
 	</div>
 
-</div>
+
 
 <!-- MODAL CONNEXION-->
 
@@ -1128,13 +1140,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Nom</span>
-					<input class="input100" type="text" name="nom" required="required" placeholder="Entrez votre nom">
+					<input class="input100" type="text" name="nom" id="nom" required="required" placeholder="Entrez votre nom">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Prénom</span>
-					<input class="input100" type="password" name="prenom" required="required" placeholder="Entrez votre prénom">
+					<input class="input100" type="password" name="prenom" id="prenom" required="required" placeholder="Entrez votre prénom">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 			</div>
@@ -1142,13 +1154,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Email</span>
-					<input class="input100" type="text" name="courriel" required="required" placeholder="Entrez votre mail">
+					<input class="input100" type="text" name="courriel" id="courriel" required="required" placeholder="Entrez votre mail">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Confirmation Email</span>
-					<input class="input100" type="text" name="confirm_courriel" required="required" placeholder="Confirmez votre mail">
+					<input class="input100" type="text" name="confirm_courriel"  id="confirm_courriel" required="required" placeholder="Confirmez votre mail">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 			</div>
@@ -1156,13 +1168,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Mot de passe</span>
-					<input class="input100 " type="password" name="motpasse" required="required" placeholder="Entrez votre mot de passe">
+					<input class="input100 " type="password" name="motpasse" id="motpasse" required="required" placeholder="Entrez votre mot de passe">
 					<span class="focus-input100" data-symbol="&#xf190;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Confirmation mot de passe</span>
-					<input class="input100" type="password" name="pass" required="required" placeholder="Confirmer votre mot de passe">
+					<input class="input100" type="password" name="pass" id="pass" required="required" placeholder="Confirmer votre mot de passe">
 					<span class="focus-input100" data-symbol="&#xf190;"></span>
 				</div>
 			</div>
@@ -1170,13 +1182,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Adresse</span>
-					<input class="input100" type="text" name="adresse" required="required" placeholder="Entrez votre adresse">
+					<input class="input100" type="text" name="adresse" id="adresse" required="required" placeholder="Entrez votre adresse">
 					<span class="focus-input100"  data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Téléphone</span>
-					<input class="input100" type="password" name="tel" required="required" placeholder="Entrez votre numéro de téléphone">
+					<input class="input100" type="password" name="tel" id="tel" required="required" placeholder="Entrez votre numéro de téléphone">
 					<span class="focus-input100" data-symbol="&#xf2b9;"></span>
 				</div>
 			</div>
@@ -1184,13 +1196,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Ville</span>
-					<input class="input100" type="text" name="ville" required="required" placeholder="Entrez votre ville">
+					<input class="input100" type="text" name="ville" id="ville" required="required" placeholder="Entrez votre ville">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
 					<span class="label-input100">Pays</span>
-					<input class="input100" type="text" name="pays" required="required" placeholder="Entrez votre pays">
+					<input class="input100" type="text" name="pays" id="pays" required="required" placeholder="Entrez votre pays">
 					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
 			</div>
@@ -1217,10 +1229,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				</div>
 			</div>
             <div class="hide">
-                <input  type="text" name="categorie"  value="client">
+                <input  type="text" name="categorie" id="categorie" value="client">
 			</div>
             <div class="hide">
-                <input  type="text" name="num_util"  value="">
+                <input  type="text" name="num_util" id="num_util" value="">
 			</div>
             <div class="hide">
                 <input  type="button" name="btn_connexion" id="btn_connexion" onclick="document.getElementById('id01').style.display='block'" value="">
@@ -1247,13 +1259,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<!--<span class="login100-form-title p-b-30">
 			PROFIL
 			</span> -->
-
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id03').style.display='none'" class="close1" title="Close Modal">&times;</span>
+            </div>
 			<div id="wrapper">
 				<div id="content">
 					<div id="card">
-						<div class="imgcontainer">
-							<span onclick="document.getElementById('id03').style.display='none'" class="close1" title="Close Modal">&times;</span>
-						</div>
+						
 						<div id="front">
 
 							<div id="top-pic">
@@ -1267,9 +1279,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 								</div>
 							</div>
 							<div id="social-bar">
-								<a href="profilUtilisateur.php" target="" class="bntProfil">
+								<a href="profilUtilisateur.php" target="" class="bntProfil" id="detailCompe">
 									<i class="fa fa-user" aria-hidden="true"></i>
-									Détail du profil
+									Détail du compte
+								</a>
+                                <a href="#" target="" class="bntProfil" id="supprimerPhotoProfil" onclick="supprimerPhotoProfil();">
+									<i class="fa fa-user" aria-hidden="true"></i>
+									Supprimer photo
 								</a>
 								<a href="#" target="" class="bntProfil" onclick="document.getElementById('id03').style.display='none'; document.getElementById('imageUtil').style.display='block'">
 									<i class="fa fa-pencil-square" aria-hidden="true"></i>
@@ -1308,25 +1324,27 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 
+<!--///////////////////////////////////////////--> 
+   
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="../js/profil.js"></script>
+<!--script language="javascript" src="../js/jquery-3.3.1.min.js"></script-->
 <script language="javascript" src="../Requests/Requetes.js"></script>
 <script language="javascript" src="../Requests/requestsControleurVue.js"></script>
-
-<!--script src="../js/jquery-3.2.1.min.js"></script-->
-<script src="../js/profil.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="../styles/bootstrap4/popper.js"></script>
 <script src="../styles/bootstrap4/bootstrap.min.js"></script>
 <script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="../plugins/easing/easing.js"></script>
-<script language="javascript" src="../js/jquery-3.3.1.min.js"></script>
+
 <!--===============================================================================================-->
 <script src="../js/main.js"></script>
 <!--===============================================================================================-->
 <script src="../vendor/datepicker/moment.min.js"></script>
 <script src="../vendor/datepicker/daterangepicker.js"></script>
+<script src="../js/custom.js"></script>
 <!--===============================================================================================-->
 <script src="../js/validation.js"></script>
-<script src="../js/custom.js"></script>
+
 
 </html>

@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['access_token'])){
+        header((string) 'Location: ../index.php');
+
+        exit();
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -108,7 +117,7 @@
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="#">Accueil</a></li>
+								<li class="main_nav_item"><a href="index.php">Accueil</a></li>
 								<li class="main_nav_item"><a href="about.php">À propos</a></li>
 								<li class="main_nav_item"><a href="offers.php">Offres</a></li>
 								<li class="main_nav_item"><a href="blog.php">Nouveautées</a></li>
@@ -159,7 +168,7 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="#">accueil</a></li>
+				<li class="menu_item"><a href="index.php">accueil</a></li>
 				<li class="menu_item"><a href="about.php">à proprs</a></li>
 				<li class="menu_item"><a href="offers.php">offres</a></li>
 				<li class="menu_item"><a href="blog.php">nouveautées</a></li>
@@ -424,7 +433,7 @@
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
 					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerUtil();">S'inscrire</button-->
-                    <input type="button" id="inscrireClient" class="login100-form-btn" value="Enrégistrer" onClick="enregistrerUtil2();">
+                    <input type="button" id="inscrireClient" class="login100-form-btn" value="Enrégistrer" onClick="modifierUtil();">
 				</div>
 			</div>
 			
@@ -622,7 +631,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="#">Accueil</a></li>
+								<li class="footer_nav_item"><a href="index.php">Accueil</a></li>
 								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
 								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
 								<li class="footer_nav_item"><a href="blog.php">Nouveaués</a></li>

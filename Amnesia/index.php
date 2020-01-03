@@ -1,19 +1,29 @@
 
 <?php
 
+
 	require_once "Facebook_setup/config.php";
 	require_once "Google_setup/config.php";
 
 	$loginURL2 = $google_client->createAuthUrl();  
 
+
+    //session_start();
+
+
     
-    $redirectURL = "http://localhost/projet/GLDec2019_1/Amnesia/Facebook_setup/fb-callback.php"; 
+    $redirectURL = "http://localhost/projet/GLDec_02/Amnesia/Facebook_setup/fb-callback.php"; 
     $permissions = ['email'];
     $loginURL = $helper->getLoginURL($redirectURL, $permissions);
 
     if(isset($_SESSION['access_token'])){
-        header((string) 'Location: pages/pageClient.php');
-
+        $cat=$_SESSION['access_token'];
+        if($cat == "admin")
+            header((string) 'Location: pages/pageAdmin.php');
+        else if($cat == "employe")
+            header((string) 'Location: pages/pageEmploye.php');
+        else
+            header((string) 'Location: pages/pageClient.php');
         exit();
     }
 
