@@ -68,7 +68,12 @@ CREATE TABLE `Adresse` (
  -- `no_apt`varchar(12) COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
+CREATE TABLE `Facebook_id` (
+  `id`int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
+ -- `no_civique`int(12),
+  `id_util` int(11),
+  `id_fb` int(11)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `Ville` (
   `id`int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
@@ -143,7 +148,8 @@ CREATE TABLE `Connexion` (
   `id_util` int(11) NOT NULL  ,
   `categorie` varchar(50) COLLATE utf8_unicode_ci  NOT NULL,
   `motdepasse` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `courriel` varchar(250) COLLATE utf8_unicode_ci  NOT NULL  
+  `courriel` varchar(250) COLLATE utf8_unicode_ci  NOT NULL,
+  `statut_compte`varchar(100) COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 --
 
@@ -351,4 +357,4 @@ ALTER TABLE `Etape_Hebergement`
 INSERT INTO `Ville` (`nom_ville`,`pays`) VALUES ('Montreal','Canada');
 INSERT INTO `Adresse` (`id_ville`,`adresse`) VALUES (1, '2030 Pie-IX Blvd, H1V 2C8');
 INSERT INTO `Utilisateur` (`nom`,`prenom`,`num_util`,`sexe`,date_naiss,`tel`,`id_adresse`) VALUES ('ADMIN', 'ADMIN','ADMIN','M','190-12-15','514-000-0000',1);
-INSERT INTO `Connexion` (`id_util`,`categorie`,`motdepasse`,`courriel`) VALUES (1, 'admin','admin','admin@google.com');
+INSERT INTO `Connexion` (`id_util`,`categorie`,`motdepasse`,`courriel`,`statut_compte`) VALUES (1, 'admin','admin','admin@google.com','actif');
