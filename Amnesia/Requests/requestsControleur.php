@@ -3,15 +3,16 @@ session_start();
 	require_once("../includes/modele.inc.php");
 	$tabRes=array();
     $rep=array();
+    
    // $tabRes="";
 
 
-if(isset($_SESSION['access_token']) && isset($_SESSION['userData'])){
-    $userData=$_SESSION['userData'];
+if(isset($_SESSION['access_token']) && isset($_SESSION['user_email_address'])){
+    //$userData=$_SESSION['userData'];
     
-    $nom=$userData['last_nom'];
-    $prenom=$userData['first_prenom'];
-    $courriel=$userData['email'];
+    $nom=$_SESSION['user_first_name'];
+    $prenom=$_SESSION['user_last_name'];
+    $courriel=$_SESSION['user_email_address'];
     $categorie='client';
     $requete="SELECT * FROM Connexion WHERE courriel =?";// AND motdepasse =?";
     try{
@@ -25,21 +26,25 @@ if(isset($_SESSION['access_token']) && isset($_SESSION['userData'])){
 
          }else{
              
-            $sexe=$userData['gender'];
-            $num_util=0;
-            $date_naiss=$userData['birthday'];
-            $motpasse=$_SESSION['access_token'];
+            $sexe=$_SESSION['user_gender'];
+            $num_util="0";
+            $date_naiss=$_SESSION['user_birthday'];
+            $motpasse="1111";
             $tel='';
-            $adresse=$userData['adresse'];
-            $ville=$userData['ville'];
+            $adresse=$_SESSION['user_location'];
+            $ville=$_SESSION['user_hometown'];
             $pays='';
             $categorie='client';
             $id_ville = 0;
             $photo = "";
             $id_adresse = 0;
             $id_util = 0;
+            //$photo=$_SESSION['user_image'];
             saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,$ville,$pays,$categorie,$motpasse,$courriel);
             //$rep['categorie']="Courriel ou mot de passe incorrect";
+            
+            echo $date_naiss." ".$nom." ".$prenom." ".$num_util." ".$sexe." ".$date_naiss." ".$tel." ".$photo." ".$adresse." ".$ville." ".$pays." ".$categorie." ".$motpasse." ".$courriel;
+            exit();
          }
     }catch(Exception $e){
     }finally{
@@ -47,6 +52,7 @@ if(isset($_SESSION['access_token']) && isset($_SESSION['userData'])){
         unset($_SESSION['userData']);
         $rep['categorie']=$categorie;
         $rep['id_util']=$ligne->id_util;
+        $rep['action']="connexion";
         $_SESSION['access_token']=$categorie;
         header((string) 'Location: ../index.php');
         exit();
@@ -808,7 +814,9 @@ function saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,
    // $rep=array();
    // $rep['act']="enregistrerUtil";
    // $rep['rep']="C'est fait";
-	$action=$_POST['action'];
+   if( isset($_POST['action']) )
+   {
+    $action=$_POST['action'];
 	switch($action){
 		case "enregistrerUtil" :
 			enregistrerUtil();
@@ -843,5 +851,8 @@ function saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,
 			modifier();
 		break;
 	}
+       
+   }
+	
     echo json_encode($rep);
 ?>

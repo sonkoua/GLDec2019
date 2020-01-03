@@ -25,43 +25,84 @@ if(isset($_GET["code"]))
         $userData = $google_service->userinfo_v2_me->get();
 
         //Below you can find Get profile userData and store into $_SESSION variable
-        if(!empty($userData['id']))
-        {
-        $_SESSION['id'] = $userData['id'];
-        }
-        if(!empty($userData['given_name']))
-        {
-        $_SESSION['user_first_name'] = $userData['given_name'];
-        }
+        
+    if(!empty($userData['id']))
+    {
+    $_SESSION['id'] = $userData['id'];
+    }
+    if(!empty($userData['given_name']))
+    {
+    $_SESSION['user_first_name'] = $userData['given_name'];
+    }
+    
+    if(!empty($userData['first_name']))
+    {
+    $_SESSION['user_first_name'] = $userData['first_name'];
+    }	
 
-        if(!empty($userData['family_name']))
-        {
-        $_SESSION['user_last_name'] = $userData['family_name'];
-        }
+    if(!empty($userData['family_name']))
+    {
+    $_SESSION['user_last_name'] = $userData['family_name'];
+    }
 
-        if(!empty($userData['email']))
-        {
-        $_SESSION['user_email_address'] = $userData['email'];
-        }
+    if(!empty($userData['last_name']))
+    {
+    $_SESSION['user_last_name'] = $userData['last_name'];
+    }	
 
-        if(!empty($userData['gender']))
-        {
-        $_SESSION['user_gender'] = $userData['gender'];
-        }
+    if(!empty($userData['email']))
+    {
+    $_SESSION['user_email_address'] = $userData['email'];
+    }
 
-        if(!empty($userData['picture']))
-        {
-        $_SESSION['user_image'] = $userData['picture'];
-        }
+    if(!empty($userData['gender']))
+    {
+    $_SESSION['user_gender'] = $userData['gender'];
+    }else{
+            $_SESSION['user_gender'] ="";
+    }
+
+
+    if(!empty($userData['picture']))
+    {
+    $_SESSION['user_image'] = $userData['picture']['url'];
+    }else{
+            $_SESSION['user_image'] ="";
+    }
+    
+    if(!empty($userData['birthday']))
+    {
+    $_SESSION['user_birthday'] = $userData['birthday'];
+    }else{
+            $_SESSION['user_birthday'] ="";
+    }
+
+    if(!empty($userData['hometown']))
+    {
+    $_SESSION['user_hometown'] = $userData['hometown'];
+    }else{
+            $_SESSION['user_hometown'] ="";
+    }
+
+    if(!empty($userData['location']))
+    {
+    $_SESSION['user_location'] = $userData['location'];
+    }else{
+            $_SESSION['user_location'] ="";
+    }
+
+    
+
  }
 
- header((string) 'Location: ../pages/pageClient.php');
+ header((string) 'Location: ../Requests/requestsControleur.php');
+
  exit();
 }
 if(!isset($_SESSION['access_token']))
 {
  //Create a URL to obtain user authorization
- header((string) 'Location: login.php');
+ header((string) 'Location: ../index.php');
  exit();
 }
 

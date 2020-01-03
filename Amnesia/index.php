@@ -12,7 +12,7 @@
 
 
     
-    $redirectURL = "http://localhost/projet/GLDec_02/Amnesia/Facebook_setup/fb-callback.php"; 
+    $redirectURL = "http://localhost/projet/GLDec2019/Amnesia/Facebook_setup/fb-callback.php"; 
     $permissions = ['email'];
     $loginURL = $helper->getLoginURL($redirectURL, $permissions);
 
