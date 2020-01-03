@@ -55,7 +55,7 @@ if(isset($_GET["code"]))
         }
  }
 
- header((string) 'Location: index.php');
+ header((string) 'Location: ../pages/pageClient.php');
  exit();
 }
 if(!isset($_SESSION['access_token']))

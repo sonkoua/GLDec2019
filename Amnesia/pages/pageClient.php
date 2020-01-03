@@ -5,6 +5,7 @@
         header((string) 'Location: ../index.php');
 
         exit();
+
     }else{
         $cat=$_SESSION['access_token'];
         //if($cat == "admin")
@@ -18,7 +19,6 @@
         }
         
     }
-
 ?>
 
 
@@ -310,27 +310,27 @@
 	<!--div class="container" style="margin-top: 100px">
             <div class="row justify-content-center">
                 <div class="col-md-3">
-                    <img style="width:80%;" src="<?php echo $_SESSION['userData']['picture'] ['url']?>"><br><br>
+                    <img style="width:80%;" src="<?php echo $_SESSION['user_image'] ?>"><br><br>
                     
                 </div>
                 <div class="col-md-9">
                    <table class="table table-hoover table-bordered">
                     <tbody>
-                        <tr>
+						<tr>
                             <td>ID</td>
-                            <td><?php echo $_SESSION['userData']['id'] ?></td>
+                            <td><?php echo $_SESSION['id']  ?></td>
                         </tr>
                         <tr>
                             <td>First Name</td>
-                            <td><?php echo $_SESSION['userData']['first_name'] ?></td>
+                            <td><?php echo $_SESSION['user_first_name'] ?></td>
                         </tr>
                         <tr>
                             <td>Last Name</td>
-                            <td><?php echo $_SESSION['userData']['last_name'] ?></td>
+                            <td><?php echo $_SESSION['user_last_name'] ?></td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td><?php echo $_SESSION['userData']['email'] ?></td>
+                            <td><?php echo $_SESSION['user_email_address'] ?></td>
                         </tr>
                     </tbody>
                    </table>
