@@ -22,7 +22,7 @@ $google_client->setClientSecret('CNkH5ubtRMh1XFYr0IIBtAck');
 $google_client->setApplicationName('Web client 3');
 
 //Set the OAuth 2.0 Redirect URI
-$google_client->setRedirectUri('http://localhost/projet/GLDec2019_1/Amnesia/Google_setup/g-callback.php');
+$google_client->setRedirectUri('http://localhost/projet/GLDec2019/Amnesia/Google_setup/g-callback.php');
 
 //
 $google_client->addScope('email');
