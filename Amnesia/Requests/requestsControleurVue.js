@@ -64,19 +64,97 @@ function selectUsers1(reponse){
 
 function connexion1(reponse){
     $('#formConnexion')[0].reset();
+    
     var cat = (reponse.categorie).toLowerCase() ;
-    if(cat == "admin")
+    localStorage.setItem("categorie", cat);
+    //localStorage.removeItem('lang'); 
+    var lang = localStorage.getItem("lang");
+    if(cat == "admin" && (lang==null || lang == "fr"))
         window.location.href = "./pages/pageAdmin.php";
-	else if(cat == "employe")
+	else if(cat == "employe" && (lang==null || lang == "fr"))
         window.location.href = "./pages/pageEmploye.php";
-    else if(cat == "client")
+    else if(cat == "client" && (lang==null || lang == "fr"))
         window.location.href = "./pages/pageClient.php";
+    else if(cat == "admin" && lang == "en")
+        window.location.href = "./pages_en/pageAdmin.php";
+	else if(cat == "employe" && lang == "en")
+        window.location.href = "./pages_en/pageEmploye.php";
+    else if(cat == "client" && lang == "en")
+        window.location.href = "./pages_en/pageClient.php";
+    else if(cat == "admin" && lang == "sp")
+        window.location.href = "./pages_sp/pageAdmin.php";
+	else if(cat == "employe" && lang == "sp")
+        window.location.href = "./pages_sp/pageEmploye.php";
+    else if(cat == "client" && lang == "sp")
+        window.location.href = "./pages_sp/pageClient.php";
+    else if(lang!=null && lang == "en")
+        $('#avertissement').html("Incorrect email or password");
+    else if(lang!=null && lang == "sp")
+        $('#avertissement').html("Correo electrónico o contraseña incorrectos");
     else
-        $('#avertissement').html(reponse.categorie);
+        $('#avertissement').html("Courriel ou mot de passe incorrect");
 }
 
+function langueCategorie(){
+    //var lang = localStorage.getItem("lang");
+    var cat=localStorage.getItem("categorie");
+    var lang = localStorage.getItem("lang");
+    if(cat===null){
+        if(lang!=null && lang == "en")
+            window.location.href = "index_en.php";
+	    else if(lang!=null && lang == "sp")
+            window.location.href = "index_sp.php";
+    }else{
+        
+        if(cat == "admin" && (lang===null || lang == "fr"))
+            window.location.href = "./pages/pageAdmin.php";
+        else if(cat == "employe" && (lang===null || lang == "fr"))
+            window.location.href = "./pages/pageEmploye.php";
+        else if(cat == "client" && (lang==null || lang == "fr"))
+            window.location.href = "./pages/pageClient.php";
+        else if(cat == "admin" && lang == "en")
+            window.location.href = "./pages_en/pageAdmin.php";
+        else if(cat == "employe" && lang == "en")
+            window.location.href = "./pages_en/pageEmploye.php";
+        else if(cat == "client" && lang == "en")
+            window.location.href = "./pages_en/pageClient.php";
+        else if(cat == "admin" && lang == "sp")
+            window.location.href = "./pages_sp/pageAdmin.php";
+        else if(cat == "employe" && lang == "sp")
+            window.location.href = "./pages_sp/pageEmploye.php";
+        else if(cat == "client" && lang == "sp")
+            window.location.href = "./pages_sp/pageClient.php";
+        
+
+    }
+}
+
+//function demarrage(){
+    //_.once(languageUtil);
+//}
+
+function effacerCategorie(){
+    localStorage.removeItem("categorie");
+
+}
+
+function demarrage(){//languageUtil(){
+    var lang = localStorage.getItem("lang");
+    if(lang!=null && lang == "en")
+        window.location.href = "index_en.php";
+	else if(lang!=null && lang == "sp")
+        window.location.href = "index_sp.php";
+}
+
+/*function langageUtil(){//languageUtil(){
+    var lang = localStorage.getItem("lang");
+    if(lang!=null && lang == "en")
+        window.location.href = "../index_en.php";
+	else if(lang!=null && lang == "sp")
+        window.location.href = "../index_sp.php";
+}*/
+
 function profilUtil1(reponse){
-    
     var tab = reponse.util;
     //alert(tab[0].nom);
     var tab2 = reponse.connexionUtil[0];
@@ -273,6 +351,15 @@ function afficherFiche(reponse){
 	setTimeout(function(){ $('#messages').html(""); }, 5000);
   }
 
+}
+
+function userLanguage(langue){
+    // Store
+  localStorage.setItem("lang", langue);
+  //if(langue==="fr")
+      //window.location.href = "./index.php";
+// Retrieve
+//document.getElementById("result").innerHTML = localStorage.getItem("lang");
 }
 
 var requestsVue=function(reponse){

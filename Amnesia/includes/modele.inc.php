@@ -48,6 +48,33 @@ function verserFichier($dossier, $inputNom, $fichierDefaut){
 	return $photo;
 }
     
+function verserPhotoUrl($dossier, $lienPhoto){
+	$dossier="../$dossier/";
+	$nomPhoto=sha1("photo".time());
+	$photo="";
+    $extension=strrchr($lienPhoto,'.');
+	if($extension != null && $extension != ""){
+		//Upload de la photo
+        $data=file_get_contents_curl($lienPhoto);
+        $photo=$nomPhoto.$extension;
+        file_put_contents($dossier.$photo, $data);
+	}
+	return $photo;
+}
+ 
+function file_get_contents_curl($url) { 
+    $ch = curl_init(); 
+  
+    curl_setopt($ch, CURLOPT_HEADER, 0); 
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+    curl_setopt($ch, CURLOPT_URL, $url); 
+  
+    $data = curl_exec($ch); 
+    curl_close($ch); 
+  
+    return $data; 
+} 
+    
 function supprimerFichier($dossier, $nomFichier){
 	$dossier="../$dossier/";
     @unlink($dossier.$nomFichier);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <title>Contact</title>
 <meta charset="utf-8">
@@ -53,16 +53,15 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="../images/logo.png" alt="">amnésia</a></div>
+							<div class="logo"><a href="#"><img src="../images/logo.png" alt="">amnesia</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="#">Accueil</a></li>
-								<li class="main_nav_item"><a href="">À propos</a></li>
-								<li class="main_nav_item"><a href="">Offres</a></li>
-								<li class="main_nav_item"><a href="">Nouveautés</a></li>
-								<li class="main_nav_item"><a href="">contact</a></li>
-								<li class="main_nav_item"><a href=""></a></li>
+								<li class="main_nav_item"><a href="../index_en.php">home</a></li>
+								<li class="main_nav_item"><a href="../pages/about.php">about us</a></li>
+								<li class="main_nav_item"><a href="../pages/offers.php">offers</a></li>
+								<li class="main_nav_item"><a href="../pages/blog.php">news</a></li>
+								<li class="main_nav_item"><a href="#">contact</a></li>
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -108,11 +107,11 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="../images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="#">accueil</a></li>
-				<li class="menu_item"><a href="about.php">à propos</a></li>
-				<li class="menu_item"><a href="offers.php">offres</a></li>
-				<li class="menu_item"><a href="blog.php">nouveautés</a></li>
-				<li class="menu_item"><a href="contact.php">contact</a></li>
+				<li class="menu_item"><a href="../index_en.php">home</a></li>
+				<li class="menu_item"><a href="../pages/about.php">about us</a></li>
+				<li class="menu_item"><a href="../pages/offers.php">offers</a></li>
+				<li class="menu_item"><a href="../pages/blog.php">news</a></li>
+				<li class="menu_item"><a href="#">contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -353,11 +352,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="#">Accueil</a></li>
-								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
-								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
-								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
-								<li class="footer_nav_item"><a href="contact.php">contact</a></li>
+								<li class="footer_nav_item"><a href="index_en.html">home</a></li>
+								<li class="footer_nav_item"><a href="about.html">about us</a></li>
+								<li class="footer_nav_item"><a href="offers.html">offers</a></li>
+								<li class="footer_nav_item"><a href="blog.html">news</a></li>
+								<li class="footer_nav_item"><a href="#">contact</a></li>
 							</ul>
 						</div>
 					</div>

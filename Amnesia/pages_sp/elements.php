@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="sp">
 <head>
 <title>Elements</title>
 <meta charset="utf-8">
@@ -52,16 +52,16 @@
 			<div class="container">
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
-						div class="logo_container">
-							<div class="logo"><a href="#"><img src="../images/logo.png" alt="">amnésia</a></div>
+						<div class="logo_container">
+							<div class="logo"><a href="#"><img src="images/logo.png" alt="">amnesia</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="#">Accueil</a></li>
-								<li class="main_nav_item"><a href="">À propos</a></li>
-								<li class="main_nav_item"><a href="">Offres</a></li>
-								<li class="main_nav_item"><a href="">Nouveautées</a></li>
-								<li class="main_nav_item"><a href="">contact</a></li>
+								<li class="main_nav_item"><a href="#">bienvenida</a></li>
+                                <li class="main_nav_item"><a href="about.php">a proposito</a></li>
+                                <li class="main_nav_item"><a href="offers.php">ofertas</a></li>
+                                <li class="main_nav_item"><a href="blog.php">nuevo</a></li>
+                                <li class="main_nav_item"><a href="contact.php">contactar</a></li>
 								<li class="main_nav_item"><a href=""></a></li>
 							</ul>
 						</div>
@@ -108,11 +108,11 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="../images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="#">accueil</a></li>
-				<li class="menu_item"><a href="about.php">à propos</a></li>
-				<li class="menu_item"><a href="offers.php">offres</a></li>
-				<li class="menu_item"><a href="blog.php">nouveautées</a></li>
-				<li class="menu_item"><a href="contact.php">contact</a></li>
+				<li class="menu_item"><a href="#">bienvenida</a></li>
+				<li class="menu_item"><a href="about.php">a proposito</a></li>
+				<li class="menu_item"><a href="offers.php">ofertas</a></li>
+				<li class="menu_item"><a href="blog.php">nuevo</a></li>
+				<li class="menu_item"><a href="contact.php">contactar</a></li>
 			</ul>
 		</div>
 	</div>
@@ -492,11 +492,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="#">Accueil</a></li>
-								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
-								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
-								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
-								<li class="footer_nav_item"><a href="contact.php">contact</a></li>
+								<li class="footer_nav_item"><a href="#">bienvenida</a></li>
+                                <li class="footer_nav_item"><a href="about.php">a proposito</a></li>
+                                <li class="footer_nav_item"><a href="offers.php">ofertas</a></li>
+                                <li class="footer_nav_item"><a href="blog.php">nuevo</a></li>
+                                <li class="footer_nav_item"><a href="contact.php">contactar</a></li>
 							</ul>
 						</div>
 					</div>

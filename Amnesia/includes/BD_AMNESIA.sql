@@ -152,7 +152,20 @@ CREATE TABLE `Connexion` (
   `statut_compte`varchar(100) COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 --
-
+--
+CREATE TABLE `ConnexionFaceBook` (
+  `id` varchar(150) COLLATE utf8_unicode_ci  NOT NULL  PRIMARY KEY,
+  `id_util` int(11) NOT NULL  ,
+  `access_token` varchar(150) COLLATE utf8_unicode_ci  NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+--
+--
+CREATE TABLE `ConnexionGoogle` (
+  `id` varchar(150) COLLATE utf8_unicode_ci  NOT NULL PRIMARY KEY,
+  `id_util` int(11) NOT NULL  ,
+  `access_token` varchar(150) COLLATE utf8_unicode_ci  NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+--
 --
 CREATE TABLE `Reservation` (
   `id` int(15) NOT NULL AUTO_INCREMENT  PRIMARY KEY,
@@ -317,7 +330,13 @@ ALTER TABLE `Sujet_Blog_Categorie_Blog`
   
 ALTER TABLE `Connexion`
   ADD FOREIGN KEY (id_util) REFERENCES Utilisateur(id);
+
+ALTER TABLE `ConnexionFaceBook`
+  ADD FOREIGN KEY (id_util) REFERENCES Utilisateur(id);
   
+ALTER TABLE `ConnexionGoogle`
+  ADD FOREIGN KEY (id_util) REFERENCES Utilisateur(id);
+
 ALTER TABLE `Reservation`
   ADD FOREIGN KEY (id_util) REFERENCES utilisateur(id),
   ADD FOREIGN KEY (id_circuit) REFERENCES Circuit(id);
@@ -356,5 +375,5 @@ ALTER TABLE `Etape_Hebergement`
   
 INSERT INTO `Ville` (`nom_ville`,`pays`) VALUES ('Montreal','Canada');
 INSERT INTO `Adresse` (`id_ville`,`adresse`) VALUES (1, '2030 Pie-IX Blvd, H1V 2C8');
-INSERT INTO `Utilisateur` (`nom`,`prenom`,`num_util`,`sexe`,date_naiss,`tel`,`id_adresse`) VALUES ('ADMIN', 'ADMIN','ADMIN','M','190-12-15','514-000-0000',1);
-INSERT INTO `Connexion` (`id_util`,`categorie`,`motdepasse`,`courriel`,`statut_compte`) VALUES (1, 'admin','admin','admin@google.com','actif');
+INSERT INTO `Utilisateur` (`nom`,`prenom`,`num_util`,`sexe`,date_naiss,`tel`,`id_adresse`) VALUES ('ADMIN', 'ADMIN','AD00000','M','190-12-15','514-000-0000',1);
+INSERT INTO `Connexion` (`id_util`,`categorie`,`motdepasse`,`courriel`,`statut_compte`) VALUES (1, 'admin','admin','admin@gmail.com','actif');

@@ -1,18 +1,50 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <title>About Us</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travelix Project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="../styles/bootstrap4/bootstrap.min.css">
-<link href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="../styles/about_styles.css">
-<link rel="stylesheet" type="text/css" href="../styles/about_responsive.css">
+
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<!--===============================================================================================-->	
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--===============================================================================================-->	
+<link href="https://fonts.googleapis.com/css?family=Aclonica&display=swap" rel="stylesheet">
+<!--===============================================================================================-->	
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<!--===============================================================================================-->	
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<!--===============================================================================================-->	
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<!--===============================================================================================-->	
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/datepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/util.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+<!--===============================================================================================-->	
+<!--===============================================================================================-->
+
+<link rel="stylesheet" type="text/css" href="styles/about_styles.css">	
+<link rel="stylesheet" type="text/css" href="styles/admin.css">
+<link rel="stylesheet" type="text/css" href="styles/about_responsive.css">
+
 </head>
 
 <body>
@@ -29,25 +61,25 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						<div class="phone">+45 345 3324 56789</div>
+						
 						<div class="social">
 							<ul class="social_list">
-								<li class="social_list_item"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-globe "  aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-instagram " aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-youtube " aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
-						<div class="user_box ml-auto">
-							<div class="user_box_login user_box_link"><a href="#">login</a></div>
-							<div class="user_box_register user_box_link"><a href="#">register</a></div>
+
+						<div class="user_box ml-auto ">
+							<div class="user_box_register user_box_link"><span class="userInfo">ADMIN</span></div>
 						</div>
 					</div>
 				</div>
 			</div>		
 		</div>
+
 
 		<!-- Main Navigation -->
 
@@ -56,16 +88,16 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="../images/logo.png" alt="">amnésia</a></div>
+							<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnesia</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="#">Accueil</a></li>
-								<li class="main_nav_item"><a href="">À propos</a></li>
-								<li class="main_nav_item"><a href="">Offres</a></li>
-								<li class="main_nav_item"><a href="">Nouveautés</a></li>
-								<li class="main_nav_item"><a href="">contact</a></li>
-								<li class="main_nav_item"><a href=""></a></li>
+								<li class="main_nav_item"><a href="index.html">Accueil</a></li>
+								<li class="main_nav_item"><a href="about.html">À propos</a></li>
+								<li class="main_nav_item"><a href="offers.html">Offres</a></li>
+								<li class="main_nav_item"><a href="blog.html">Nouveautées</a></li>
+								<li class="main_nav_item"><a href="contact.html">contacte</a></li>
+								<li class="main_nav_item"><a href="#">Admin</a></li>
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -95,7 +127,7 @@
 						<form id="search_form" class="search_form bez_1">
 							<input type="search" class="search_content_input bez_1">
 						</form>
-						
+
 						<div class="hamburger">
 							<i class="fa fa-bars trans_200"></i>
 						</div>
@@ -109,21 +141,21 @@
 	<div class="menu trans_500">
 		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
 			<div class="menu_close_container"><div class="menu_close"></div></div>
-			<div class="logo menu_logo"><a href="#"><img src="../images/logo.png" alt=""></a></div>
+			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="#">accueil</a></li>
-				<li class="menu_item"><a href="about.php">à propos</a></li>
-				<li class="menu_item"><a href="offers.php">offres</a></li>
-				<li class="menu_item"><a href="blog.php">nouveautés</a></li>
-				<li class="menu_item"><a href="contact.php">contact</a></li>
+				<li class="menu_item"><a href="index.html">accueil</a></li>
+				<li class="menu_item"><a href="about.html">à proprs</a></li>
+				<li class="menu_item"><a href="offers.html">offres</a></li>
+				<li class="menu_item"><a href="blog.html">nouveautées</a></li>
+				<li class="menu_item"><a href="contact.html">contacte</a></li>
+				<li class="main_nav_item"><a href="#">Admin</a></li>
 			</ul>
 		</div>
 	</div>
-
 	<!-- Home -->
 
 	<div class="home">
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="../images/about_background.jpg"></div>
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/about_background.jpg"></div>
 		<div class="home_content">
 			<div class="home_title">about us</div>
 		</div>
@@ -131,11 +163,11 @@
 
 	<!-- Intro -->
 
-	<div class="intro">
+	<!--<div class="intro">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-7">
-					<div class="intro_image"><img src="../images/intro.png" alt=""></div>
+					<div class="intro_image"><img src="images/intro.png" alt=""></div>
 				</div>
 				<div class="col-lg-5">
 					<div class="intro_content">
@@ -146,11 +178,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Stats -->
 
-	<div class="stats">
+	<!--<div class="stats">
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
@@ -175,10 +207,10 @@
 					<div class="stats_contents">
 						
 						<!-- Stats Item -->
-						<div class="stats_item d-flex flex-md-row flex-column clearfix">
+						<!--<div class="stats_item d-flex flex-md-row flex-column clearfix">
 							<div class="stats_last order-md-1 order-3">
 								<div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
-									<img src="../images/stats_1.png" alt="">
+									<img src="images/stats_1.png" alt="">
 								</div>
 								<div class="stats_last_content">
 									<div class="stats_number">1642</div>
@@ -194,20 +226,20 @@
 							</div>
 							<div class="stats_new order-md-3 order-1 text-right">
 								<div class="stats_new_icon d-flex flex-column align-items-center justify-content-end">
-									<img src="../images/stats_1.png" alt="">
+									<img src="images/stats_1.png" alt="">
 								</div>
 								<div class="stats_new_content">
 									<div class="stats_number">3527</div>
 									<div class="stats_type">Clients</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 						
 						<!-- Stats Item -->
-						<div class="stats_item d-flex flex-md-row flex-column clearfix">
+						<!--<div class="stats_item d-flex flex-md-row flex-column clearfix">
 							<div class="stats_last order-md-1 order-3">
 								<div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
-									<img src="../images/stats_2.png" alt="">
+									<img src="images/stats_2.png" alt="">
 								</div>
 								<div class="stats_last_content">
 									<div class="stats_number">768</div>
@@ -223,20 +255,20 @@
 							</div>
 							<div class="stats_new order-md-3 order-1 text-right">
 								<div class="stats_new_icon d-flex flex-column align-items-center justify-content-end">
-									<img src="../images/stats_2.png" alt="">
+									<img src="images/stats_2.png" alt="">
 								</div>
 								<div class="stats_new_content">
 									<div class="stats_number">145</div>
 									<div class="stats_type">Returning Clients</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 
 						<!-- Stats Item -->
-						<div class="stats_item d-flex flex-md-row flex-column clearfix">
+						<!--<div class="stats_item d-flex flex-md-row flex-column clearfix">
 							<div class="stats_last order-md-1 order-3">
 								<div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
-									<img src="../images/stats_3.png" alt="">
+									<img src="images/stats_3.png" alt="">
 								</div>
 								<div class="stats_last_content">
 									<div class="stats_number">11546</div>
@@ -252,20 +284,20 @@
 							</div>
 							<div class="stats_new order-md-3 order-1 text-right">
 								<div class="stats_new_icon d-flex flex-column align-items-center justify-content-end">
-									<img src="../images/stats_3.png" alt="">
+									<img src="images/stats_3.png" alt="">
 								</div>
 								<div class="stats_new_content">
 									<div class="stats_number">9321</div>
 									<div class="stats_type">Reach</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 
 						<!-- Stats Item -->
-						<div class="stats_item d-flex flex-md-row flex-column clearfix">
+						<!-- <div class="stats_item d-flex flex-md-row flex-column clearfix">
 							<div class="stats_last order-md-1 order-3">
 								<div class="stats_last_icon d-flex flex-column align-items-center justify-content-end">
-									<img src="../images/stats_4.png" alt="">
+									<img src="images/stats_4.png" alt="">
 								</div>
 								<div class="stats_last_content">
 									<div class="stats_number">3729</div>
@@ -281,7 +313,7 @@
 							</div>
 							<div class="stats_new order-md-3 order-1 text-right">
 								<div class="stats_new_icon d-flex flex-column align-items-center justify-content-end">
-									<img src="../images/stats_4.png" alt="">
+									<img src="images/stats_4.png" alt="">
 								</div>
 								<div class="stats_new_content">
 									<div class="stats_number">17429</div>
@@ -294,11 +326,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Add -->
 
-	<div class="add">
+	<!--<div class="add">
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -313,45 +345,45 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 
 	<!-- Milestones -->
 
-	<div class="milestones">
+	<!--<div class="milestones">
 		<div class="container">
 			<div class="row">
 				
 				<!-- Milestone -->
-				<div class="col-lg-3 milestone_col">
+				<!--<div class="col-lg-3 milestone_col">
 					<div class="milestone text-center">
-						<div class="milestone_icon"><img src="../images/milestone_1.png" alt=""></div>
+						<div class="milestone_icon"><img src="images/milestone_1.png" alt=""></div>
 						<div class="milestone_counter" data-end-value="255">0</div>
 						<div class="milestone_text">Clients</div>
 					</div>
 				</div>
 
 				<!-- Milestone -->
-				<div class="col-lg-3 milestone_col">
+				<!--<div class="col-lg-3 milestone_col">
 					<div class="milestone text-center">
-						<div class="milestone_icon"><img src="../images/milestone_2.png" alt=""></div>
+						<div class="milestone_icon"><img src="images/milestone_2.png" alt=""></div>
 						<div class="milestone_counter" data-end-value="1176">0</div>
 						<div class="milestone_text">Projects</div>
 					</div>
 				</div>
 
 				<!-- Milestone -->
-				<div class="col-lg-3 milestone_col">
+				<!--<div class="col-lg-3 milestone_col">
 					<div class="milestone text-center">
-						<div class="milestone_icon"><img src="../images/milestone_3.png" alt=""></div>
+						<div class="milestone_icon"><img src="images/milestone_3.png" alt=""></div>
 						<div class="milestone_counter" data-end-value="39">0</div>
 						<div class="milestone_text">Countries</div>
 					</div>
 				</div>
 
 				<!-- Milestone -->
-				<div class="col-lg-3 milestone_col">
+				<!--<div class="col-lg-3 milestone_col">
 					<div class="milestone text-center">
-						<div class="milestone_icon"><img src="../images/milestone_4.png" alt=""></div>
+						<div class="milestone_icon"><img src="images/milestone_4.png" alt=""></div>
 						<div class="milestone_counter" data-end-value="127">0</div>
 						<div class="milestone_text">Coffees</div>
 					</div>
@@ -359,7 +391,7 @@
 
 			</div>
 		</div>
-	</div>
+	</div>-->
 
 	<!-- Footer -->
 
@@ -372,9 +404,9 @@
 					<div class="footer_col">
 						<div class="footer_content footer_about">
 							<div class="logo_container footer_logo">
-								<div class="logo"><a href="#"><img src="../images/logo.png" alt="">travelix</a></div>
+								<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnésia</a></div>
 							</div>
-							<p class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula pretium.</p>
+							
 							<ul class="footer_social_list">
 								<li class="footer_social_item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
 								<li class="footer_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
@@ -385,94 +417,9 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- Footer Column -->
-				<div class="col-lg-3 footer_column">
-					<div class="footer_col">
-						<div class="footer_title">blog posts</div>
-						<div class="footer_content footer_blog">
-							
-							<!-- Footer blog item -->
-							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="../images/footer_blog_1.jpg" alt="https://unsplash.com/@avidenov"></div>
-								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
-								</div>
-							</div>
-							
-							<!-- Footer blog item -->
-							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="../images/footer_blog_2.jpg" alt="https://unsplash.com/@deannaritchie"></div>
-								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">New destinations for you</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
-								</div>
-							</div>
-
-							<!-- Footer blog item -->
-							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="../images/footer_blog_3.jpg" alt="https://unsplash.com/@bergeryap87"></div>
-								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-				<!-- Footer Column -->
-				<div class="col-lg-3 footer_column">
-					<div class="footer_col">
-						<div class="footer_title">tags</div>
-						<div class="footer_content footer_tags">
-							<ul class="tags_list clearfix">
-								<li class="tag_item"><a href="#">design</a></li>
-								<li class="tag_item"><a href="#">fashion</a></li>
-								<li class="tag_item"><a href="#">music</a></li>
-								<li class="tag_item"><a href="#">video</a></li>
-								<li class="tag_item"><a href="#">party</a></li>
-								<li class="tag_item"><a href="#">photography</a></li>
-								<li class="tag_item"><a href="#">adventure</a></li>
-								<li class="tag_item"><a href="#">travel</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<!-- Footer Column -->
-				<div class="col-lg-3 footer_column">
-					<div class="footer_col">
-						<div class="footer_title">contact info</div>
-						<div class="footer_content footer_contact">
-							<ul class="contact_info_list">
-								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="../images/placeholder.svg" alt=""></div></div>
-									<div class="contact_info_text">4127 Raoul Wallenber 45b-c Gibraltar</div>
-								</li>
-								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="../images/phone-call.svg" alt=""></div></div>
-									<div class="contact_info_text">2556-808-8613</div>
-								</li>
-								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="../images/message.svg" alt=""></div></div>
-									<div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">contactme@gmail.com</a></div>
-								</li>
-								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="../images/planet-earth.svg" alt=""></div></div>
-									<div class="contact_info_text"><a href="https://colorlib.com">www.colorlib.com</a></div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
 			</div>
 		</div>
 	</footer>
-
 	<!-- Copyright -->
 
 	<div class="copyright">
@@ -489,11 +436,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="#">Accueil</a></li>
-								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
-								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
-								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
-								<li class="footer_nav_item"><a href="contact.php">contact</a></li>
+								<li class="footer_nav_item"><a href="index.html">home</a></li>
+								<li class="footer_nav_item"><a href="#">about us</a></li>
+								<li class="footer_nav_item"><a href="offers.html">offers</a></li>
+								<li class="footer_nav_item"><a href="blog.html">news</a></li>
+								<li class="footer_nav_item"><a href="contact.html">contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -504,18 +451,73 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 </div>
 
-<script src="../js/jquery-3.2.1.min.js"></script>
-<script src="../styles/bootstrap4/popper.js"></script>
-<script src="../styles/bootstrap4/bootstrap.min.js"></script>
-<script src="../plugins/greensock/TweenMax.min.js"></script>
-<script src="../plugins/greensock/TimelineMax.min.js"></script>
-<script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
-<script src="../plugins/greensock/animation.gsap.min.js"></script>
-<script src="../plugins/greensock/ScrollToPlugin.min.js"></script>
-<script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="../plugins/easing/easing.js"></script>
-<script src="../plugins/parallax-js-master/parallax.min.js"></script>
-<script src="../js/about_custom.js"></script>
+<!-- MODAL PROFIL-->
+
+<div id="id04" class="modal">
+	<div class=" ">
+		<form class="modal-content2 animate  validate-form p-l-5 p-r-5 p-t-45 p-b-45" >
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('id04s').style.display='none'" class="close1" title="Close Modal">&times;</span>
+			</div>
+			<!--<span class="login100-form-title p-b-30">
+			PROFIL
+			</span> -->
+
+			<div id="wrapper">
+				<div id="content">
+					<div id="card">
+						<div id="front">
+							
+							<div id="top-pic">
+								<span class="login100-form-title p-b-30 m-t-30">PROFIL</span>
+							</div>
+							<div id="avatar"></div>
+							<div id="info-box">
+								<div class="info">
+									<h1 class="detail">Benyaghla</h1>
+									<h2 class="detail1">Ali</h2>
+								</div>
+							</div>
+							<div id="social-bar">
+								<a href="" target="" class="bntProfil">
+									<i class="fa fa-user" aria-hidden="true"></i>
+									Modifier profil
+								</a>
+								<a href="" target="" class="bntProfil">
+									<i class="fa fa-pencil-square" aria-hidden="true"></i>
+									Changer photo
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/about_custom.js"></script>
+
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/datepicker/moment.min.js"></script>
+<script src="vendor/datepicker/daterangepicker.js"></script>
+<script src="js/custom.js"></script>
+<!--===============================================================================================-->
+<script src="js/validation.js"></script>
 
 </body>
 

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION['access_token'])){
+    if(!isset($_SESSION['categorie'])){
         header((string) 'Location: ../index.php');
 
         exit();
@@ -84,10 +84,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						
+						<div class="nav-item avatar dropdown">
+                        <a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                          <img id="langImg" src="../images/multilangicon7.jpg" class="rounded-circle avatar1"
+                            alt="avatar image">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+                            <a id="Francais" class="dropdown-item">Français</a>
+                            <a class="dropdown-item" href="#" type="button">English </a>
+                            <a class="dropdown-item" href="#">Español</a>
+                        </div>
+                          </div>
 						<div class="social">
 							<ul class="social_list">
-								<li class="social_list_item"><a href="#"><i class="fa fa-globe "  aria-hidden="true"></i></a></li>
+								<!--li class="social_list_item"><a href="#"><i class="fa fa-globe "  aria-hidden="true"></i></a></li-->
 								<li class="social_list_item"><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-instagram " aria-hidden="true"></i></a></li>
@@ -120,7 +131,7 @@
 								<li class="main_nav_item"><a href="index.php">Accueil</a></li>
 								<li class="main_nav_item"><a href="about.php">À propos</a></li>
 								<li class="main_nav_item"><a href="offers.php">Offres</a></li>
-								<li class="main_nav_item"><a href="blog.php">Nouveautées</a></li>
+								<li class="main_nav_item"><a href="blog.php">Nouveautés</a></li>
 								<li class="main_nav_item"><a href="contact.php">contacte</a></li>
 								<li class="main_nav_item"><a href="profilClient.php">Profil</a></li>
 							</ul>
@@ -171,7 +182,7 @@
 				<li class="menu_item"><a href="index.php">accueil</a></li>
 				<li class="menu_item"><a href="about.php">à proprs</a></li>
 				<li class="menu_item"><a href="offers.php">offres</a></li>
-				<li class="menu_item"><a href="blog.php">nouveautées</a></li>
+				<li class="menu_item"><a href="blog.php">nouveautés</a></li>
 				<li class="menu_item"><a href="contact.php">contacte</a></li>
 			</ul>
 		</div>

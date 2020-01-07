@@ -7,55 +7,113 @@ session_start();
    // $tabRes="";
 
 
-if(isset($_SESSION['access_token']) && isset($_SESSION['user_email_address'])){
+if(isset($_SESSION['access_token']) && isset($_SESSION['type_connexion'])){
     //$userData=$_SESSION['userData'];
-    
+    $id = $_SESSION['id'];
+    $access_token=$_SESSION['access_token'];
     $nom=$_SESSION['user_first_name'];
     $prenom=$_SESSION['user_last_name'];
     $courriel=$_SESSION['user_email_address'];
+    $type_connexion=$_SESSION['type_connexion'];
+    
+    
     $categorie='client';
-    $requete="SELECT * FROM Connexion WHERE courriel =?";// AND motdepasse =?";
-    try{
-         $unModele=new requestsModele($requete,array($courriel));//, $_SESSION['access_token']));
-         $stmt=$unModele->executer();
+    
 
-         if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-             $id_util=$ligne->id_util;
-             $_SESSION['id_util']=$id_util;
-             $categorie=$ligne->categorie;
+    echo "<script type='text/javascript'>
+            localStorage.setItem('categorie', 'client');
+        </script>";
+
+
+    
+    
+    $requeteF="SELECT * FROM ConnexionFacbook WHERE courriel =?";
+    // AND motdepasse =?";
+    try{
+        if($type_connexion=="facebook"){
+            $unModele=new requestsModele($requete,array($id));//, $_SESSION['access_token']));
+            $stmt=$unModele->executer();
+        }else{
+            $requete="SELECT * FROM ConnexionGoogle WHERE courriel =?";
+            $unModele=new requestsModele($requete,array($id));//, $_SESSION['access_token']));
+            $stmt=$unModele->executer();
+        }
+        if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+            $id_util=$ligne->id_util;
+            $_SESSION['id_util']=$id_util;
+            $_SESSION['categorie']="client";
+            //$categorie=$ligne->categorie;
+            header((string) 'Location: ./pageClient.php');             
+            unset($_SESSION['id']);
+            unset($_SESSION['access_token']);
+            unset($_SESSION['type_connexion']);
+            unset($_SESSION['user_first_name']);
+            unset($_SESSION['user_last_name']);
+            unset($_SESSION['user_email_address']);
+            exit();
 
          }else{
              
             $sexe=$_SESSION['user_gender'];
+            ///$sexe="sexeTest";
             $num_util="0";
             $date_naiss=$_SESSION['user_birthday'];
-            $motpasse="1111";
+            ///$date_naiss="datenaissT";
+            //$motpasse="1111";
+            $motpasse=sha1("password".time());
             $tel='';
             $adresse=$_SESSION['user_location'];
             $ville=$_SESSION['user_hometown'];
+            ///$adresse="adreesTest";
+            ///$ville="villeTest";
             $pays='';
             $categorie='client';
             $id_ville = 0;
-            $photo = "";
+            $lienPhoto=$_SESSION['user_image'];
+            $photo = $unModele->verserPhotoUrl("images", $lienPhoto);
             $id_adresse = 0;
             $id_util = 0;
             //$photo=$_SESSION['user_image'];
             saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,$ville,$pays,$categorie,$motpasse,$courriel);
             //$rep['categorie']="Courriel ou mot de passe incorrect";
             
-            echo $date_naiss." ".$nom." ".$prenom." ".$num_util." ".$sexe." ".$date_naiss." ".$tel." ".$photo." ".$adresse." ".$ville." ".$pays." ".$categorie." ".$motpasse." ".$courriel;
+           // echo $date_naiss." ".$nom." ".$prenom." ".$num_util." ".$sexe." ".$date_naiss." ".$tel." ".$photo." ".$adresse." ".$ville." ".$pays." ".$categorie." ".$motpasse." ".$courriel;
+            // exit();
+            $requete="SELECT id_util FROM Connexion WHERE motdepasse =?"; 
+            $unModele=new requestsModele($requete,array($motpasse));//, $_SESSION['access_token']));
+            $stmt=$unModele->executer();
+
+            if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+                 $id_util=$ligne->id_util;
+                 $_SESSION['id_util']=$id_util;
+                 $_SESSION['categorie']=$ligne->categorie;
+                 $categorie=$ligne->categorie;
+                
+                if($type_connexion=="facebook"){
+                    $requete="INSERT INTO ConnexionFaceBook VALUES(?,?,?)";
+                }elseif($type_connexion=="google"){
+                    $requete="INSERT INTO ConnexionGoogle VALUES(?,?,?)";
+                }
+                
+                $unModele=new requestsModele($requete,array($id,$id_util,$access_token));
+                $stmt=$unModele->executer();
+                header((string) 'Location: ./pageClient.php');
+                
+            }else
+                echo "Connexion échouée";
+            unset($_SESSION['id']);
+            unset($_SESSION['access_token']);
+            unset($_SESSION['type_connexion']);
+            unset($_SESSION['user_first_name']);
+            unset($_SESSION['user_last_name']);
+            unset($_SESSION['user_email_address']);
+            unset($_SESSION['user_gender']);
+            unset($_SESSION['user_birthday']);
+            unset($_SESSION['user_hometown']);
+            unset($_SESSION['user_image']);
             exit();
          }
     }catch(Exception $e){
-    }finally{
-        unset($unModele);
-        unset($_SESSION['userData']);
-        $rep['categorie']=$categorie;
-        $rep['id_util']=$ligne->id_util;
-        $rep['action']="connexion";
-        $_SESSION['access_token']=$categorie;
-        header((string) 'Location: ../index.php');
-        exit();
     }
     
 }
@@ -110,6 +168,7 @@ function saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,
     
    // $chaine = $nom."--".$prenom."--".$courriel."--".$sexe."--".$num_util."--".$date_naiss."--".$motpasse."--".$tel."--".$adresse."--".$ville."--".$pays."--".$categorie;
    // $rep['rep']=$chaine;
+    $id_util=0;
     $requete="SELECT id FROM Ville WHERE nom_ville=? AND pays=?";
     try{
          $unModele=new requestsModele($requete,array($ville, $pays));
@@ -259,10 +318,36 @@ function saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,
 			}
 			
             
-            $requete="UPDATE Adresse SET  adresse=? WHERE id=?"; 
+            
+            $requete="SELECT id,ville,pays FROM Ville WHERE ville=? AND pays=?";
+            try{
+                 $unModele=new requestsModele($requete,array($ville,$pays));
+                 $stmt=$unModele->executer();
+                 if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+                     $id_ville=$ligne->id;
+                 }else{
+                    $requete="INSERT INTO Ville VALUES(0,?,?)";
+                    $unModele=new requestsModele($requete,array($ville,$pays));
+                    $stmt=$unModele->executer();
+
+                //
+                    $requete="SELECT id FROM Ville WHERE nom_ville=? AND pays=?";
+
+                    $unModele=new requestsModele($requete,array($ville, $pays));
+                    $stmt=$unModele->executer();
+                    $ligne=$stmt->fetch(PDO::FETCH_OBJ);
+                    $id_ville=$ligne->id;
+                }
+                
+            }catch(Exception $e){
+            }finally{
+                unset($unModele);
+            }
+            
+            $requete="UPDATE Adresse SET id_ville=?, adresse=? WHERE id=?"; 
             try{
                 
-                $unModele=new requestsModele($requete,array($adresse,$id_adresse));
+                $unModele=new requestsModele($requete,array($id_ville,$adresse,$id_adresse));
                 $stmt=$unModele->executer();
                 //$tabRes['msg']="Vile bien enregistr�e";
             }catch(Exception $e){
@@ -270,7 +355,7 @@ function saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,
                 unset($unModele);
             }
             
-            $requete="SELECT id_ville FROM Adresse WHERE id=?";
+           /* $requete="SELECT id_ville FROM Adresse WHERE id=?";
             try{
                  $unModele=new requestsModele($requete,array($id_adresse));
                  $stmt=$unModele->executer();
@@ -280,9 +365,11 @@ function saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,
             }catch(Exception $e){
             }finally{
                 unset($unModele);
-            }
-                
-            try{
+            }*/
+            
+            
+            
+           /* try{
                // $unModele=new requestsModele();
                 $requete="UPDATE Ville SET nom_ville=?, pays=? WHERE id=?";
                 $unModele=new requestsModele($requete,array($ville,$pays,$id_ville));
@@ -291,7 +378,7 @@ function saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,
             }catch(Exception $e){
             }finally{
                 unset($unModele);
-            }
+            }*/
 			
                 
                 
@@ -419,7 +506,7 @@ function saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,
                      $cat=$ligne->categorie;
                      $rep['categorie']=$cat;
                      $rep['id_util']=$ligne->id_util;
-                     $_SESSION['access_token']=$cat;
+                     $_SESSION['categorie']=$cat;
                 }else{ 
                      $rep['categorie']="Votre compte est désactivé, veuillez contacter un membre de l'administration.";
                 }  
