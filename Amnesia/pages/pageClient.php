@@ -1,13 +1,13 @@
 
 <?php
     session_start();
-    if(!isset($_SESSION['access_token'])){
+    if(!isset($_SESSION['categorie'])){
         header((string) 'Location: ../index.php');
 
         exit();
 
     }else{
-        $cat=$_SESSION['access_token'];
+        $cat=$_SESSION['categorie'];
         //if($cat == "admin")
             //header((string) 'Location: pageAdmin.php');
         if($cat == "employe"){
@@ -84,10 +84,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						
+						<div class="nav-item avatar dropdown">
+                            <a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
+                              <img id="langImg" src="../images/multilangicon7.jpg" class="rounded-circle avatar1"
+                                alt="avatar image">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+                                <a id="Francais" class="dropdown-item">Français</a>
+                                <a class="dropdown-item"  href="../index_en.php" onclick="userLanguage('en');">English </a>
+                                <a class="dropdown-item"  href="../index_sp.php" onclick="userLanguage('sp');">Español</a>
+                            </div>
+                          </div>
 						<div class="social">
 							<ul class="social_list">
-								<li class="social_list_item"><a href="#"><i class="fa fa-globe "  aria-hidden="true"></i></a></li>
+								<!--li class="social_list_item"><a href="#"><i class="fa fa-globe "  aria-hidden="true"></i></a></li-->
 								<li class="social_list_item"><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-instagram " aria-hidden="true"></i></a></li>
@@ -98,7 +109,7 @@
 						<div class="user_box ml-auto ">
 							<!--div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div-->
                             <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">Mon compte</button></div>
-                            <div class="user_box_login user_box_link"><button onclick="location.href='logout.php';">Déconnexion</button></div>
+                            <div class="user_box_login user_box_link"><button onclick="location.href='logout.php';effacerCategorie();"> Déconnexion</button></div>
                             <div class="user_box_login user_box_link">   
                              <div class="nav-item avatar dropdown">
                                 <a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
@@ -109,10 +120,11 @@
                                 <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
                                     <a id="userName" class="dropdown-item"></a>
                                     <a class="dropdown-item" href="#" type="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Profil </a>
-                                    <a class="dropdown-item" href="logout.php">Déconnecter</a>
+                                    <a class="dropdown-item" href="logout.php"  onclick="effacerCategorie();">Déconnecter</a>
                                 </div>
                               </div>
                             </div>
+                            
 						</div>
                         
 					</div>
@@ -134,7 +146,7 @@
 								<li class="main_nav_item"><a href="#">Accueil</a></li>
 								<li class="main_nav_item"><a href="about.php">À propos</a></li>
 								<li class="main_nav_item"><a href="offers.php">Offres</a></li>
-								<li class="main_nav_item"><a href="blog.php">Nouveautées</a></li>
+								<li class="main_nav_item"><a href="blog.php">Nouveautés</a></li>
 								<li class="main_nav_item"><a href="contact.php">contact</a></li>
                                 <!--li class="main_nav_item"><a href="profilUtilisateur.php">Profil</a></li-->
 								<!--li class="main_nav_item"><a onClick="profilUtil()">Profil</a></li-->
@@ -187,7 +199,7 @@
 				<li class="menu_item"><a href="#">accueil</a></li>
 				<li class="menu_item"><a href="about.php">à proprs</a></li>
 				<li class="menu_item"><a href="offers.php">offres</a></li>
-				<li class="menu_item"><a href="blog.php">nouveautées</a></li>
+				<li class="menu_item"><a href="blog.php">nouveautéss</a></li>
 				<li class="menu_item"><a href="contact.php">contact</a></li>
 			</ul>
 		</div>

@@ -10,68 +10,67 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>Profil Utilisateur</title>
+<title>Travelix</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travelix Project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
 
-
-<script language="javascript" src="../js/jquery-3.3.1.min.js"></script>
-<script language="javascript" src="../Requests/Requetes.js"></script>
-<script language="javascript" src="../Requests/requestsControleurVue.js"></script>
+<script language="javascript" src="js/jquery-3.3.1.min.js"></script>
+<script language="javascript" src="Requests/Requetes.js"></script>
+<script language="javascript" src="Requests/requestsControleurVue.js"></script>
 <!--script src="js/jquery-3.2.1.min.js"></script-->
-<script src="../styles/bootstrap4/popper.js"></script>
-<script src="../styles/bootstrap4/bootstrap.min.js"></script>
-<script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="../plugins/easing/easing.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
 
 <!--===============================================================================================-->
-<script src="../js/main.js"></script>
+<script src="js/main.js"></script>
 <!--===============================================================================================-->
-<script src="../vendor/datepicker/moment.min.js"></script>
-<script src="../vendor/datepicker/daterangepicker.js"></script>
-<script src="../js/custom.js"></script>
+<script src="vendor/datepicker/moment.min.js"></script>
+<script src="vendor/datepicker/daterangepicker.js"></script>
+<script src="js/custom.js"></script>
 <!--===============================================================================================-->
-<script src="../js/validation.js"></script>
+<script src="js/validation.js"></script>
     
-<link rel="stylesheet" type="text/css" href="../styles/bootstrap4/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
 <!--===============================================================================================-->	
-<link href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <!--===============================================================================================-->	
 <link href="https://fonts.googleapis.com/css?family=Aclonica&display=swap" rel="stylesheet">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="../vendor/datepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="vendor/datepicker/daterangepicker.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="../styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="../styles/responsive.css">
-<link rel="stylesheet" type="text/css" href="../styles/util.css">
-<link rel="stylesheet" type="text/css" href="../styles/main.css">
+<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/util.css">
+<link rel="stylesheet" type="text/css" href="styles/main.css">
 <!--===============================================================================================-->	
 
 
 </head>
 
-<body onload="profilUtil();">
+<body onload="profilUtil()">
 
 <div class="super_container">
 	
@@ -85,10 +84,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						
+						<div class="nav-item avatar dropdown">
+                        <a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">
+                          <img id="langImg" src="../images/multilangicon7.jpg" class="rounded-circle avatar1"
+                            alt="avatar image">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+                            <a id="Francais" class="dropdown-item">Français</a>
+                            <a class="dropdown-item" href="#" type="button">English </a>
+                            <a class="dropdown-item" href="#">Español</a>
+                        </div>
+                          </div>
 						<div class="social">
 							<ul class="social_list">
-								<li class="social_list_item"><a href="#"><i class="fa fa-globe "  aria-hidden="true"></i></a></li>
+								<!--li class="social_list_item"><a href="#"><i class="fa fa-globe "  aria-hidden="true"></i></a></li-->
 								<li class="social_list_item"><a href="#"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-instagram " aria-hidden="true"></i></a></li>
@@ -98,7 +108,8 @@
 
 						<div class="user_box ml-auto ">
 							<!--div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div-->
-                            <div class="user_box_login user_box_link"><button onclick="location.href='logout.php';effacerCategorie();"> Déconnexion</button></div>
+                            <div class="user_box_login user_box_link"> <a href="logout.php">Déconnexion</a></div>
+							<div class="user_box_register user_box_link"><button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" ></button></div>
 						</div>
 
 					</div>
@@ -113,16 +124,16 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="../images/LogoA.png" alt="">amnésia</a></div>
+							<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnesia</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="../index.php">Accueil</a></li>
-								<li class="main_nav_item"><a href="about.php">À propos</a></li>
-								<li class="main_nav_item"><a href="offers.php">Offres</a></li>
-								<li class="main_nav_item"><a href="blog.php">Nouveautés</a></li>
-								<li class="main_nav_item"><a href="contact.php">contact</a></li>
-								<!--li class="main_nav_item"><a href="profilClient.php">Profil</a></li-->
+								<li class="main_nav_item"><a href="#">Home</a></li>
+								<li class="main_nav_item"><a href="">About us</a></li>
+								<li class="main_nav_item"><a href="">Offers</a></li>
+								<li class="main_nav_item"><a href="">New</a></li>
+								<li class="main_nav_item"><a href="">Contact</a></li>
+								<li class="main_nav_item"><a href=""></a></li>
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -166,13 +177,14 @@
 	<div class="menu trans_500">
 		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
 			<div class="menu_close_container"><div class="menu_close"></div></div>
-			<div class="logo menu_logo"><a href="#"><img src="../images/logo.png" alt=""></a></div>
+			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="../index.php">accueil</a></li>
-				<li class="menu_item"><a href="about.php">à proprs</a></li>
-				<li class="menu_item"><a href="offers.php">offres</a></li>
-				<li class="menu_item"><a href="blog.php">nouveautés</a></li>
-				<li class="menu_item"><a href="contact.php">contact</a></li>
+				<li class="menu_item"><a href="#">Home</a></li>
+                <li class="menu_item"><a href="">About us</a></li>
+                <li class="menu_item"><a href="">Offers</a></li>
+                <li class="menu_item"><a href="">New</a></li>
+                <li class="menu_item"><a href="">Contact</a></li>
+                <li class="menu_item"><a href=""></a></li>
 			</ul>
 		</div>
 	</div>
@@ -241,25 +253,9 @@
 			</div>
 			
 			<span class="login100-form-title p-b-30">
-				DÉTAIL DU COMPTE
+				VOTRE PROFIL
 			</span>
 			
-            <div class="form-row m-b-30">
-				<div class="form-group col-md-5 m-l-25 input100-1 hide" id="id_util01">
-					<span class="label-input100">ID: &nbsp;&nbsp; &nbsp;&nbsp;</span>
-					<input  type="text" name="id_util1" id="id_util_profil" value="" readonly>
-					<span class="focus-input100"></span>
-				</div>
-	
-				<div class="form-group col-md-5 m-l-60 input100-1 hide" id="num_util01">
-					<span class="label-input100">Numéro d'employé:&nbsp;&nbsp; &nbsp;&nbsp;</span>
-					<input  type="text" name="num_util1" id="num_util_profil" value="" readonly>
-					<span class="focus-input100" ></span>
-				</div>
-			</div>
-        
-        
-        
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Nom</span>
@@ -323,15 +319,10 @@
 					<span class="label-input100">Date de naissance</span>
 					<input class="input100" type="text" name="date_naiss1" id="date_naiss_profil" readonly>
                     <span class="focus-input100"></span>
-                    
-                    <div class="hide" id="categorie01">
-                        <span class="label-input100">categorie:&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <input  type="text" name="categorie1" id="categorie_profil" value="">
-                    </div>
 				</div>
-                
-				<div class="form-row m-b-30">
-				<div class="wrap-login100-form-btn" id="modifier01">
+	
+				<div class="container-login100-form-btn">
+				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
 					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerUtil();">S'inscrire</button-->
                     <input type="button" id="modifierClient" class="login100-form-btn" value="Modifier mon profil" onclick="document.getElementById('id02').style.display='block'" >
@@ -339,6 +330,13 @@
 			</div>
 			</div>
             
+            <div class="hide">
+                <input  type="text" name="categorie1"  value="client">
+			</div>
+            <div class="hide">
+                <input  type="text" name="num_util1"  value="">
+			</div>
+
             
 	</div>
 
@@ -354,23 +352,7 @@
 				Inscription
 			</span>
 			
-            <div class="form-row m-b-20">
-				<div class="form-group col-md-5 m-l-25 input100-1 hide" id="id_util001" data-validate = "Username is reauired">
-					<span class="label-input100">ID</span>
-					<input class="input100" type="text" name="id_util" id="id_util" readonly>
-					<span class="focus-input100"></span>
-				</div>
-	
-				<div class="form-group col-md-5 m-l-60 input100-1 hide" id="num_util001" data-validate="Password is required">
-					<span class="label-input100">Numéro d'employé</span>
-					<input class="input100" type="text" name="num_util" id="num_util" required="required">
-					<span class="focus-input100" ></span>
-				</div>
-			</div>
-            
-
-            
-			<div class="form-row m-b-30">
+			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Nom</span>
 					<input class="input100" type="text" name="nom" id="nom" required="required" placeholder="Entrez votre nom">
@@ -379,7 +361,7 @@
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
 					<span class="label-input100">Prénom</span>
-					<input class="input100" type="text" name="prenom" id="prenom" required="required" placeholder="Entrez votre prénom">
+					<input class="input100" type="text" name="prenom" id="prenom" id="prenom" required="required" placeholder="Entrez votre prénom">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 			</div>
@@ -414,7 +396,7 @@
 				</div>
 			</div>
 
-			<div class="form-row m-b-20">
+			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Ville</span>
 					<input class="input100" type="text" name="ville" id="ville"  required="required" placeholder="Entrez votre ville">
@@ -428,7 +410,7 @@
 				</div>
 			</div>
 
-			<div class="form-row m-b-30">
+			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1-1" data-validate = "Username is reauired">
 					<span class="label-input100">Date de naissance</span>
 					<input class="form-control" type="date" name="date_naiss" id="date_naiss" required="required">
@@ -449,25 +431,7 @@
 					
 				</div>
 			</div>
-            
-                <div class="form-row m-b-20 ">
-                    <div class="hide" id="categorie001">
-                    <span class="label-input100">categorie</span>
-                    <!--input  type="text" name="categorie" id="categorie" value=""-->
-                    <div class="select">
-                    <select name="categorie" id="categorie" >
-                      <option>Choisir la catégorie</option>
-                      <option value="admin">Administrateur</option>
-                      <option value="employe">Employé</option>
-                      <option value="client">Client</option>
-                    </select>   
-                    </div>
-                    </div>
-				</div>
-	           
-               
-            
-            <!--div class="hide">
+            <div class="hide">
                 <input  type="text" name="categorie" id="categorie"  value="client">
 			</div>
             <div class="hide">
@@ -475,7 +439,7 @@
 			</div>
             <div class="hide">
                 <input  type="text" name="id_util" id="id_util" value="">
-			</div-->
+			</div>
 
 			<div class="container-login100-form-btn">
 				<div class="wrap-login100-form-btn">
@@ -614,6 +578,27 @@
 		</div>
 	</div>  -->
 
+	<div class="contact">
+		<div class="contact_background" style="background-image:url(images/backContact3.jpg)"></div>
+
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8 ">
+					<div class="contact_form_container ">
+						<div class="contact_title">Contatez nous</div>
+						<form action="#" id="contact_form" name="contact_form" class="contact_form">
+							<input type="text" id="contact_form_name" class="contact_form_name input_field" placeholder="Nom" required="required" data-error="Name is required.">
+							<input type="text" id="contact_form_email" class="contact_form_email input_field" placeholder="E-mail" required="required" data-error="Email is required.">
+							<input type="text" id="contact_form_subject" class="contact_form_subject input_field" placeholder="Objet" required="required" data-error="Subject is required.">
+							<textarea id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
+							<button type="submit" id="form_submit_button" class="form_submit_button button">Envoyer<span></span><span></span><span></span></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Footer -->
 
 	<footer class="footer">
@@ -658,11 +643,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="../index.php">Accueil</a></li>
-								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
-								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
-								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
-								<li class="footer_nav_item"><a href="contact.php">contact</a></li>
+								<li class="footer_nav_item"><a href="#">Home</a></li>
+								<li class="footer_nav_item"><a href="">About us</a></li>
+								<li class="footer_nav_item"><a href="">Offers</a></li>
+								<li class="footer_nav_item"><a href="">New</a></li>
+								<li class="footer_nav_item"><a href="">Contact</a></li>
+								<li class="footer_nav_item"><a href=""></a></li>
 							</ul>
 						</div>
 					</div>

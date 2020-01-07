@@ -1,39 +1,29 @@
-
 <?php
+    session_start();
+    if(!isset($_SESSION['categorie'])){
+        header((string) 'Location: ../index_en.php');
 
-
-	require_once "Facebook_setup/config.php";
-	require_once "Google_setup/config.php";
-
-	$loginURL2 = $google_client->createAuthUrl();  
-
-
-    //session_start();
-
-
-    
-    $redirectURL = "http://localhost/projet/GLDec2019/Amnesia/Facebook_setup/fb-callback.php"; 
-    $permissions = ['email'];
-    $loginURL = $helper->getLoginURL($redirectURL, $permissions);
-
-    /*if(isset($_SESSION['categorie'])){
-        $cat=$_SESSION['categorie'];
-        if($cat == "admin")
-            header((string) 'Location: pages/pageAdmin.php');
-        else if($cat == "employe")
-            header((string) 'Location: pages/pageEmploye.php');
-        else if($cat == "client")
-            header((string) 'Location: pages/pageClient.php');
         exit();
-    }*/
+    }else{
+        $cat=$_SESSION['categorie'];
+        //if($cat == "admin")
+            //header((string) 'Location: pageAdmin.php');
+        if($cat == "employe"){
+            header((string) 'Location: pageEmploye.php');
+            exit();
+        }else if($cat == "client"){
+            header((string) 'Location: pageClient.php');
+            exit();
+        }
+        
+    }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>Travelix</title>
+<title>Administration</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travelix Project">
@@ -41,42 +31,42 @@
 <!--===============================================================================================-->
 
     
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../styles/bootstrap4/bootstrap.min.css">
 <!--===============================================================================================-->	
-<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <!--===============================================================================================-->	
 <link href="https://fonts.googleapis.com/css?family=Aclonica&display=swap" rel="stylesheet">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="../plugins/OwlCarousel2-2.2.1/animate.css">
 <!--===============================================================================================-->	
-<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/datepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/datepicker/daterangepicker.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/responsive.css">
-<link rel="stylesheet" type="text/css" href="styles/util.css">
-<link rel="stylesheet" type="text/css" href="styles/main.css">
+<link rel="stylesheet" type="text/css" href="../styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="../styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="../styles/util.css">
+<link rel="stylesheet" type="text/css" href="../styles/main.css">
 <!--===============================================================================================-->	
 
 
 </head>
 
-<body onload="langueCategorie();">
+<body onload="profilUtil();">
 
 <div class="super_container">
 	
@@ -93,15 +83,15 @@
 						<div class="nav-item avatar dropdown">
                         <a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
                           aria-haspopup="true" aria-expanded="false">
-                          <img id="langImg" src="./images/multilangicon7.jpg" class="rounded-circle avatar1"
+                          <img id="langImg" src="../images/multilangicon7.jpg" class="rounded-circle avatar1"
                             alt="avatar image">
                         </a>
                         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
-                            <a id="Francais" class="dropdown-item">Français</a>
-                            <a class="dropdown-item" href="index_en.php" type="button" onclick="userLanguage('en');">English </a>
-                            <a class="dropdown-item" href="index_sp.php" onclick="userLanguage('sp');">Español</a>
+                            <a id="Francais" class="dropdown-item"   href="../index.php" onclick="userLanguage('fr');">Français</a>
+                            <a class="dropdown-item" href="#" type="button">English </a>
+                            <a class="dropdown-item"   href="../index_sp.php" onclick="userLanguage('sp');">Español</a>
                         </div>
-                      </div>
+                          </div>
 						<div class="social">
 							<ul class="social_list">
 								<!--li class="social_list_item"><a href="#"><i class="fa fa-globe "  aria-hidden="true"></i></a></li-->
@@ -113,9 +103,41 @@
 						</div>
 
 						<div class="user_box ml-auto ">
-							<div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div>
-							<div class="user_box_register user_box_link"><button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" >inscription</button></div>
-						</div>
+                            <div class="user_box_login user_box_link">
+                            <!-- Basic dropdown -->
+                            <button class="dropdown-toggle" type="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">Administration</button>
+
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Create new account </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#" id="admin" onclick="selectUsers(this);">Administrtors</a>
+                              <a class="dropdown-item" href="#" id="employe" onclick="selectUsers(this);">Employes</a>
+                              <a class="dropdown-item" href="#" id="client" onclick="selectUsers(this);">Costumers</a>
+                              <a class="dropdown-item" href="#">Disabled users</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">List of tours</a>
+                            </div>
+                            <!-- Basic dropdown -->
+                            </div>
+                            <div class="user_box_login user_box_link"><button onclick="location.href='profilUtilisateur.php';">My account</button></div>
+							<!--div class="user_box_login user_box_link"><button  href="index_en.php">Deconnexion</button></div-->
+                           <!--div class="user_box_login user_box_link"><button onclick="location.href='logout.php';">Déconnexion</button></div-->
+                           <div class="user_box_login user_box_link"> 
+                                <div class="nav-item avatar dropdown">
+                                <a class="user_box_link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                                  aria-haspopup="true" aria-expanded="false">
+                                  <img id="userImg" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle avatar1"
+                                    alt="avatar image">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+                                    <a id="userName" class="dropdown-item"></a>
+                                    <a class="dropdown-item" href="#" type="button" onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Profil </a>
+                                    <a class="dropdown-item" href="logout.php"   onclick="effacerCategorie();">Log out</a>
+                                </div>
+                              </div>
+						   </div>
+                        </div>
 
 					</div>
 				</div>
@@ -129,16 +151,17 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnésia</a></div>
+							<div class="logo"><a href="#"><img src="../images/LogoA.png" alt="">amnesia</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="#">Accueil</a></li>
-								<li class="main_nav_item"><a href="">À propos</a></li>
-								<li class="main_nav_item"><a href="">Offres</a></li>
-								<li class="main_nav_item"><a href="">Nouveautés</a></li>
-								<li class="main_nav_item"><a href="">contact</a></li>
+								<li class="main_nav_item"><a href="#">Home</a></li>
+								<li class="main_nav_item"><a href="">About us</a></li>
+								<li class="main_nav_item"><a href="">Offers</a></li>
+								<li class="main_nav_item"><a href="">New</a></li>
+								<li class="main_nav_item"><a href="">Contact</a></li>
 								<li class="main_nav_item"><a href=""></a></li>
+								<!--li class="main_nav_item"><a href="profilUtilisateur.php">Profil</a></li-->
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -184,58 +207,59 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="#">accueil</a></li>
-				<li class="menu_item"><a href="about.php">à propos</a></li>
-				<li class="menu_item"><a href="offers.php">offres</a></li>
-				<li class="menu_item"><a href="blog.php">nouveautés</a></li>
-				<li class="menu_item"><a href="contact.php">contact</a></li>
+				<li class="menu_item"><a href="#">Home</a></li>
+                <li class="menu_item"><a href="">About us</a></li>
+                <li class="menu_item"><a href="">Offers</a></li>
+                <li class="menu_item"><a href="">New</a></li>
+                <li class="menu_item"><a href="">Contact</a></li>
+                <li class="menu_item"><a href=""></a></li>
 			</ul>
 		</div>
 	</div>
 
 	<!-- Home -->
 
-	<div class="home">
+	<div class="home" id="home">
 		
 		<!-- Home Slider -->
 
-		<div class="home_slider_container">
+		<div class="home_slider_container" id="home_slider_container">
 			
-			<div class="owl-carousel owl-theme home_slider">
+			<div class="owl-carousel owl-theme home_slider" id="owl-carousel">
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
 					<!-- Image by https://unsplash.com/@anikindimitry -->
-					<div class="home_slider_background" style="background-image:url(images/home_slider.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(../images/home_slider.jpg)"></div>
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>decouvrez</h1>
-							<h1>le monde</h1>
+							<h1>discover</h1>
+							<h1>the world</h1>
 						</div>
 					</div>
 				</div>
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(../images/home_slider_1.jpg)"></div>
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>decouvrez</h1>
-							<h1>le monde</h1>
+							<h1>discover</h1>
+							<h1>the world</h1>
 						</div>
 					</div>
 				</div>
 
 				<!-- Slider Item -->
 				<div class="owl-item home_slider_item">
-					<div class="home_slider_background" style="background-image:url(images/home_slider_2.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(../images/home_slider_2.jpg)"></div>
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>decouvrez</h1>
-							<h1>le monde</h1>
+							<h1>discover</h1>
+							<h1>the world</h1>
 						</div>
 					</div>
 				</div>
@@ -303,7 +327,7 @@
 
 	<!-- Intro -->
 	
-	<div class="intro">
+	<div class="intro" id="intro">
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -325,7 +349,7 @@
 					<div class="intro_item">
 						<div class="intro_item_overlay"></div>
 						<!-- Image by https://unsplash.com/@dnevozhai -->
-						<div class="intro_item_background" style="background-image:url(images/intro_1.jpg)"></div>
+						<div class="intro_item_background" style="background-image:url(../images/intro_1.jpg)"></div>
 						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							<div class="intro_date">May 25th - June 01st</div>
 							<div class="button intro_button"><div class="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
@@ -350,7 +374,7 @@
 					<div class="intro_item">
 						<div class="intro_item_overlay"></div>
 						<!-- Image by https://unsplash.com/@hellolightbulb -->
-						<div class="intro_item_background" style="background-image:url(images/intro_2.jpg)"></div>
+						<div class="intro_item_background" style="background-image:url(../images/intro_2.jpg)"></div>
 						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							<div class="intro_date">May 25th - June 01st</div>
 							<div class="button intro_button"><div class="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
@@ -375,7 +399,7 @@
 					<div class="intro_item">
 						<div class="intro_item_overlay"></div>
 						<!-- Image by https://unsplash.com/@willianjusten -->
-						<div class="intro_item_background" style="background-image:url(images/intro_3.jpg)"></div>
+						<div class="intro_item_background" style="background-image:url(../images/intro_3.jpg)"></div>
 						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							<div class="intro_date">May 25th - June 01st</div>
 							<div class="button intro_button"><div class="button_bcg"></div><a href="#">see more<span></span><span></span><span></span></a></div>
@@ -402,7 +426,7 @@
 
 	<div class="cta">
 		<!-- Image by https://unsplash.com/@thanni -->
-		<div class="cta_background" style="background-image:url(images/cta.jpg)"></div>
+		<div class="cta_background" style="background-image:url(../images/cta.jpg)"></div>
 		
 		<div class="container">
 			<div class="row">
@@ -519,7 +543,7 @@
 							<div class="col-lg-6">
 								<div class="offers_image_container">
 									<!-- Image by https://unsplash.com/@kensuarez -->
-									<div class="offers_image_background" style="background-image:url(images/offer_1.jpg)"></div>
+									<div class="offers_image_background" style="background-image:url(../images/offer_1.jpg)"></div>
 									<div class="offer_name"><a href="#">grand castle</a></div>
 								</div>
 							</div>
@@ -536,10 +560,10 @@
 									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
 									<div class="offers_icons">
 										<ul class="offers_icons_list">
-											<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/post.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/compass.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/bicycle.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/sailboat.png" alt=""></li>
 										</ul>
 									</div>
 									<div class="offers_link"><a href="offers.php">read more</a></div>
@@ -556,7 +580,7 @@
 							<div class="col-lg-6">
 								<div class="offers_image_container">
 									<!-- Image by Egzon Bytyqi -->
-									<div class="offers_image_background" style="background-image:url(images/offer_2.jpg)"></div>
+									<div class="offers_image_background" style="background-image:url(../images/offer_2.jpg)"></div>
 									<div class="offer_name"><a href="#">turkey hills</a></div>
 								</div>
 							</div>
@@ -593,7 +617,7 @@
 							<div class="col-lg-6">
 								<div class="offers_image_container">
 									<!-- Image by https://unsplash.com/@nevenkrcmarek -->
-									<div class="offers_image_background" style="background-image:url(images/offer_3.jpg)"></div>
+									<div class="offers_image_background" style="background-image:url(../images/offer_3.jpg)"></div>
 									<div class="offer_name"><a href="#">island dream</a></div>
 								</div>
 							</div>
@@ -610,10 +634,10 @@
 									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
 									<div class="offers_icons">
 										<ul class="offers_icons_list">
-											<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
-											<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/post.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/compass.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/bicycle.png" alt=""></li>
+											<li class="offers_icons_item"><img src="../images/sailboat.png" alt=""></li>
 										</ul>
 									</div>
 									<div class="offers_link"><a href="offers.php">read more</a></div>
@@ -630,7 +654,7 @@
 							<div class="col-lg-6">
 								<div class="offers_image_container">
 									<!-- Image by https://unsplash.com/@mantashesthaven -->
-									<div class="offers_image_background" style="background-image:url(images/offer_4.jpg)"></div>
+									<div class="offers_image_background" style="background-image:url(../images/offer_4.jpg)"></div>
 									<div class="offer_name"><a href="#">travel light</a></div>
 								</div>
 							</div>
@@ -685,8 +709,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_1.jpg" alt="https://unsplash.com/@anniegray"></div>
-									<div class="test_icon"><img src="images/backpack.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_1.jpg" alt="https://unsplash.com/@anniegray"></div>
+									<div class="test_icon"><img src="../images/backpack.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -703,8 +727,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_2.jpg" alt="https://unsplash.com/@tschax"></div>
-									<div class="test_icon"><img src="images/island_t.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_2.jpg" alt="https://unsplash.com/@tschax"></div>
+									<div class="test_icon"><img src="../images/island_t.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -721,8 +745,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_3.jpg" alt="https://unsplash.com/@seefromthesky"></div>
-									<div class="test_icon"><img src="images/kayak.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_3.jpg" alt="https://unsplash.com/@seefromthesky"></div>
+									<div class="test_icon"><img src="../images/kayak.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -739,8 +763,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_2.jpg" alt=""></div>
-									<div class="test_icon"><img src="images/island_t.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_2.jpg" alt=""></div>
+									<div class="test_icon"><img src="../images/island_t.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -757,8 +781,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_1.jpg" alt=""></div>
-									<div class="test_icon"><img src="images/backpack.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_1.jpg" alt=""></div>
+									<div class="test_icon"><img src="../images/backpack.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -775,8 +799,8 @@
 							<!-- Testimonial Item -->
 							<div class="owl-item">
 								<div class="test_item">
-									<div class="test_image"><img src="images/test_3.jpg" alt=""></div>
-									<div class="test_icon"><img src="images/kayak.png" alt=""></div>
+									<div class="test_image"><img src="../images/test_3.jpg" alt=""></div>
+									<div class="test_icon"><img src="../images/kayak.png" alt=""></div>
 									<div class="test_content_container">
 										<div class="test_content">
 											<div class="test_item_info">
@@ -946,19 +970,19 @@
 	</div>  -->
 
 	<div class="contact">
-		<div class="contact_background" style="background-image:url(images/backContact3.jpg)"></div>
+		<div class="contact_background" style="background-image:url(../images/backContact3.jpg)"></div>
 
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-8 ">
 					<div class="contact_form_container ">
-						<div class="contact_title">Contatez nous</div>
+						<div class="contact_title">Contat us</div>
 						<form action="#" id="contact_form" name="contact_form" class="contact_form">
 							<input type="text" id="contact_form_name" class="contact_form_name input_field" placeholder="Nom" required="required" data-error="Name is required.">
 							<input type="text" id="contact_form_email" class="contact_form_email input_field" placeholder="E-mail" required="required" data-error="Email is required.">
 							<input type="text" id="contact_form_subject" class="contact_form_subject input_field" placeholder="Objet" required="required" data-error="Subject is required.">
 							<textarea id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
-							<button type="submit" id="form_submit_button" class="form_submit_button button">Envoyer<span></span><span></span><span></span></button>
+							<button type="submit" id="form_submit_button" class="form_submit_button button">Submit<span></span><span></span><span></span></button>
 						</form>
 					</div>
 				</div>
@@ -977,7 +1001,7 @@
 					<div class="footer_col">
 						<div class="footer_content footer_about">
 							<div class="logo_container footer_logo">
-								<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnésia</a></div>
+								<div class="logo"><a href="#"><img src="../images/LogoA.png" alt="">amnésia</a></div>
 							</div>
 							
 							<ul class="footer_social_list">
@@ -1010,11 +1034,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="#">Accueil</a></li>
-								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
-								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
-								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
-								<li class="footer_nav_item"><a href="contact.php">contact</a></li>
+								<li class="footer_nav_item"><a href="#">Home</a></li>
+								<li class="footer_nav_item"><a href="">About us</a></li>
+								<li class="footer_nav_item"><a href="">Offers</a></li>
+								<li class="footer_nav_item"><a href="">New</a></li>
+								<li class="footer_nav_item"><a href="">Contact</a></li>
+								<li class="footer_nav_item"><a href=""></a></li>
 							</ul>
 						</div>
 					</div>
@@ -1027,68 +1052,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 <!-- MODAL CONNEXION-->
 
-<div id="id01" class="modal">
-	<div class=" ">
-		<form id="formConnexion" class="modal-content animate  validate-form p-l-45 p-r-45 p-t-45 p-b-45" name="formConnexion" >
-			<div class="imgcontainer">
-			  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-			</div>
-		
-			<span class="login100-form-title p-b-30">
-				Connexion
-			</span>
-
-			<div class="wrap-input100 validate-input m-b-30" data-validate = "Le nom est obligatoire">
-				<span class="label-input100">Courriel</span>
-				<input class="input100" type="text" name="courriel"  placeholder="Saisir l'adresse courrielle">
-				<span class="focus-input100" data-symbol="&#xf206;"></span>
-			</div>
-
-			<div class="wrap-input100 validate-input " data-validate="Mot de passe obligatoire">
-				<span class="label-input100">Mot de passe</span>
-				<input class="input100" type="password" name="motpasse"  placeholder="Saisir le mot de passe">
-				<span class="focus-input100" data-symbol="&#xf190;"></span>
-			</div>
-			
-			<div class="text-right p-t-8 p-b-35">
-                <div id="avertissement" style="position:absolute;left:0%;color:red;"> </div>
-				<a href="#">
-					Mot de passe oublié?
-				</a>
-			</div>
-					
-			<div class="container-login100-form-btn">
-				<div class="wrap-login100-form-btn">
-					<div class="login100-form-bgbtn"></div>
-					<!--button class="login100-form-btn" onClick="connexion();">Connecter</button-->
-                    <input type="button" id="connexion_util" class="login100-form-btn" value="Connexion" onClick="connexionUtil();">
-				</div>
-			</div>
-			
-			<div class="flex-c-m m-t-30">
-				<span class="p-r-40"> Ou connectez-vous en utilisant</span>
-				<a href="#" class="login100-social-item bg1 p-l-20 p-r-20">
-					<i class="fa fa-facebook" onclick="window.location = '<?php echo $loginURL ?>';"></i>
-				</a>
-
-				<a href="#" class="login100-social-item bg3 p-l-20 p-r-20">
-					<i class="fa fa-google" onclick="window.location = '<?php echo $loginURL2 ?>';"></i>
-				</a>
-			</div>
-
-		</form>
-	</div>
-</div>
-
 <!-- MODAL S'ENREGISTRER-->
-    
     
     
 
 
      <div id="id02" class="modal">
 	<div class=" ">
-		<form id="formEnregUtil" name="formEnregUtil" class="modal-content1 animate p-l-45 p-r-45 p-t-45 p-b-45" onsubmit="return valider();">
+		<form id="formEnregUtil" name="formEnregUtil" class="modal-content1 animate p-l-45 p-r-45 p-t-45 p-b-45">
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
 			</div>
@@ -1099,14 +1070,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Nom</span>
-					<input class="input100" type="text" name="nom" required="required" placeholder="Entrez votre nom">
+					<span class="label-input100">Last name</span>
+					<input class="input100" type="text" name="nom" id="nom" required="required" placeholder="Entrez votre nom">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Prénom</span>
-					<input class="input100" type="text" name="prenom" required="required" placeholder="Entrez votre prénom">
+					<span class="label-input100">First name</span>
+					<input class="input100" type="text" name="prenom" id="prenom" required="required" placeholder="Entrez votre prénom">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 			</div>
@@ -1114,94 +1085,124 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
 					<span class="label-input100">Email</span>
-					<input class="input100" type="text" name="courriel" required="required" placeholder="Entrez votre mail">
+					<input class="input100" type="text" name="courriel" id="courriel" required="required" placeholder="Entrez votre mail">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Confirmation Email</span>
-					<input class="input100" type="text" name="confirm_courriel" required="required" placeholder="Confirmez votre mail">
+					<span class="label-input100">Email confirmation</span>
+					<input class="input100" type="text" name="confirm_courriel" id="confirm_courriel" required="required" placeholder="Confirmez votre mail">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Mot de passe</span>
-					<input class="input100 " type="password" name="motpasse" required="required" placeholder="Entrez votre mot de passe">
+					<span class="label-input100">Password</span>
+					<input class="input100 " type="password" name="motpasse" id="motpasse" required="required" placeholder="Entrez votre mot de passe">
 					<span class="focus-input100" data-symbol="&#xf190;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Confirmation mot de passe</span>
-					<input class="input100" type="password" name="pass" required="required" placeholder="Confirmer votre mot de passe">
+					<span class="label-input100">Password confirmation</span>
+					<input class="input100" type="password" name="pass" id="pass" required="required" placeholder="Confirmer votre mot de passe">
 					<span class="focus-input100" data-symbol="&#xf190;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Adresse</span>
-					<input class="input100" type="text" name="adresse" required="required" placeholder="Entrez votre adresse">
-					<span class="focus-input100"  data-symbol="&#xf206;"></span>
+					<span class="label-input100">Address</span>
+					<input class="input100" type="text" name="adresse" id="adresse" required="required" placeholder="Entrez votre adresse">
+					<!--span class="focus-input100"  data-symbol="&#xf206;"></span-->
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Téléphone</span>
-					<input class="input100" type="text" name="tel" required="required" placeholder="Entrez votre numéro de téléphone">
+					<span class="label-input100">Phone</span>
+					<input class="input100" type="text" name="tel" id="tel" required="required" placeholder="Entrez votre numéro de téléphone">
 					<span class="focus-input100" data-symbol="&#xf2b9;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Ville</span>
-					<input class="input100" type="text" name="ville" required="required" placeholder="Entrez votre ville">
-					<span class="focus-input100" data-symbol="&#xf206;"></span>
+                    <span class="label-input100">City</span>
+					<input class="input100" type="text" name="ville" id="ville" required="required" placeholder="Entrez votre ville">
+					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
-					<span class="label-input100">Pays</span>
-					<input class="input100" type="text" name="pays" required="required" placeholder="Entrez votre pays">
+					<span class="label-input100">Country</span>
+					<input class="input100" type="text" name="pays" id="pays" required="required" placeholder="Entrez votre pays">
 					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1-1" data-validate = "Username is reauired">
-					<span class="label-input100">Date de naissance</span>
+					<span class="label-input100">Birth day</span>
 					<input class="form-control" type="date" name="date_naiss" id="example-date-input" required="required">
 
 					
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1-1" data-validate="Password is required">
-					<span class="label-input100">Je suis un(e)</span>
+					<span class="label-input100">My gender</span>
 					<div class="select" required="required">
 						<select name="sexe" id="slct">
 						  <option>Choisir votre sexe</option>
-						  <option value="M">Homme</option>
-						  <option value="F">Femme</option>
-						  <option value="O">Autre</option>
+						  <option value="M">Male</option>
+						  <option value="F">Female</option>
+						  <option value="O">Other</option>
 						</select>
 					</div>
 					
 				</div>
 			</div>
-            <div class="hide">
-                <input  type="text" name="categorie"  value="client">
+            
+            <div class="form-row m-b-30">
+				<!--div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
+					<span class="label-input100">Categorie</span>
+					<input class="input100" type="text" name="categorie" required="required" placeholder="Entrez la categorie employé">
+					<span class="focus-input100" data-symbol="&#xf206;"></span>
+				</div-->
+                
+                
+                <div class="form-group col-md-5 m-l-25 input100-1-1">
+                    <span class="label-input100">categorie</span>
+                    <!--input  type="text" name="categorie" id="categorie" value=""-->
+                    <div class="select">
+                    <select name="categorie" id="categorie">
+                      <option>Choisir la category</option>
+                      <option value="admin">Administrator</option>
+                      <option value="employe">Employee</option>
+                      <option value="client">Customer</option>
+                    </select>   
+                    </div>
+				</div>
+                
+                
+	
+				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
+					<span class="label-input100">Employee number</span>
+					<input class="input100" type="text" name="num_util" id="num_util" required="required" placeholder="Entrez le numero d'employé">
+					<span class="focus-input100" data-symbol="&#xf206;"></span>
+				</div>
+			</div>
+            <!--div class="hide">
+                <input  type="text" name="categorie2"  value="client">
 			</div>
             <div class="hide">
-                <input  type="text" name="num_util"  value="">
-			</div>
+                <input  type="text" name="num_util2"  value="">
+			</div-->
             <div class="hide">
                 <input  type="button" name="btn_connexion" id="btn_connexion" onclick="document.getElementById('id01').style.display='block'" value="">
 			</div>
 			<div class="container-login100-form-btn">
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
-					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerUtil();">S'inscrire</button-->
-                    <input type="button" id="inscrireClient" class="login100-form-btn" value="S'inscrire" onclick="enregistrerUtil();">
+					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerEmploye();">S'inscrire</button-->
+                    <input type="button" id="inscrireClient" class="login100-form-btn" value="Inscrire" onClick="enregistrerEmploye();">
 				</div>
 			</div>
 			
@@ -1209,24 +1210,99 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</form>
 	</div>
 </div>
+    
+<!-- MODAL PROFIL-->
+
+<div id="id03" class="modal">
+    
+	<div class=" ">
+        
+		<form class="modal-content2 animate  validate-form p-l-2 p-r-2 p-t-5 p-b-5" >
+
+			<!--<span class="login100-form-title p-b-30">
+			PROFIL
+			</span> -->
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id03').style.display='none'" class="close1" title="Close Modal">&times;</span>
+            </div>
+			<div id="wrapper">
+				<div id="content">
+					<div id="card">
+						
+						<div id="front">
+
+							<div id="top-pic">
+								<span class="login100-form-title p-b-20"></span>
+							</div>
+							<div id="avatar"></div>
+							<div id="info-box">
+								<div class="info">
+									<h1 class="detail" id="profil_nom"></h1>
+									<h2 class="detail1" id="profil_prenom"></h2>
+								</div>
+							</div>
+                            
+							<div id="social-bar">
+								<a href="profilUtilisateur.php" target="" class="bntProfil" id="detailCompe">
+									<i class="fa fa-user" aria-hidden="true"></i>
+									Account details
+								</a>
+                                <a href="#" target="" class="bntProfil" id="supprimerPhotoProfil" onclick="supprimerPhotoProfil();">
+									<i class="fa fa-user" aria-hidden="true"></i>
+									Delete photo
+								</a>
+								<a href="#" target="" class="bntProfil" onclick="document.getElementById('id03').style.display='none'; document.getElementById('imageUtil').style.display='block'">
+									<i class="fa fa-pencil-square" aria-hidden="true"></i>
+									Change photo
+								</a>
+							</div>
+
+						</div>
+                        
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div> 
+    
+    
+<div id="imageUtil" class="modal">
+	<div class=" ">
+		<form name="imageUtilForm" id="imageUtilForm" class="modal-content2 animate  validate-form p-l-2 p-r-2 p-t-5 p-b-5" >
+
+
+            <div id="content23">
+                <label for="image">Image</label>
+                <input type="file" name="imageUtil" class="form-control" id="imageUtil">
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cancel" onclick="document.getElementById('id03').style.display='block'; document.getElementById('imageUtil').style.display='none'">
+                <input type="button" class="btn btn-primary" id="modal-save" value="Save" onclick="imageProfil();">
+            </div>
+
+            
+		</form>
+	</div>
+</div>
 </body>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="../js/profil.js"></script>
+<!--script language="javascript" src="../js/jquery-3.3.1.min.js"></script-->
+<script language="javascript" src="../Requests/Requetes.js"></script>
+<script language="javascript" src="../Requests/requestsControleurVue.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="../styles/bootstrap4/popper.js"></script>
+<script src="../styles/bootstrap4/bootstrap.min.js"></script>
+<script src="../plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../plugins/easing/easing.js"></script>
 
-<script src= "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"> </script> 
-<script language="javascript" src="js/jquery-3.3.1.min.js"></script>
-<script language="javascript" src="Requests/Requetes.js"></script>
-<script language="javascript" src="Requests/requestsControleurVue.js"></script>
-<!--script src="js/jquery-3.2.1.min.js"></script-->
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="plugins/easing/easing.js"></script>
-
 <!--===============================================================================================-->
-<script src="js/main.js"></script>
+<script src="../js/main.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/datepicker/moment.min.js"></script>
-<script src="vendor/datepicker/daterangepicker.js"></script>
-<script src="js/custom.js"></script>
+<script src="../vendor/datepicker/moment.min.js"></script>
+<script src="../vendor/datepicker/daterangepicker.js"></script>
+<script src="../js/custom.js"></script>
 <!--===============================================================================================-->
-<script src="js/validation.js"></script>
+<script src="../js/validation.js"></script>
 </html>

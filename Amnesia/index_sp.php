@@ -16,22 +16,21 @@
     $permissions = ['email'];
     $loginURL = $helper->getLoginURL($redirectURL, $permissions);
 
-    /*if(isset($_SESSION['categorie'])){
+    if(isset($_SESSION['categorie'])){
         $cat=$_SESSION['categorie'];
         if($cat == "admin")
-            header((string) 'Location: pages/pageAdmin.php');
+            header((string) 'Location: pages_sp/pageAdmin.php');
         else if($cat == "employe")
-            header((string) 'Location: pages/pageEmploye.php');
+            header((string) 'Location: pages_sp/pageEmploye.php');
         else if($cat == "client")
-            header((string) 'Location: pages/pageClient.php');
+            header((string) 'Location: pages_sp/pageClient.php');
         exit();
-    }*/
-
+    }
 ?>
 
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="sp">
 <head>
 <title>Travelix</title>
 <meta charset="utf-8">
@@ -76,7 +75,7 @@
 
 </head>
 
-<body onload="langueCategorie();">
+<body>
 
 <div class="super_container">
 	
@@ -97,9 +96,9 @@
                             alt="avatar image">
                         </a>
                         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
-                            <a id="Francais" class="dropdown-item">Français</a>
-                            <a class="dropdown-item" href="index_en.php" type="button" onclick="userLanguage('en');">English </a>
-                            <a class="dropdown-item" href="index_sp.php" onclick="userLanguage('sp');">Español</a>
+                            <a id="Francais" class="dropdown-item" href="index.php" onclick="userLanguage('fr');">Français</a>
+                            <a class="dropdown-item" href="index_en.php" onclick="userLanguage('en');">English </a>
+                            <a class="dropdown-item">Español</a>
                         </div>
                       </div>
 						<div class="social">
@@ -113,8 +112,8 @@
 						</div>
 
 						<div class="user_box ml-auto ">
-							<div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div>
-							<div class="user_box_register user_box_link"><button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" >inscription</button></div>
+							<div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">conexión</button></div>
+							<div class="user_box_register user_box_link"><button onclick="document.getElementById('id02').style.display='block'" style="width:auto;" >Registro</button></div>
 						</div>
 
 					</div>
@@ -129,15 +128,15 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnésia</a></div>
+							<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnesia</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="#">Accueil</a></li>
-								<li class="main_nav_item"><a href="">À propos</a></li>
-								<li class="main_nav_item"><a href="">Offres</a></li>
-								<li class="main_nav_item"><a href="">Nouveautés</a></li>
-								<li class="main_nav_item"><a href="">contact</a></li>
+                                <li class="main_nav_item"><a href="#">bienvenida</a></li>
+                                <li class="main_nav_item"><a href="about.php">a proposito</a></li>
+                                <li class="main_nav_item"><a href="offers.php">ofertas</a></li>
+                                <li class="main_nav_item"><a href="blog.php">nuevo</a></li>
+                                <li class="main_nav_item"><a href="contact.php">contactar</a></li>
 								<li class="main_nav_item"><a href=""></a></li>
 							</ul>
 						</div>
@@ -184,11 +183,11 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="#">accueil</a></li>
-				<li class="menu_item"><a href="about.php">à propos</a></li>
-				<li class="menu_item"><a href="offers.php">offres</a></li>
-				<li class="menu_item"><a href="blog.php">nouveautés</a></li>
-				<li class="menu_item"><a href="contact.php">contact</a></li>
+				<li class="menu_item"><a href="#">bienvenida</a></li>
+				<li class="menu_item"><a href="about.php">a proposito</a></li>
+				<li class="menu_item"><a href="offers.php">ofertas</a></li>
+				<li class="menu_item"><a href="blog.php">nuevo</a></li>
+				<li class="menu_item"><a href="contact.php">contactar</a></li>
 			</ul>
 		</div>
 	</div>
@@ -210,8 +209,8 @@
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>decouvrez</h1>
-							<h1>le monde</h1>
+							<h1>descubre</h1>
+							<h1>el mundo</h1>
 						</div>
 					</div>
 				</div>
@@ -222,8 +221,8 @@
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>decouvrez</h1>
-							<h1>le monde</h1>
+							<h1>descubre</h1>
+							<h1>el mundo</h1>
 						</div>
 					</div>
 				</div>
@@ -234,8 +233,8 @@
 
 					<div class="home_slider_content text-center">
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-							<h1>decouvrez</h1>
-							<h1>le monde</h1>
+							<h1>descubre</h1>
+							<h1>el mundo</h1>
 						</div>
 					</div>
 				</div>
@@ -952,13 +951,13 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-8 ">
 					<div class="contact_form_container ">
-						<div class="contact_title">Contatez nous</div>
+						<div class="contact_title">Contáctanos</div>
 						<form action="#" id="contact_form" name="contact_form" class="contact_form">
 							<input type="text" id="contact_form_name" class="contact_form_name input_field" placeholder="Nom" required="required" data-error="Name is required.">
 							<input type="text" id="contact_form_email" class="contact_form_email input_field" placeholder="E-mail" required="required" data-error="Email is required.">
 							<input type="text" id="contact_form_subject" class="contact_form_subject input_field" placeholder="Objet" required="required" data-error="Subject is required.">
 							<textarea id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
-							<button type="submit" id="form_submit_button" class="form_submit_button button">Envoyer<span></span><span></span><span></span></button>
+							<button type="submit" id="form_submit_button" class="form_submit_button button">Enviar<span></span><span></span><span></span></button>
 						</form>
 					</div>
 				</div>
@@ -977,7 +976,7 @@
 					<div class="footer_col">
 						<div class="footer_content footer_about">
 							<div class="logo_container footer_logo">
-								<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnésia</a></div>
+								<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnesia</a></div>
 							</div>
 							
 							<ul class="footer_social_list">
@@ -1010,11 +1009,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="#">Accueil</a></li>
-								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
-								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
-								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
-								<li class="footer_nav_item"><a href="contact.php">contact</a></li>
+                                <li class="footer_nav_item"><a href="#">bienvenida</a></li>
+                                <li class="footer_nav_item"><a href="about.php">a proposito</a></li>
+                                <li class="footer_nav_item"><a href="offers.php">ofertas</a></li>
+                                <li class="footer_nav_item"><a href="blog.php">nuevo</a></li>
+                                <li class="footer_nav_item"><a href="contact.php">contactar</a></li>
 							</ul>
 						</div>
 					</div>
@@ -1035,25 +1034,25 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</div>
 		
 			<span class="login100-form-title p-b-30">
-				Connexion
+				iniciar sesión
 			</span>
 
 			<div class="wrap-input100 validate-input m-b-30" data-validate = "Le nom est obligatoire">
-				<span class="label-input100">Courriel</span>
-				<input class="input100" type="text" name="courriel"  placeholder="Saisir l'adresse courrielle">
+				<span class="label-input100">e-mail</span>
+				<input class="input100" type="text" name="courriel"  placeholder="Escribe tu nombre de usuario">
 				<span class="focus-input100" data-symbol="&#xf206;"></span>
 			</div>
 
 			<div class="wrap-input100 validate-input " data-validate="Mot de passe obligatoire">
-				<span class="label-input100">Mot de passe</span>
-				<input class="input100" type="password" name="motpasse"  placeholder="Saisir le mot de passe">
+				<span class="label-input100">Contraseña</span>
+				<input class="input100" type="password" name="motpasse"  placeholder="Escribe tu contraseña">
 				<span class="focus-input100" data-symbol="&#xf190;"></span>
 			</div>
 			
 			<div class="text-right p-t-8 p-b-35">
                 <div id="avertissement" style="position:absolute;left:0%;color:red;"> </div>
 				<a href="#">
-					Mot de passe oublié?
+					¿Contraseña olvidada?
 				</a>
 			</div>
 					
@@ -1061,12 +1060,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
 					<!--button class="login100-form-btn" onClick="connexion();">Connecter</button-->
-                    <input type="button" id="connexion_util" class="login100-form-btn" value="Connexion" onClick="connexionUtil();">
+                    <input type="button" id="connexion_util" class="login100-form-btn" value="acceder" onClick="connexionUtil();">
 				</div>
 			</div>
 			
 			<div class="flex-c-m m-t-30">
-				<span class="p-r-40"> Ou connectez-vous en utilisant</span>
+				<span class="p-r-40"> O inicie sesión usando</span>
 				<a href="#" class="login100-social-item bg1 p-l-20 p-r-20">
 					<i class="fa fa-facebook" onclick="window.location = '<?php echo $loginURL ?>';"></i>
 				</a>
@@ -1094,95 +1093,95 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</div>
 			
 			<span class="login100-form-title p-b-30">
-				Inscription
+				Registro
 			</span>
 			
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Nom</span>
-					<input class="input100" type="text" name="nom" required="required" placeholder="Entrez votre nom">
+					<span class="label-input100">apellido</span>
+					<input class="input100" type="text" name="nom" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Prénom</span>
-					<input class="input100" type="text" name="prenom" required="required" placeholder="Entrez votre prénom">
+					<span class="label-input100">Nombre</span>
+					<input class="input100" type="text" name="prenom" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Email</span>
-					<input class="input100" type="text" name="courriel" required="required" placeholder="Entrez votre mail">
+					<span class="label-input100">e-mail</span>
+					<input class="input100" type="text" name="courriel" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Confirmation Email</span>
-					<input class="input100" type="text" name="confirm_courriel" required="required" placeholder="Confirmez votre mail">
+					<span class="label-input100">confirmación de e-mail</span>
+					<input class="input100" type="text" name="confirm_courriel" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Mot de passe</span>
-					<input class="input100 " type="password" name="motpasse" required="required" placeholder="Entrez votre mot de passe">
+					<span class="label-input100">Contraseña</span>
+					<input class="input100 " type="password" name="motpasse" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#xf190;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Confirmation mot de passe</span>
-					<input class="input100" type="password" name="pass" required="required" placeholder="Confirmer votre mot de passe">
+					<span class="label-input100">confirmación de contraseña</span>
+					<input class="input100" type="password" name="pass" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#xf190;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Adresse</span>
-					<input class="input100" type="text" name="adresse" required="required" placeholder="Entrez votre adresse">
+					<span class="label-input100">dirección</span>
+					<input class="input100" type="text" name="adresse" required="required" placeholder="">
 					<span class="focus-input100"  data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Téléphone</span>
-					<input class="input100" type="text" name="tel" required="required" placeholder="Entrez votre numéro de téléphone">
+					<span class="label-input100">teléfono</span>
+					<input class="input100" type="text" name="tel" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#xf2b9;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Ville</span>
-					<input class="input100" type="text" name="ville" required="required" placeholder="Entrez votre ville">
+					<span class="label-input100">ciudad</span>
+					<input class="input100" type="text" name="ville" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
-					<span class="label-input100">Pays</span>
-					<input class="input100" type="text" name="pays" required="required" placeholder="Entrez votre pays">
+					<span class="label-input100">país</span>
+					<input class="input100" type="text" name="pays" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1-1" data-validate = "Username is reauired">
-					<span class="label-input100">Date de naissance</span>
+					<span class="label-input100">Fecha de nacimiento</span>
 					<input class="form-control" type="date" name="date_naiss" id="example-date-input" required="required">
 
 					
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1-1" data-validate="Password is required">
-					<span class="label-input100">Je suis un(e)</span>
+					<span class="label-input100">Mi genero</span>
 					<div class="select" required="required">
 						<select name="sexe" id="slct">
-						  <option>Choisir votre sexe</option>
-						  <option value="M">Homme</option>
-						  <option value="F">Femme</option>
-						  <option value="O">Autre</option>
+						  <option>Elige tu genero</option>
+						  <option value="M">Masculino</option>
+						  <option value="F">Femenino</option>
+						  <option value="O">Otro</option>
 						</select>
 					</div>
 					
@@ -1201,7 +1200,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
 					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerUtil();">S'inscrire</button-->
-                    <input type="button" id="inscrireClient" class="login100-form-btn" value="S'inscrire" onclick="enregistrerUtil();">
+                    <input type="button" id="inscrireClient" class="login100-form-btn" value="Inscribe" onclick="enregistrerUtil();">
 				</div>
 			</div>
 			
@@ -1211,7 +1210,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </div>
 </body>
 
-<script src= "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"> </script> 
 <script language="javascript" src="js/jquery-3.3.1.min.js"></script>
 <script language="javascript" src="Requests/Requetes.js"></script>
 <script language="javascript" src="Requests/requestsControleurVue.js"></script>

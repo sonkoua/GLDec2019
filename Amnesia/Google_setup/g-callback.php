@@ -17,6 +17,7 @@ if(isset($_GET["code"]))
 
         //Store "access_token" value in $_SESSION variable for future use.
         $_SESSION['access_token'] = $token['access_token'];
+        $_SESSION['type_connexion'] = "google";
 
         //Create Object of Google Service OAuth 2 class
         $google_service = new Google_Service_Oauth2($google_client);
@@ -28,36 +29,37 @@ if(isset($_GET["code"]))
         
     if(!empty($userData['id']))
     {
-    $_SESSION['id'] = $userData['id'];
+        $_SESSION['id'] = $userData['id'];
     }
     if(!empty($userData['given_name']))
     {
-    $_SESSION['user_first_name'] = $userData['given_name'];
+        $_SESSION['user_first_name'] = $userData['given_name'];
     }
     
     if(!empty($userData['first_name']))
     {
-    $_SESSION['user_first_name'] = $userData['first_name'];
+        $_SESSION['user_first_name'] = $userData['first_name'];
     }	
 
     if(!empty($userData['family_name']))
     {
-    $_SESSION['user_last_name'] = $userData['family_name'];
+        $_SESSION['user_last_name'] = $userData['family_name'];
     }
 
     if(!empty($userData['last_name']))
     {
-    $_SESSION['user_last_name'] = $userData['last_name'];
+        $_SESSION['user_last_name'] = $userData['last_name'];
     }	
 
     if(!empty($userData['email']))
     {
-    $_SESSION['user_email_address'] = $userData['email'];
-    }
+        $_SESSION['user_email_address'] = $userData['email'];
+    }else
+        $_SESSION['user_email_address'] = "";
 
     if(!empty($userData['gender']))
     {
-    $_SESSION['user_gender'] = $userData['gender'];
+        $_SESSION['user_gender'] = $userData['gender'];
     }else{
             $_SESSION['user_gender'] ="";
     }
@@ -65,28 +67,28 @@ if(isset($_GET["code"]))
 
     if(!empty($userData['picture']))
     {
-    $_SESSION['user_image'] = $userData['picture']['url'];
+        $_SESSION['user_image'] = $userData['picture']['url'];
     }else{
             $_SESSION['user_image'] ="";
     }
     
     if(!empty($userData['birthday']))
     {
-    $_SESSION['user_birthday'] = $userData['birthday'];
+        $_SESSION['user_birthday'] = $userData['birthday'];
     }else{
             $_SESSION['user_birthday'] ="";
     }
 
     if(!empty($userData['hometown']))
     {
-    $_SESSION['user_hometown'] = $userData['hometown'];
+        $_SESSION['user_hometown'] = $userData['hometown'];
     }else{
             $_SESSION['user_hometown'] ="";
     }
 
     if(!empty($userData['location']))
     {
-    $_SESSION['user_location'] = $userData['location'];
+        $_SESSION['user_location'] = $userData['location'];
     }else{
             $_SESSION['user_location'] ="";
     }

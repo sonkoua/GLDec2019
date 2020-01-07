@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <title>About Us</title>
 <meta charset="utf-8">
@@ -92,7 +92,7 @@
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="index.html">Accueil</a></li>
+								<li class="main_nav_item"><a href="../index.html">Accueil</a></li>
 								<li class="main_nav_item"><a href="about.html">À propos</a></li>
 								<li class="main_nav_item"><a href="offers.html">Offres</a></li>
 								<li class="main_nav_item"><a href="blog.html">Nouveautées</a></li>
@@ -148,7 +148,6 @@
 				<li class="menu_item"><a href="offers.html">offres</a></li>
 				<li class="menu_item"><a href="blog.html">nouveautées</a></li>
 				<li class="menu_item"><a href="contact.html">contacte</a></li>
-				<li class="main_nav_item"><a href="#">Admin</a></li>
 			</ul>
 		</div>
 	</div>
@@ -436,11 +435,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="index.html">home</a></li>
-								<li class="footer_nav_item"><a href="#">about us</a></li>
-								<li class="footer_nav_item"><a href="offers.html">offers</a></li>
-								<li class="footer_nav_item"><a href="blog.html">news</a></li>
-								<li class="footer_nav_item"><a href="contact.html">contact</a></li>
+								<li class="footer_nav_item"><a href="#">Accueil</a></li>
+								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
+								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
+								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
+								<li class="footer_nav_item"><a href="contact.php">contact</a></li>
 							</ul>
 						</div>
 					</div>

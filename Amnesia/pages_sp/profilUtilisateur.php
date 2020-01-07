@@ -1,14 +1,14 @@
 <?php
     session_start();
     if(!isset($_SESSION['categorie'])){
-        header((string) 'Location: ../index.php');
+        header((string) 'Location: ../index_sp.php');
 
         exit();
     }
 
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="sp">
 <head>
 <title>Profil Utilisateur</title>
 <meta charset="utf-8">
@@ -98,7 +98,7 @@
 
 						<div class="user_box ml-auto ">
 							<!--div class="user_box_login user_box_link"><button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;">connexion</button></div-->
-                            <div class="user_box_login user_box_link"><button onclick="location.href='logout.php';effacerCategorie();"> Déconnexion</button></div>
+                            <div class="user_box_login user_box_link"><button onclick="location.href='logout.php';effacerCategorie();">cerrar sesión</button></div>
 						</div>
 
 					</div>
@@ -113,15 +113,16 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="../images/LogoA.png" alt="">amnésia</a></div>
+							<div class="logo"><a href="#"><img src="../images/LogoA.png" alt="">amnesia</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="../index.php">Accueil</a></li>
-								<li class="main_nav_item"><a href="about.php">À propos</a></li>
-								<li class="main_nav_item"><a href="offers.php">Offres</a></li>
-								<li class="main_nav_item"><a href="blog.php">Nouveautés</a></li>
-								<li class="main_nav_item"><a href="contact.php">contact</a></li>
+								<li class="main_nav_item"><a href="../index_sp.php">bienvenida</a></li>
+                                <li class="main_nav_item"><a href="about.php">a proposito</a></li>
+                                <li class="main_nav_item"><a href="offers.php">ofertas</a></li>
+                                <li class="main_nav_item"><a href="blog.php">nuevo</a></li>
+                                <li class="main_nav_item"><a href="contact.php">contactar</a></li>
+								<li class="main_nav_item"><a href=""></a></li>
 								<!--li class="main_nav_item"><a href="profilClient.php">Profil</a></li-->
 							</ul>
 						</div>
@@ -168,11 +169,11 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="../images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="../index.php">accueil</a></li>
-				<li class="menu_item"><a href="about.php">à proprs</a></li>
-				<li class="menu_item"><a href="offers.php">offres</a></li>
-				<li class="menu_item"><a href="blog.php">nouveautés</a></li>
-				<li class="menu_item"><a href="contact.php">contact</a></li>
+				<li class="menu_item"><a href="../index_sp.php">bienvenida</a></li>
+				<li class="menu_item"><a href="about.php">a proposito</a></li>
+				<li class="menu_item"><a href="offers.php">ofertas</a></li>
+				<li class="menu_item"><a href="blog.php">nuevo</a></li>
+				<li class="menu_item"><a href="contact.php">contactar</a></li>
 			</ul>
 		</div>
 	</div>
@@ -241,7 +242,7 @@
 			</div>
 			
 			<span class="login100-form-title p-b-30">
-				DÉTAIL DU COMPTE
+				DETALLES DE CUENTA
 			</span>
 			
             <div class="form-row m-b-30">
@@ -252,7 +253,7 @@
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1 hide" id="num_util01">
-					<span class="label-input100">Numéro d'employé:&nbsp;&nbsp; &nbsp;&nbsp;</span>
+					<span class="label-input100">Numero de empleado:&nbsp;&nbsp; &nbsp;&nbsp;</span>
 					<input  type="text" name="num_util1" id="num_util_profil" value="" readonly>
 					<span class="focus-input100" ></span>
 				</div>
@@ -262,13 +263,13 @@
         
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Nom</span>
+					<span class="label-input100">apellido</span>
 					<input class="input100" type="text" name="nom1" id="nom_profil"  readonly>
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Prénom</span>
+					<span class="label-input100">Nombre</span>
 					<input class="input100" type="text" name="prenom1" id="prenom_profil" readonly>
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
@@ -276,14 +277,14 @@
 
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Email</span>
+					<span class="label-input100">e-mail</span>
 					<input class="input100" type="text" name="courriel1" id="courriel_profil" readonly>
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Sexe</span>
-                    <input class="input100" type="text" name="date_naiss1" id="sexe_profil" readonly>
+					<span class="label-input100">genero</span>
+                    <input class="input100" type="text" name="sexe_profil" id="sexe_profil" readonly>
                     <span class="focus-input100"></span>
 
 				</div>
@@ -292,13 +293,13 @@
 
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Adresse</span>
+					<span class="label-input100">dirección</span>
 					<input class="input100" type="text" name="adresse1" id="adresse_profil" readonly>
 					<span class="focus-input100"  data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Téléphone</span>
+					<span class="label-input100">Teléfono</span>
 					<input class="input100" type="text" name="tel1" id="tel_profil" readonly>
 					<span class="focus-input100" data-symbol="&#xf2b9;"></span>
 				</div>
@@ -306,13 +307,13 @@
 
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Ville</span>
+					<span class="label-input100">ciudad</span>
 					<input class="input100" type="text" name="ville1" id="ville_profil" readonly>
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
-					<span class="label-input100">Pays</span>
+					<span class="label-input100">país</span>
 					<input class="input100" type="text" name="pays1" id="pays_profil" readonly>
 					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
@@ -320,12 +321,12 @@
 
 			<div class="form-row m-b-20 ">
 				<div class="form-group col-md-5 m-l-25 input100-1-1" data-validate = "Username is reauired">
-					<span class="label-input100">Date de naissance</span>
+					<span class="label-input100">Fecha de nacimiento</span>
 					<input class="input100" type="text" name="date_naiss1" id="date_naiss_profil" readonly>
                     <span class="focus-input100"></span>
                     
                     <div class="hide" id="categorie01">
-                        <span class="label-input100">categorie:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="label-input100">categoria:&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <input  type="text" name="categorie1" id="categorie_profil" value="">
                     </div>
 				</div>
@@ -334,7 +335,7 @@
 				<div class="wrap-login100-form-btn" id="modifier01">
 					<div class="login100-form-bgbtn"></div>
 					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerUtil();">S'inscrire</button-->
-                    <input type="button" id="modifierClient" class="login100-form-btn" value="Modifier mon profil" onclick="document.getElementById('id02').style.display='block'" >
+                    <input type="button" id="modifierClient" class="login100-form-btn" value="Editar" onclick="document.getElementById('id02').style.display='block'" >
 				</div>
 			</div>
 			</div>
@@ -351,7 +352,8 @@
 			</div>
 			
 			<span class="login100-form-title p-b-30">
-				Inscription
+				
+                cambio
 			</span>
 			
             <div class="form-row m-b-20">
@@ -362,7 +364,7 @@
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1 hide" id="num_util001" data-validate="Password is required">
-					<span class="label-input100">Numéro d'employé</span>
+					<span class="label-input100">número de empleado</span>
 					<input class="input100" type="text" name="num_util" id="num_util" required="required">
 					<span class="focus-input100" ></span>
 				</div>
@@ -372,28 +374,28 @@
             
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Nom</span>
-					<input class="input100" type="text" name="nom" id="nom" required="required" placeholder="Entrez votre nom">
+					<span class="label-input100">apellido</span>
+					<input class="input100" type="text" name="nom" id="nom" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Prénom</span>
-					<input class="input100" type="text" name="prenom" id="prenom" required="required" placeholder="Entrez votre prénom">
+					<span class="label-input100">Nombre</span>
+					<input class="input100" type="text" name="prenom" id="prenom" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Email</span>
-					<input class="input100" type="text" name="courriel" id="courriel" required="required" placeholder="Entrez votre mail">
+					<span class="label-input100">e-mail</span>
+					<input class="input100" type="text" name="courriel" id="courriel" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Confirmation Email</span>
-					<input class="input100" type="text" name="confirm_courriel" id="confirm_courriel"  required="required" placeholder="Confirmez votre mail">
+					<span class="label-input100">confirmación de e-mail</span>
+					<input class="input100" type="text" name="confirm_courriel" id="confirm_courriel"  required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#9993;"></span>
 				</div>
 			</div>
@@ -402,48 +404,48 @@
 
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Adresse</span>
-					<input class="input100" type="text" name="adresse" id="adresse" required="required" placeholder="Entrez votre adresse">
+					<span class="label-input100">dirección</span>
+					<input class="input100" type="text" name="adresse" id="adresse" required="required" placeholder="">
 					<span class="focus-input100"  data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Password is required">
-					<span class="label-input100">Téléphone</span>
-					<input class="input100" type="text" name="tel" id="tel" required="required" placeholder="Entrez votre numéro de téléphone">
+					<span class="label-input100">teléfono</span>
+					<input class="input100" type="text" name="tel" id="tel" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#xf2b9;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-20">
 				<div class="form-group col-md-5 m-l-25 input100-1" data-validate = "Username is reauired">
-					<span class="label-input100">Ville</span>
-					<input class="input100" type="text" name="ville" id="ville"  required="required" placeholder="Entrez votre ville">
+					<span class="label-input100">ciudad</span>
+					<input class="input100" type="text" name="ville" id="ville"  required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#xf206;"></span>
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1" data-validate="Le pays est manquant">
-					<span class="label-input100">Pays</span>
-					<input class="input100" type="text" name="pays" id="pays" required="required" placeholder="Entrez votre pays">
+					<span class="label-input100">país</span>
+					<input class="input100" type="text" name="pays" id="pays" required="required" placeholder="">
 					<span class="focus-input100" data-symbol="&#x2691;"></span>
 				</div>
 			</div>
 
 			<div class="form-row m-b-30">
 				<div class="form-group col-md-5 m-l-25 input100-1-1" data-validate = "Username is reauired">
-					<span class="label-input100">Date de naissance</span>
+					<span class="label-input100">Fecha de nacimiento</span>
 					<input class="form-control" type="date" name="date_naiss" id="date_naiss" required="required">
 
 					
 				</div>
 	
 				<div class="form-group col-md-5 m-l-60 input100-1-1" data-validate="Password is required">
-					<span class="label-input100">Je suis un(e)</span>
+					<span class="label-input100">Mi genero</span>
 					<div class="select" required="required">
 						<select name="sexe" id="sexe">
-						  <option>Choisir votre sexe</option>
-						  <option value="M">Homme</option>
-						  <option value="F">Femme</option>
-						  <option value="O">Autre</option>
+						  <option>Elige tu genero</option>
+						  <option value="M">Masculino</option>
+						  <option value="F">Femenino</option>
+						  <option value="O">Otro</option>
 						</select>
 					</div>
 					
@@ -452,14 +454,14 @@
             
                 <div class="form-row m-b-20 ">
                     <div class="hide" id="categorie001">
-                    <span class="label-input100">categorie</span>
+                    <span class="label-input100">Categoria</span>
                     <!--input  type="text" name="categorie" id="categorie" value=""-->
                     <div class="select">
                     <select name="categorie" id="categorie" >
-                      <option>Choisir la catégorie</option>
-                      <option value="admin">Administrateur</option>
-                      <option value="employe">Employé</option>
-                      <option value="client">Client</option>
+                      <option>Elige la categoria</option>
+                      <option value="admin">Administrador</option>
+                      <option value="employe">Eempleado/option>
+                      <option value="client">Cliente</option>
                     </select>   
                     </div>
                     </div>
@@ -481,7 +483,7 @@
 				<div class="wrap-login100-form-btn">
 					<div class="login100-form-bgbtn"></div>
 					<!--button class="login100-form-btn" id="inscrireClient" onClick="enregistrerUtil();">S'inscrire</button-->
-                    <input type="button" id="inscrireClient" class="login100-form-btn" value="Enrégistrer" onClick="modifierUtil();">
+                    <input type="button" id="inscrireClient" class="login100-form-btn" value="Registror" onClick="modifierUtil();">
 				</div>
 			</div>
 			
@@ -625,7 +627,7 @@
 					<div class="footer_col">
 						<div class="footer_content footer_about">
 							<div class="logo_container footer_logo">
-								<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnésia</a></div>
+								<div class="logo"><a href="#"><img src="images/LogoA.png" alt="">amnesia</a></div>
 							</div>
 							
 							<ul class="footer_social_list">
@@ -658,11 +660,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="../index.php">Accueil</a></li>
-								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
-								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
-								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
-								<li class="footer_nav_item"><a href="contact.php">contact</a></li>
+								<li class="footer_nav_item"><a href="../index_sp.php">bienvenida</a></li>
+                                <li class="footer_nav_item"><a href="about.php">a proposito</a></li>
+                                <li class="footer_nav_item"><a href="offers.php">ofertas</a></li>
+                                <li class="footer_nav_item"><a href="blog.php">nuevo</a></li>
+                                <li class="footer_nav_item"><a href="contact.php">contactar</a></li>
 							</ul>
 						</div>
 					</div>

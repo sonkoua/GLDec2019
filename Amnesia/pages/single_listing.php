@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <title>Single Listing</title>
 <meta charset="utf-8">
@@ -58,15 +58,16 @@
 				<div class="row">
 					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="images/logo.png" alt="">travelix</a></div>
+							<div class="logo"><a href="#"><img src="../images/logo.png" alt="">amnésia</a></div>
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="../index.php">home</a></li>
-								<li class="main_nav_item"><a href="../pages/about.php">about us</a></li>
-								<li class="main_nav_item"><a href="../pages/offers.php">offers</a></li>
-								<li class="main_nav_item"><a href="../pages/blog.php">news</a></li>
-								<li class="main_nav_item"><a href="../pages/contact.php">contact</a></li>
+								<li class="main_nav_item"><a href="#">Accueil</a></li>
+								<li class="main_nav_item"><a href="">À propos</a></li>
+								<li class="main_nav_item"><a href="">Offres</a></li>
+								<li class="main_nav_item"><a href="">Nouveautées</a></li>
+								<li class="main_nav_item"><a href="">contact</a></li>
+								<li class="main_nav_item"><a href=""></a></li>
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -112,11 +113,11 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="../images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="index.html">home</a></li>
-				<li class="menu_item"><a href="about.html">about us</a></li>
-				<li class="menu_item"><a href="offers.html">offers</a></li>
-				<li class="menu_item"><a href="blog.html">news</a></li>
-				<li class="menu_item"><a href="contact.html">contact</a></li>
+				<li class="menu_item"><a href="#">accueil</a></li>
+				<li class="menu_item"><a href="about.php">à propos</a></li>
+				<li class="menu_item"><a href="offers.php">offres</a></li>
+				<li class="menu_item"><a href="blog.php">nouveautées</a></li>
+				<li class="menu_item"><a href="contact.php">contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -333,7 +334,7 @@
 											<option>03</option>
 										</select>
 									</div>
-									<button class="button search_button">search<span></span><span></span><span></span></button>
+									<button class="button search_button">recherche<span></span><span></span><span></span></button>
 								</form>
 							</div>
 
@@ -369,7 +370,7 @@
 											<option>03</option>
 										</select>
 									</div>
-									<button class="button search_button">search<span></span><span></span><span></span></button>
+									<button class="button search_button">recherche<span></span><span></span><span></span></button>
 								</form>
 							</div>
 
@@ -405,7 +406,7 @@
 											<option>03</option>
 										</select>
 									</div>
-									<button class="button search_button">search<span></span><span></span><span></span></button>
+									<button class="button search_button">recherche<span></span><span></span><span></span></button>
 								</form>
 							</div>
 
@@ -441,7 +442,7 @@
 											<option>03</option>
 										</select>
 									</div>
-									<button class="button search_button">search<span></span><span></span><span></span></button>
+									<button class="button search_button">recherche<span></span><span></span><span></span></button>
 								</form>
 							</div>
 						</div>
@@ -489,8 +490,8 @@
 								<div class="hotel_review_container d-flex flex-column align-items-center justify-content-center">
 									<div class="hotel_review">
 										<div class="hotel_review_content">
-											<div class="hotel_review_title">very good</div>
-											<div class="hotel_review_subtitle">100 reviews</div>
+											<div class="hotel_review_title">Très bon</div>
+											<div class="hotel_review_subtitle">100 revus</div>
 										</div>
 										<div class="hotel_review_rating text-center">8.1</div>
 									</div>
@@ -886,11 +887,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="index.html">home</a></li>
-								<li class="footer_nav_item"><a href="about.html">about us</a></li>
-								<li class="footer_nav_item"><a href="offers.html">offers</a></li>
-								<li class="footer_nav_item"><a href="blog.html">news</a></li>
-								<li class="footer_nav_item"><a href="contact.html">contact</a></li>
+								<li class="footer_nav_item"><a href="#">Accueil</a></li>
+								<li class="footer_nav_item"><a href="about.php">A propos</a></li>
+								<li class="footer_nav_item"><a href="offers.php">offres</a></li>
+								<li class="footer_nav_item"><a href="blog.php">Nouveautés</a></li>
+								<li class="footer_nav_item"><a href="contact.php">contact</a></li>
 							</ul>
 						</div>
 					</div>
