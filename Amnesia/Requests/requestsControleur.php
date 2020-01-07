@@ -16,6 +16,7 @@ if(isset($_SESSION['access_token']) && isset($_SESSION['type_connexion'])){
     $courriel=$_SESSION['user_email_address'];
     $type_connexion=$_SESSION['type_connexion'];
     
+   
     
     $categorie='client';
     
@@ -27,23 +28,25 @@ if(isset($_SESSION['access_token']) && isset($_SESSION['type_connexion'])){
 
     
     
-    $requeteF="SELECT * FROM ConnexionFacbook WHERE courriel =?";
+    $requete="SELECT * FROM ConnexionFaceBook WHERE id =?";
     // AND motdepasse =?";
     try{
         if($type_connexion=="facebook"){
             $unModele=new requestsModele($requete,array($id));//, $_SESSION['access_token']));
             $stmt=$unModele->executer();
         }else{
-            $requete="SELECT * FROM ConnexionGoogle WHERE courriel =?";
+            $requete="SELECT * FROM ConnexionGoogle WHERE id =?";
             $unModele=new requestsModele($requete,array($id));//, $_SESSION['access_token']));
             $stmt=$unModele->executer();
         }
+         //echo $id;
+         //exit();
         if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
             $id_util=$ligne->id_util;
             $_SESSION['id_util']=$id_util;
             $_SESSION['categorie']="client";
             //$categorie=$ligne->categorie;
-            header((string) 'Location: ./pageClient.php');             
+            header((string) 'Location: ../pages/pageClient.php');             
             unset($_SESSION['id']);
             unset($_SESSION['access_token']);
             unset($_SESSION['type_connexion']);
@@ -57,8 +60,8 @@ if(isset($_SESSION['access_token']) && isset($_SESSION['type_connexion'])){
             $sexe=$_SESSION['user_gender'];
             ///$sexe="sexeTest";
             $num_util="0";
-            $date_naiss=$_SESSION['user_birthday'];
-            ///$date_naiss="datenaissT";
+            //$date_naiss=$_SESSION['user_birthday'];
+            $date_naiss="1900-01-01";
             //$motpasse="1111";
             $motpasse=sha1("password".time());
             $tel='';
@@ -70,17 +73,28 @@ if(isset($_SESSION['access_token']) && isset($_SESSION['type_connexion'])){
             $categorie='client';
             $id_ville = 0;
             $lienPhoto=$_SESSION['user_image'];
-            $photo = $unModele->verserPhotoUrl("images", $lienPhoto);
+            //$photo = $unModele->verserPhotoUrl("images", $lienPhoto);
+            $photo ="";
             $id_adresse = 0;
             $id_util = 0;
             //$photo=$_SESSION['user_image'];
-            saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,$ville,$pays,$categorie,$motpasse,$courriel);
+
+            $requete="SELECT * FROM connexion WHERE courriel =?";
+            $unModele=new requestsModele($requete,array($courriel));//, $_SESSION['access_token']));
+            $stmt=$unModele->executer();
+            if(!($ligne=$stmt->fetch(PDO::FETCH_OBJ))){
+                saveUser($nom,$prenom,$num_util,$sexe,$date_naiss,$tel,$photo,$adresse,$ville,$pays,$categorie,$motpasse,$courriel);
+            }
+
+
+            
+            
             //$rep['categorie']="Courriel ou mot de passe incorrect";
             
            // echo $date_naiss." ".$nom." ".$prenom." ".$num_util." ".$sexe." ".$date_naiss." ".$tel." ".$photo." ".$adresse." ".$ville." ".$pays." ".$categorie." ".$motpasse." ".$courriel;
             // exit();
-            $requete="SELECT id_util FROM Connexion WHERE motdepasse =?"; 
-            $unModele=new requestsModele($requete,array($motpasse));//, $_SESSION['access_token']));
+            $requete="SELECT * FROM Connexion WHERE courriel =?"; 
+            $unModele=new requestsModele($requete,array($courriel));//, $_SESSION['access_token']));
             $stmt=$unModele->executer();
 
             if($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
@@ -95,9 +109,9 @@ if(isset($_SESSION['access_token']) && isset($_SESSION['type_connexion'])){
                     $requete="INSERT INTO ConnexionGoogle VALUES(?,?,?)";
                 }
                 
-                $unModele=new requestsModele($requete,array($id,$id_util,$access_token));
+                $unModele=new requestsModele($requete,array($id,$id_util,"acces_token"));
                 $stmt=$unModele->executer();
-                header((string) 'Location: ./pageClient.php');
+                header((string) 'Location: ../pages/pageClient.php');
                 
             }else
                 echo "Connexion échouée";
@@ -115,8 +129,11 @@ if(isset($_SESSION['access_token']) && isset($_SESSION['type_connexion'])){
          }
     }catch(Exception $e){
     }
+
     
 }
+
+
 
 
 	function enregistrerUtil(){
